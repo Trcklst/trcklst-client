@@ -1,6 +1,7 @@
 import React from "react";
 
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Button from "@material-ui/core/Button";
 
 function BackLink({ execute }) {
   function onClick(event) {
@@ -9,9 +10,9 @@ function BackLink({ execute }) {
   }
 
   return (
-    <a onClick={onClick}>
+    <Button color="primary" onClick={onClick}>
       <ArrowBackIcon />
-    </a>
+    </Button>
   );
 }
 

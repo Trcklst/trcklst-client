@@ -55,10 +55,10 @@ function LoginForm() {
 
   return (
     <section className={classes.root}>
-      <Avatar className={classes.avatar}>
+      <Avatar>
         <LockIcon />
       </Avatar>
-      <Typography className={classes.typography} component="h1" variant="h5">
+      <Typography component="h1" variant="h5">
         Login
       </Typography>
       <form
@@ -97,12 +97,12 @@ function LoginForm() {
         </Button>
         <Grid container>
           <Grid item>
-            <Typography variant="body2" className={classes.forgot}>
+            <Typography variant="body2">
               <Link to="/register">Vous n'avez pas de compte ?</Link>
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="body2" className={classes.register}>
+            <Typography variant="body2">
               <Link to="/reset-password">Mot de passe oublié ?</Link>
             </Typography>
           </Grid>

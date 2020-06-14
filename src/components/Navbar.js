@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -9,6 +9,11 @@ import {
   Drawer,
 } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
+import * as Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
+
+import { SessionContext } from "../context/session";
+import { LOGIN, HOME } from "../helpers/route-constant";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -32,9 +37,15 @@ const useStyles = makeStyles((theme) => ({
 export const Navbar = () => {
   const classes = useStyles();
   const [drawer, setDrawer] = useState({ open: false });
+  const { setSession, setUser } = useContext(SessionContext);
+  const { push } = useHistory();
 
   const handleLogout = () => {
-    console.log("logout");
+    Cookies.remove("session");
+    setSession({ auth: false, token: "" });
+    setUser({});
+
+    return push(LOGIN);
   };
 
   const toggleDrawer = (open) => (event) => {
@@ -63,7 +74,7 @@ export const Navbar = () => {
           <Typography
             variant="h6"
             className={classes.title}
-            onClick={() => console.log("push home")}
+            onClick={() => push(HOME)}
           >
             Trcklst
           </Typography>

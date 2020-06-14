@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { Grid, Typography, Paper } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { initialValues, RegisterForm } from "./RegisterForm";
 import { registerSchema } from "./registerSchema";
@@ -11,6 +11,7 @@ import { useStyles } from "./useStyles";
 
 export const Register = () => {
   const classes = useStyles();
+  const { push } = useHistory();
 
   const handleSubmit = async (
     { email, password, firstname, lastname },
@@ -22,8 +23,7 @@ export const Register = () => {
 
       if (data.status !== 201) throw jsonData;
 
-      console.log(data);
-      console.log(jsonData);
+      return push(LOGIN);
     } catch (error) {
       setErrors({
         error: error.message,

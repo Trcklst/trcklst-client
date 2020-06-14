@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Typography, Grid, Paper } from "@material-ui/core";
 import { Formik } from "formik";
+import { useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 import { initialValues, LoginForm } from "./LoginForm";
 import { loginSchema } from "./loginSchema";
 import { useStyles } from "./useStyles";
 import { Auth } from "../../services/auth";
+import { SessionContext, setSessionCookie } from "../../context/session";
+import { DASHBOARD_ADMIN } from "../../helpers/route-constant";
 
 export const Login = () => {
   const classes = useStyles();
+  const { push } = useHistory();
+  const { session, setSession } = useContext(SessionContext);
 
   const handleSubmit = async (
     { email, password },
@@ -20,8 +26,13 @@ export const Login = () => {
 
       if (data.status !== 200) throw jsonData;
 
-      console.log(data);
-      console.log(jsonData);
+      setSessionCookie(jsonData.accessToken);
+      setSession({ ...session, auth: true, token: jsonData.accessToken });
+
+      const currentAuth = jwt_decode(jsonData.accessToken);
+      console.log(currentAuth);
+
+      return push(DASHBOARD_ADMIN);
     } catch (err) {
       setErrors({ unauthorized: "L'email ou le mot de passe est invalide." });
     } finally {

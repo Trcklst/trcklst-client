@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container, makeStyles } from "@material-ui/core";
 
-function App() {
+import { Routes } from "./routes";
+import { Navbar } from "./components/Navbar";
+import "./App.css";
+
+export const useStyles = makeStyles({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    padding: 0,
+    minHeight: "100vh",
+  },
+  content: {
+    flexGrow: 1,
+    position: "relative",
+    height: "100%",
+    overflow: "hidden",
+  },
+});
+
+const App = () => {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container maxWidth={false} className={classes.container}>
+        <Navbar />
+        <section className={classes.content}>
+          <Routes />
+        </section>
+      </Container>
+    </>
   );
-}
+};
 
 export default App;

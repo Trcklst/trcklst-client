@@ -20,7 +20,7 @@ export const RoutesConnected = () => {
   useEffect(() => {
     const getOwnUser = async () => {
       const user = jwt_decode(getSessionCookie().token);
-      setUser({ user });
+      setUser(user);
     };
     getOwnUser();
   }, [setUser]);

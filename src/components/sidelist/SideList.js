@@ -19,12 +19,15 @@ import {
   HOME,
   USERS,
   DASHBOARD_ADMIN,
+  DASHBOARD_USER,
   LOGIN,
   ACCOUNT_ADMIN,
+  ACCOUNT_USER,
 } from "../../helpers/route-constant";
 import { Links } from "../common/Links";
 import { SideListProfile } from "./SideListProfile";
 import { SessionContext } from "../../context/session";
+import { Can } from "../../helpers/Can";
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -78,14 +81,25 @@ export const SideList = () => {
       <Divider />
       <List className={classes.list}>
         <Links route={HOME} text="Accueil" Icon={HomeIcon}></Links>
-        <Links route={DASHBOARD_ADMIN} text="Dashboard" Icon={AppsIcon}></Links>
         <Links
-          route={USERS}
-          text="Voir les utilisateurs"
-          Icon={PeopleAltIcon}
+          route={user.role === "ADMIN" ? DASHBOARD_ADMIN : DASHBOARD_USER}
+          text="Dashboard"
+          Icon={AppsIcon}
         ></Links>
+        <Can I="view" a="Users">
+          {() => (
+            <Links
+              route={USERS}
+              text="Voir les utilisateurs"
+              Icon={PeopleAltIcon}
+            ></Links>
+          )}
+        </Can>
       </List>
-      <Link to={ACCOUNT_ADMIN} className={classes.linkAccount}>
+      <Link
+        to={user.role === "ADMIN" ? ACCOUNT_ADMIN : ACCOUNT_USER}
+        className={classes.linkAccount}
+      >
         <SideListProfile user={user} />
       </Link>
       <Button

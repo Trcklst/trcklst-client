@@ -71,12 +71,12 @@ export const LoginForm = ({
       <Grid container>
         <Grid item xs>
           <Typography variant="body2" className={classes.forgot}>
-            <Link to={FORGOTPASSWORD}>Mot de passe oublié ?</Link>
+            <Link to={FORGOTPASSWORD} className={classes.link}>Mot de passe oublié ?</Link>
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant="body2" className={classes.register}>
-            <Link to={REGISTER}>Vous n'avez pas de compte ?</Link>
+            <Link to={REGISTER} className={classes.link}>Vous n'avez pas de compte ?</Link>
           </Typography>
         </Grid>
       </Grid>

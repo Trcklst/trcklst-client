@@ -1,26 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-import image from "../../images/home.jpg";
-
 export const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    backgroundColor: "#f4f4f5" 
   },
   grid: {
     display: "flex",
   },
-  image: {
-    backgroundImage: `url(${image})`,
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "dark"
-        ? theme.palette.grey[900]
-        : theme.palette.grey[50],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    "@media (max-width: 959px)": {
-      display: "none",
-    },
+  link: {
+    textDecoration: 'none',
   },
   backgroundTitle: {
     height: "100vh",
@@ -42,7 +31,10 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: 15,
+    padding: '200px 100px',
+    backgroundColor: "white",
+    boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
+    borderRadius: '0.5rem'
   },
   slash: {
     color: "#3f51b5",

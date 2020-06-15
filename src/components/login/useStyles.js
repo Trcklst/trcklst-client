@@ -1,17 +1,15 @@
-import {makeStyles} from "@material-ui/core/styles";
-
-import image from "../../images/home.jpg";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-    backgroundColor: "#f4f4f5"
+    backgroundColor: "#f4f4f5",
   },
   grid: {
-    display: "flex"
+    display: "flex",
   },
   link: {
-    textDecoration: 'none'
+    textDecoration: "none",
   },
   backgroundTitle: {
     height: "100vh",
@@ -19,29 +17,29 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   title: {
     color: "#FFF",
     fontSize: 50,
     letterSpacing: 3,
     textTransform: "uppercase",
-    margin: 5
+    margin: 5,
   },
   paper: {
     margin: "auto",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: '200px 100px',
+    padding: "200px 100px",
     backgroundColor: "white",
     boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
-    borderRadius: '0.5rem'
+    borderRadius: "0.5rem",
   },
   slash: {
     color: "#3f51b5",
     fontSize: 35,
-    paddingRight: 5
+    paddingRight: 5,
   },
   typography: {
     display: "flex",
@@ -50,18 +48,18 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     paddingTop: 5,
     fontSize: "1.5rem",
-    fontWeight: 700
+    fontWeight: 700,
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(1),
   },
   submit: {
     padding: 14,
-    margin: "16px 0 16px 0"
+    margin: "16px 0 16px 0",
   },
   error: {
     color: "red",
-    fontSize: 13
-  }
+    fontSize: 13,
+  },
 }));

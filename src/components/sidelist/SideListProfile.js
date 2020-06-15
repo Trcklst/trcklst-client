@@ -1,10 +1,5 @@
-import React, { useContext } from "react";
-import { Avatar, makeStyles, Button } from "@material-ui/core";
-import * as Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
-
-import { SessionContext } from "../../context/session";
-import { LOGIN } from "../../helpers/route-constant";
+import React from "react";
+import { Avatar, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   header: {
@@ -28,31 +23,28 @@ const useStyles = makeStyles({
     padding: 0,
     margin: 0,
   },
-  logout: {
+  buttonEditAccount: {
+    border: "solid 1px #3f51b5",
+    backgroundColor: "#3f51b5",
+    color: "#fff",
+    padding: 8,
+    fontSize: 10,
     marginTop: 15,
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,.0)",
+      color: "#3f51b5",
+    },
   },
 });
 
 export const SideListProfile = ({ user }) => {
   const classes = useStyles();
-  const { setSession, setUser } = useContext(SessionContext);
-  const { push } = useHistory();
-
-  const handleLogout = () => {
-    Cookies.remove("session");
-    setSession({ auth: false, token: "" });
-    setUser({});
-
-    return push(LOGIN);
-  };
 
   return (
     <div className={classes.header}>
       <Avatar className={classes.avatar} src="/" />
       <h6 className={classes.subtitle}>{user.email}</h6>
-      <Button className={classes.logout} color="primary" onClick={handleLogout}>
-        Se déconnecter
-      </Button>
+      <span className={classes.buttonEditAccount}>Modifier le compte</span>
     </div>
   );
 };

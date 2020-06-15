@@ -1,19 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   IconButton,
   Drawer,
 } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
-import * as Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 
-import { SessionContext } from "../context/session";
-import { LOGIN, HOME } from "../helpers/route-constant";
+import { HOME } from "../helpers/route-constant";
+import { SideList } from "./sidelist/SideList";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -37,16 +35,7 @@ const useStyles = makeStyles((theme) => ({
 export const Navbar = () => {
   const classes = useStyles();
   const [drawer, setDrawer] = useState({ open: false });
-  const { setSession, setUser } = useContext(SessionContext);
   const { push } = useHistory();
-
-  const handleLogout = () => {
-    Cookies.remove("session");
-    setSession({ auth: false, token: "" });
-    setUser({});
-
-    return push(LOGIN);
-  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -78,9 +67,6 @@ export const Navbar = () => {
           >
             Trcklst
           </Typography>
-          <Button color="inherit" onClick={handleLogout}>
-            Se déconnecter
-          </Button>
         </Toolbar>
       </AppBar>
       <Drawer open={drawer.open} onClose={toggleDrawer(false)}>
@@ -90,7 +76,7 @@ export const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           className={classes.drawer}
         >
-          <p>sidelist</p>
+          <SideList />
         </div>
       </Drawer>
     </>

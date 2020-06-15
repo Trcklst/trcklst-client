@@ -5,3 +5,4 @@ export const REGISTER = "/register";
 export const FORGOTPASSWORD = "/forgot-password";
 export const DASHBOARD_ADMIN = "/admin";
 export const USERS = "/admin/users";
+export const ACCOUNT_ADMIN = "/admin/account";

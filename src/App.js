@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createRef } from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import jwt_decode from "jwt-decode";
 
@@ -33,6 +33,7 @@ const App = () => {
     user,
     setUser,
   };
+  const wrapper = createRef();
 
   useEffect(() => {
     if (getSessionCookie().token) {
@@ -45,7 +46,7 @@ const App = () => {
   }, []);
 
   return (
-    <SessionContext.Provider value={contextValue}>
+    <SessionContext.Provider value={contextValue} ref={wrapper}>
       {session.auth ? (
         <Container maxWidth={false} className={classes.container}>
           <Navbar />

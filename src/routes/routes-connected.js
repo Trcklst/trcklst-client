@@ -4,8 +4,14 @@ import jwt_decode from "jwt-decode";
 
 import { Homepage } from "../components/homepage/Homepage";
 import { DashboardAdmin } from "../components/dashboard/DashboardAdmin";
+import { UsersIndex } from "../components/users/";
 import { NotFound } from "../components/NotFound";
-import { NOTFOUND, HOME, DASHBOARD_ADMIN } from "../helpers/route-constant";
+import {
+  NOTFOUND,
+  HOME,
+  DASHBOARD_ADMIN,
+  USERS,
+} from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 
 export const RoutesConnected = () => {
@@ -23,6 +29,7 @@ export const RoutesConnected = () => {
     <Switch>
       <Route exact path={HOME} component={Homepage}></Route>
       <Route exact path={DASHBOARD_ADMIN} component={DashboardAdmin}></Route>
+      <Route exact path={USERS} component={UsersIndex}></Route>
       <Route exact path={NOTFOUND} component={NotFound} />
       <Redirect to={NOTFOUND} />
     </Switch>

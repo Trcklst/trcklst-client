@@ -6,6 +6,7 @@ import { RoutesNotConnected } from "./routes/routes-notconnected";
 import { RoutesConnected } from "./routes/routes-connected";
 import { Navbar } from "./components/Navbar";
 import { getSessionCookie, SessionContext } from "./context/session";
+import { ability, defineRulesFor } from "./helpers/ability";
 import "./App.css";
 
 export const useStyles = makeStyles({
@@ -38,7 +39,12 @@ const App = () => {
   useEffect(() => {
     if (getSessionCookie().token) {
       const currentAuth = jwt_decode(getSessionCookie().token);
-      console.log("gestion des droits", currentAuth);
+      const temp = {
+        ...currentAuth,
+        id: parseInt(currentAuth.sub),
+        role: "USER",
+      };
+      ability.update(defineRulesFor(temp));
     }
     return () => {
       setSession(getSessionCookie());

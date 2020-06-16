@@ -6,6 +6,13 @@
       "lastname": "admin",
       "firstname": "admin",
       "id": 1
+    },
+    {
+      "email": "user@user.fr",
+      "password": "$2a$10$8VNhbeCc0HmVK7cCwtElqeNts0pldo5BAbANfGXhzIf9m1rqp22Wu",
+      "lastname": "user",
+      "firstname": "user",
+      "id": 2
     }
   ]
 }

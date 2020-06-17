@@ -10,6 +10,7 @@ import { useStyles } from "./useStyles";
 import { Auth } from "../../services/auth";
 import { SessionContext, setSessionCookie } from "../../context/session";
 import { DASHBOARD_ADMIN, DASHBOARD_USER } from "../../helpers/route-constant";
+import { ability, defineRulesFor } from "../../helpers/ability";
 
 export const Login = () => {
   const classes = useStyles();
@@ -34,8 +35,9 @@ export const Login = () => {
       });
 
       const currentAuth = jwt_decode(jsonData.accessToken);
+      const temp = { ...currentAuth, role: "ADMIN" };
 
-      const temp = { ...currentAuth, role: "USER" };
+      ability.update(defineRulesFor(temp));
 
       return temp.role === "ADMIN"
         ? push(DASHBOARD_ADMIN)

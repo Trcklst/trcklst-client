@@ -42,7 +42,7 @@ const App = () => {
       const temp = {
         ...currentAuth,
         id: parseInt(currentAuth.sub),
-        role: "USER",
+        role: "ADMIN",
       };
       ability.update(defineRulesFor(temp));
     }

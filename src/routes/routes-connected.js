@@ -29,7 +29,7 @@ export const RoutesConnected = () => {
       const temp = {
         ...user,
         id: parseInt(user.sub),
-        role: "USER",
+        role: "ADMIN",
       };
       setUser(temp);
     };

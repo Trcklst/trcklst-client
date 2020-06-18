@@ -10,6 +10,9 @@ import {
   Apps as AppsIcon,
   PeopleAlt as PeopleAltIcon,
   Home as HomeIcon,
+  Album as AlbumIcon,
+  Payment as PaymentIcon,
+  Subscriptions as SubscriptionsIcon,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import * as Cookies from "js-cookie";
@@ -18,11 +21,15 @@ import { useHistory } from "react-router-dom";
 import {
   HOME,
   USERS,
-  DASHBOARD_ADMIN,
-  DASHBOARD_USER,
+  DASHBOARDADMIN,
+  DASHBOARDUSER,
   LOGIN,
-  ACCOUNT_ADMIN,
-  ACCOUNT_USER,
+  ACCOUNTADMIN,
+  ACCOUNTUSER,
+  PARTYNEW,
+  SUBSRIPTIONS,
+  MYSUBSRIPTIONS,
+  MYINVOICES,
 } from "../../helpers/route-constant";
 import { Links } from "../common/Links";
 import { SideListProfile } from "./SideListProfile";
@@ -82,7 +89,7 @@ export const SideList = () => {
       <List className={classes.list}>
         <Links route={HOME} text="Accueil" Icon={HomeIcon}></Links>
         <Links
-          route={user.role === "ADMIN" ? DASHBOARD_ADMIN : DASHBOARD_USER}
+          route={user.role === "ADMIN" ? DASHBOARDADMIN : DASHBOARDUSER}
           text="Dashboard"
           Icon={AppsIcon}
         ></Links>
@@ -90,14 +97,50 @@ export const SideList = () => {
           {() => (
             <Links
               route={USERS}
-              text="Voir les utilisateurs"
+              text="Utilisateurs"
               Icon={PeopleAltIcon}
+            ></Links>
+          )}
+        </Can>
+        <Can I="add" a="Party">
+          {() => (
+            <Links
+              route={PARTYNEW}
+              text="Créer une party"
+              Icon={AlbumIcon}
+            ></Links>
+          )}
+        </Can>
+        <Can I="view" a="Subscriptions">
+          {() => (
+            <Links
+              route={SUBSRIPTIONS}
+              text="Abonnements"
+              Icon={SubscriptionsIcon}
+            ></Links>
+          )}
+        </Can>
+        <Can I="view" a="MySubscriptions">
+          {() => (
+            <Links
+              route={MYSUBSRIPTIONS}
+              text="Mes abonnements"
+              Icon={SubscriptionsIcon}
+            ></Links>
+          )}
+        </Can>
+        <Can I="view" a="MyInvoices">
+          {() => (
+            <Links
+              route={MYINVOICES}
+              text="Mes factures"
+              Icon={PaymentIcon}
             ></Links>
           )}
         </Can>
       </List>
       <Link
-        to={user.role === "ADMIN" ? ACCOUNT_ADMIN : ACCOUNT_USER}
+        to={user.role === "ADMIN" ? ACCOUNTADMIN : ACCOUNTUSER}
         className={classes.linkAccount}
       >
         <SideListProfile user={user} />

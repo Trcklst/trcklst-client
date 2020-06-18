@@ -14,5 +14,23 @@
       "firstname": "user",
       "id": 2
     }
+  ],
+  "party": [
+    {
+      "name": "jeudi",
+      "id": 1
+    },
+    {
+      "name": "test",
+      "id": 2
+    },
+    {
+      "name": "teest",
+      "id": 3
+    },
+    {
+      "name": "rzegerg",
+      "id": 4
+    }
   ]
 }

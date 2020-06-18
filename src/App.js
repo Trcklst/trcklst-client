@@ -1,6 +1,8 @@
 import React, { useEffect, useState, createRef } from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import jwt_decode from "jwt-decode";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 import { RoutesNotConnected } from "./routes/routes-notconnected";
 import { RoutesConnected } from "./routes/routes-connected";
@@ -42,7 +44,7 @@ const App = () => {
       const temp = {
         ...currentAuth,
         id: parseInt(currentAuth.sub),
-        role: "ADMIN",
+        role: process.env.REACT_APP_ROLE_USER,
       };
       ability.update(defineRulesFor(temp));
     }
@@ -59,6 +61,11 @@ const App = () => {
           <section className={classes.content}>
             <RoutesConnected />
           </section>
+          <ToastContainer
+            enableMultiContainer
+            position={toast.POSITION.BOTTOM_LEFT}
+            containerId={"mainToast"}
+          />
         </Container>
       ) : (
         <RoutesNotConnected />

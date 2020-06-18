@@ -9,7 +9,7 @@ import { loginSchema } from "./loginSchema";
 import { useStyles } from "./useStyles";
 import { Auth } from "../../services/auth";
 import { SessionContext, setSessionCookie } from "../../context/session";
-import { DASHBOARD_ADMIN, DASHBOARD_USER } from "../../helpers/route-constant";
+import { DASHBOARDADMIN, DASHBOARDUSER } from "../../helpers/route-constant";
 import { ability, defineRulesFor } from "../../helpers/ability";
 
 export const Login = () => {
@@ -35,13 +35,11 @@ export const Login = () => {
       });
 
       const currentAuth = jwt_decode(jsonData.accessToken);
-      const temp = { ...currentAuth, role: "ADMIN" };
+      const temp = { ...currentAuth, role: process.env.REACT_APP_ROLE_USER };
 
       ability.update(defineRulesFor(temp));
 
-      return temp.role === "ADMIN"
-        ? push(DASHBOARD_ADMIN)
-        : push(DASHBOARD_USER);
+      return temp.role === "ADMIN" ? push(DASHBOARDADMIN) : push(DASHBOARDUSER);
     } catch (err) {
       setErrors({ unauthorized: "L'email ou le mot de passe est invalide." });
     } finally {

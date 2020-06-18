@@ -3,19 +3,27 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 import { Homepage } from "../components/homepage/Homepage";
-import { DashboardAdmin } from "../components/dashboard/DashboardAdmin";
-import { DashboardUser } from "../components/dashboard/DashboardUser";
+import { DashboardAdmin } from "../components/dashboard/admin/DashboardAdmin";
+import { DashboardUser } from "../components/dashboard/user/DashboardUser";
 import { UsersIndex } from "../components/users/";
 import { Account } from "../components/account/Account";
 import { NotFound } from "../components/NotFound";
+import { PartyNew } from "../components/party/new/Party";
+import { Subscriptions } from "../components/subscriptions/admin/";
+import { MySubscriptions } from "../components/subscriptions/user/";
+import { MyInvoices } from "../components/invoices/";
 import {
   NOTFOUND,
   HOME,
-  DASHBOARD_ADMIN,
+  DASHBOARDADMIN,
   USERS,
-  ACCOUNT_ADMIN,
-  DASHBOARD_USER,
-  ACCOUNT_USER,
+  ACCOUNTADMIN,
+  DASHBOARDUSER,
+  ACCOUNTUSER,
+  PARTYNEW,
+  MYSUBSRIPTIONS,
+  SUBSRIPTIONS,
+  MYINVOICES,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -29,7 +37,7 @@ export const RoutesConnected = () => {
       const temp = {
         ...user,
         id: parseInt(user.sub),
-        role: "ADMIN",
+        role: process.env.REACT_APP_ROLE_USER,
       };
       setUser(temp);
     };
@@ -41,7 +49,7 @@ export const RoutesConnected = () => {
       <Route exact path={HOME} component={Homepage}></Route>
       <Route
         exact
-        path={DASHBOARD_ADMIN}
+        path={DASHBOARDADMIN}
         component={(props) => (
           <Can I="view" a="DashboardAdmin">
             {() => <DashboardAdmin {...props} />}
@@ -50,7 +58,7 @@ export const RoutesConnected = () => {
       />
       <Route
         exact
-        path={DASHBOARD_USER}
+        path={DASHBOARDUSER}
         component={(props) => (
           <Can I="view" a="DashboardUser">
             {() => <DashboardUser {...props} />}
@@ -67,7 +75,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
-        path={ACCOUNT_ADMIN}
+        path={ACCOUNTADMIN}
         component={(props) => (
           <Can I="view" a="AccountAdmin">
             {() => <Account {...props} />}
@@ -75,10 +83,42 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
-        path={ACCOUNT_USER}
+        path={ACCOUNTUSER}
         component={(props) => (
           <Can I="view" a="AccountUser">
             {() => <Account {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={PARTYNEW}
+        component={(props) => (
+          <Can I="add" a="Party">
+            {() => <PartyNew {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={SUBSRIPTIONS}
+        component={(props) => (
+          <Can I="view" a="Subscriptions">
+            {() => <Subscriptions {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={MYSUBSRIPTIONS}
+        component={(props) => (
+          <Can I="view" a="MySubscriptions">
+            {() => <MySubscriptions {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={MYINVOICES}
+        component={(props) => (
+          <Can I="view" a="MyInvoices">
+            {() => <MyInvoices {...props} />}
           </Can>
         )}
       />

@@ -17,10 +17,14 @@ export const defineRulesFor = (user) => {
       can("view", "DashboardAdmin", { userId: user.id });
       can("view", "Users", { userId: user.id });
       can("view", "AccountAdmin", { userId: user.id });
+      can("view", "Subscriptions", { userId: user.id });
       break;
     case "USER":
       can("view", "DashboardUser", { userId: user.id });
       can("view", "AccountUser", { userId: user.id });
+      can("add", "Party", { userId: user.id });
+      can("view", "MySubscriptions", { userId: user.id });
+      can("view", "MyInvoices", { userId: user.id });
       break;
     default:
       break;

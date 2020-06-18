@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: '200px 100px',
+    padding: '40px 0px',
     backgroundColor: "white",
     boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
     borderRadius: '0.5rem'

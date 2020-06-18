@@ -26,7 +26,7 @@ export const RegisterForm = ({
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container spacing={2} className={classes.container}>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TextField
             className={classes.field}
             type="text"
@@ -42,7 +42,7 @@ export const RegisterForm = ({
             helperText={touched.lastname && errors.lastname}
           ></TextField>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={6}>
           <TextField
             className={classes.field}
             type="text"

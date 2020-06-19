@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
+import { Subscriptions } from "../../../services/subscriptions";
 
 import { MTable } from "../../common/MTable";
+import { SessionContext } from "../../../context/session";
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +32,7 @@ const useStyles = makeStyles({
 
 export const MySubscriptions = () => {
   const classes = useStyles();
+  const { user } = useContext(SessionContext);
   const [data, setData] = useState([]);
 
   const optionTable = {
@@ -48,10 +51,16 @@ export const MySubscriptions = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setData([]);
+      const data = await Subscriptions.mine(user.id);
+      console.log("data: " + data);
+      const jsonData = await data.json();
+
+      if (data.status !== 200) throw jsonData;
+
+      setData(jsonData);
     };
     fetchData();
-  }, []);
+  }, [user.id]);
 
   return (
     <div className={classes.root}>

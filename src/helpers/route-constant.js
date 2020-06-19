@@ -12,3 +12,5 @@ export const PARTYNEW = "/party/new";
 export const MYSUBSRIPTIONS = "/mysubscriptions";
 export const SUBSRIPTIONS = "/admin/subscriptions";
 export const MYINVOICES = "/myinvoices";
+export const MYPARTIES = "/parties";
+export const PARTYSHOW = "/party/:slug";

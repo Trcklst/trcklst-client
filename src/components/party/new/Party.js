@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 
@@ -6,15 +6,17 @@ import { useStyles } from "./useStyles";
 import { initialValues, PartyForm } from "./PartyForm";
 import { partySchema } from "./partySchema";
 import { Party } from "../../../services/party";
-import { DASHBOARDUSER } from "../../../helpers/route-constant";
+import { MYPARTIES } from "../../../helpers/route-constant";
 import { success, fail } from "../../common/Toast";
+import { SessionContext } from "../../../context/session";
 
 export const PartyNew = () => {
   const classes = useStyles();
   const { push } = useHistory();
+  const { user } = useContext(SessionContext);
 
   const handleSubmit = async ({ name }, { setErrors }) => {
-    const data = await Party.new(name);
+    const data = await Party.new(name, user.id);
     const jsonData = await data.json();
 
     if (data.status !== 201) {
@@ -23,7 +25,8 @@ export const PartyNew = () => {
     }
 
     success("La party a été créée.");
-    return push(DASHBOARDUSER);
+
+    return push(MYPARTIES);
   };
 
   return (

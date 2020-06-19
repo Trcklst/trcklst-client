@@ -12,6 +12,8 @@ import { PartyNew } from "../components/party/new/Party";
 import { Subscriptions } from "../components/subscriptions/admin/";
 import { MySubscriptions } from "../components/subscriptions/user/";
 import { MyInvoices } from "../components/invoices/";
+import { MyParties } from "../components/party/MyParties";
+import { PartyShow } from "../components/party/show/Party";
 import {
   NOTFOUND,
   HOME,
@@ -24,6 +26,8 @@ import {
   MYSUBSRIPTIONS,
   SUBSRIPTIONS,
   MYINVOICES,
+  MYPARTIES,
+  PARTYSHOW,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -119,6 +123,22 @@ export const RoutesConnected = () => {
         component={(props) => (
           <Can I="view" a="MyInvoices">
             {() => <MyInvoices {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={MYPARTIES}
+        component={(props) => (
+          <Can I="view" a="MyParties">
+            {() => <MyParties {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        path={PARTYSHOW}
+        component={(props) => (
+          <Can I="show" a="Party">
+            {() => <PartyShow {...props} />}
           </Can>
         )}
       />

@@ -52,7 +52,6 @@ export const MySubscriptions = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await Subscriptions.mine(user.id);
-      console.log("data: " + data);
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;

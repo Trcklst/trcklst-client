@@ -3,13 +3,13 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-    backgroundColor: "#f4f4f5" 
+    backgroundColor: "#f4f4f5",
   },
   grid: {
     display: "flex",
   },
   link: {
-    textDecoration: 'none',
+    textDecoration: "none",
   },
   backgroundTitle: {
     height: "100vh",
@@ -31,10 +31,10 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: '40px 0px',
+    padding: "40px 0px",
     backgroundColor: "white",
     boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
-    borderRadius: '0.5rem'
+    borderRadius: "0.5rem",
   },
   slash: {
     color: "#3f51b5",

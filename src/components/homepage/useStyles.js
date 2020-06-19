@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 import landingWallpaper from "../../images/home.jpg";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: "1",
   },
@@ -12,20 +12,30 @@ export const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${landingWallpaper})`,
   },
-  hero: {
-    height: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    backgroundColor: "rgba(0,0,0, 0.85)",
-    padding: 25,
+  appbar: {
+    backgroundColor: "transparent",
+    boxShadow: "none",
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
   },
   title: {
-    fontSize: 55,
-    textAlign: "center",
-    color: "#fff",
-    margin: "0",
-    paddingBottom: 30,
+    flexGrow: 1,
   },
-});
+  buttonOffer: {
+    borderRadius: "50px",
+    backgroundColor: "black",
+    letterSpacing: "2px",
+    boxShadow: "none",
+  },
+  blackBg: {
+    backgroundColor: "black",
+  },
+  whiteText: {
+    color: "white",
+  },
+  link: {
+    textDecoration: "none",
+    color: "white",
+  },
+}));

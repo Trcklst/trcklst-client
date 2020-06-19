@@ -13,24 +13,55 @@
       "lastname": "user",
       "firstname": "user",
       "id": 2
+    },
+    {
+      "email": "buchaillat.r@gmail.com",
+      "password": "$2a$10$nFx8Z/jFYPz2EtlKyvanfe3DMCV5HSKsrYjlGkSSJlDkokJA95S3O",
+      "lastname": "buchaillat",
+      "firstname": "remi",
+      "id": 3
+    },
+    {
+      "email": "yabbal@gmail.com",
+      "password": "$2a$10$hlT9MxY1eIiPlExLyp03sO8Ex4oCRXGA8FWvWrjuWuICFO/DnoMLK",
+      "lastname": "abbal",
+      "firstname": "youness",
+      "id": 4
     }
   ],
   "party": [
     {
-      "name": "jeudi",
+      "name": "Soirée DUT",
+      "owner": 2,
       "id": 1
     },
     {
-      "name": "test",
+      "name": "Party de Rémi",
+      "owner": 3,
       "id": 2
     },
     {
-      "name": "teest",
+      "name": "Party de Rémi 2",
+      "owner": 3,
       "id": 3
     },
     {
-      "name": "rzegerg",
+      "name": "Party de User",
+      "owner": 2,
       "id": 4
+    },
+    {
+      "name": "Test",
+      "owner": 2,
+      "id": 5
+    }
+  ],
+  "relations": [
+    {
+      "idParty": 2,
+      "idUser": 2,
+      "id": 1,
+      "name": "Party de Rémi"
     }
   ]
 }

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Grid, makeStyles, IconButton } from "@material-ui/core";
 import { Visibility as VisibilityIcon } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
 
 import { Party } from "../../services/party";
 import { SessionContext } from "../../context/session";
@@ -66,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const MyParties = () => {
   const classes = useStyles();
+  const { push } = useHistory();
   const { user } = useContext(SessionContext);
   const [OwnParty, setOwnParty] = useState([]);
   const [ExternalParty, setExternalParty] = useState([]);
@@ -116,7 +118,7 @@ export const MyParties = () => {
                         <IconButton
                           aria-label="see"
                           className={classes.margin}
-                          onClick={() => console.log(value.id)}
+                          onClick={() => push(`/party/${value.id}`)}
                         >
                           <VisibilityIcon fontSize="large" />
                         </IconButton>
@@ -158,7 +160,7 @@ export const MyParties = () => {
                         <IconButton
                           aria-label="see"
                           className={classes.margin}
-                          onClick={() => console.log(value.idParty)}
+                          onClick={() => push(`/party/${value.idParty}`)}
                         >
                           <VisibilityIcon fontSize="large" />
                         </IconButton>

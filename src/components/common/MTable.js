@@ -1,6 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import MaterialTable from "material-table";
 import { makeStyles } from "@material-ui/core";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import ChevronRight from "@material-ui/icons/ChevronRight";
+import FirstPage from "@material-ui/icons/FirstPage";
+import LastPage from "@material-ui/icons/LastPage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,12 +30,22 @@ export const MTable = (props) => {
   } = props;
   const classes = useStyles();
 
+  const tableIcons = {
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref} />),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref} />),
+    PreviousPage: forwardRef((props, ref) => (
+      <ChevronLeft {...props} ref={ref} />
+    )),
+  };
+
   return (
     <section className={classes.root}>
       <MaterialTable
         {...props}
         title={optionTable.title ? optionTable.title : ""}
         columns={optionTable.columns}
+        icons={tableIcons}
         data={data}
         totalCount={totalCount}
         onChangeRowsPerPage={onChangeRowsPerPage}

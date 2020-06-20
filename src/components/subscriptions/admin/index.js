@@ -35,7 +35,7 @@ export const Subscriptions = () => {
   const optionTable = {
     columns: [
       { title: "Type", field: "type" },
-      { title: "Date", field: "date" },
+      { title: "Date", field: "createdAt" },
     ],
     options: {
       sorting: false,

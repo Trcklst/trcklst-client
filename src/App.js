@@ -1,30 +1,16 @@
 import React, { useEffect, useState, createRef } from "react";
-import { Container, makeStyles } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import jwt_decode from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import { useStyles } from "./useStyles";
 
 import { RoutesNotConnected } from "./routes/routes-notconnected";
 import { RoutesConnected } from "./routes/routes-connected";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/Navbar/Navbar";
 import { getSessionCookie, SessionContext } from "./context/session";
 import { ability, defineRulesFor } from "./helpers/ability";
 import "./App.css";
-
-export const useStyles = makeStyles({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    padding: 0,
-    minHeight: "100vh",
-  },
-  content: {
-    flexGrow: 1,
-    position: "relative",
-    height: "100%",
-    overflow: "hidden",
-  },
-});
 
 const App = () => {
   const classes = useStyles();
@@ -55,9 +41,9 @@ const App = () => {
 
   return (
     <SessionContext.Provider value={contextValue} ref={wrapper}>
+      <Navbar />
       {session.auth ? (
         <Container maxWidth={false} className={classes.container}>
-          <Navbar />
           <section className={classes.content}>
             <RoutesConnected />
           </section>

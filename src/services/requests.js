@@ -1,3 +1,4 @@
+import { getSessionCookie } from "../context/session";
 var base64 = require("base-64");
 
 export const requests =
@@ -16,6 +17,7 @@ export const requests =
             method: "GET",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
           }),
         post: (url, body) =>
@@ -23,6 +25,7 @@ export const requests =
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
             body: JSON.stringify(body),
           }),
@@ -31,6 +34,7 @@ export const requests =
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
             body: JSON.stringify(body),
           }),
@@ -39,6 +43,7 @@ export const requests =
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
           }),
       }
@@ -48,7 +53,7 @@ export const requests =
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
-              Authorization: "Basic trcklst secret",
+              Authorization: `Basic ${base64.encode(`trcklst:secret`)}`,
             },
           }),
         get: (url) =>
@@ -56,6 +61,7 @@ export const requests =
             method: "GET",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
           }),
         post: (url, body) =>
@@ -63,6 +69,7 @@ export const requests =
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
             body: JSON.stringify(body),
           }),
@@ -71,6 +78,7 @@ export const requests =
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
             body: JSON.stringify(body),
           }),
@@ -79,6 +87,7 @@ export const requests =
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
             },
           }),
       };

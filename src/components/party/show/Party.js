@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   makeStyles,
-  withStyles,
-  Button,
   Grid,
   Container,
   Typography,
@@ -12,23 +10,10 @@ import {
   Input,
   Box,
 } from "@material-ui/core";
-import { purple } from "@material-ui/core/colors";
-import { SupervisorAccount as SupervisorAccountIcon } from "@material-ui/icons";
 import { useLocation } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import { Party } from "../../../services/party";
-import backgroundPlaylist from "../../../images/background-playlist.jpg";
 import { Music } from "./Music";
-
-const ColorButton = withStyles((theme) => ({
-  root: {
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    "&:hover": {
-      backgroundColor: purple[700],
-    },
-  },
-}))(Button);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,23 +80,20 @@ const useStyles = makeStyles((theme) => ({
 export const PartyShow = () => {
   const classes = useStyles();
   const location = useLocation();
-  const endpoint = parseInt(location.pathname.split("/").pop());
+  const endpoint = location.pathname.split("/").pop();
   const [data, setData] = useState([]);
-  const [state, setState] = useState("Lire");
-
-  const handleClick = () => {
-    console.log("gestion de l'état de la musique");
-    state === "Lire" ? setState("Pause") : setState("Lire");
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await Party.show(endpoint);
       const jsonData = await data.json();
 
+      console.log(data);
+      console.log(jsonData);
+
       if (data.status !== 200) throw jsonData;
 
-      setData(jsonData[0]);
+      setData(jsonData);
     };
     fetchData();
   }, [endpoint]);

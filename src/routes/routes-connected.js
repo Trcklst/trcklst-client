@@ -37,13 +37,12 @@ export const RoutesConnected = () => {
 
   useEffect(() => {
     const getOwnUser = async () => {
-      const user = jwt_decode(getSessionCookie().token);
-      const temp = {
-        ...user,
-        id: parseInt(user.sub),
-        role: process.env.REACT_APP_ROLE_USER,
-      };
-      setUser(temp);
+      const currentAuth = jwt_decode(getSessionCookie().token);
+      setUser({
+        ...currentAuth,
+        id: currentAuth.userId,
+        role: currentAuth.authorities[0],
+      });
     };
     getOwnUser();
   }, [setUser]);

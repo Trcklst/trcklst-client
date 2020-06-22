@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 
@@ -8,15 +8,13 @@ import { partySchema } from "./partySchema";
 import { Party } from "../../../services/party";
 import { MYPARTIES } from "../../../helpers/route-constant";
 import { success, fail } from "../../common/Toast";
-import { SessionContext } from "../../../context/session";
 
 export const PartyNew = () => {
   const classes = useStyles();
   const { push } = useHistory();
-  const { user } = useContext(SessionContext);
 
   const handleSubmit = async ({ name }, { setErrors }) => {
-    const data = await Party.new(name, user.id);
+    const data = await Party.new(name);
     const jsonData = await data.json();
 
     if (data.status !== 201) {

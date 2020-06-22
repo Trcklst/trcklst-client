@@ -25,9 +25,6 @@ export const Login = () => {
       const data = await Auth.login(email, password);
       const jsonData = await data.json();
 
-      console.log(data);
-      console.log(jsonData);
-
       if (data.status !== 200) throw jsonData;
 
       setSessionCookie(jsonData.access_token);

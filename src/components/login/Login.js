@@ -25,21 +25,27 @@ export const Login = () => {
       const data = await Auth.login(email, password);
       const jsonData = await data.json();
 
+      console.log(data);
+      console.log(jsonData);
+
       if (data.status !== 200) throw jsonData;
 
-      setSessionCookie(jsonData.accessToken);
+      setSessionCookie(jsonData.access_token);
       setSession({
         ...session,
         auth: true,
-        token: jsonData.accessToken,
+        token: jsonData.access_token,
       });
 
-      const currentAuth = jwt_decode(jsonData.accessToken);
-      const temp = { ...currentAuth, role: process.env.REACT_APP_ROLE_USER };
+      const currentAuth = jwt_decode(jsonData.access_token);
 
-      ability.update(defineRulesFor(temp));
+      ability.update(
+        defineRulesFor({ ...currentAuth, role: currentAuth.authorities[0] })
+      );
 
-      return temp.role === "ADMIN" ? push(DASHBOARDADMIN) : push(DASHBOARDUSER);
+      return currentAuth.authorities[0] === "ROLE_USER"
+        ? push(DASHBOARDUSER)
+        : push(DASHBOARDADMIN);
     } catch (err) {
       setErrors({ unauthorized: "L'email ou le mot de passe est invalide." });
     } finally {

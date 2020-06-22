@@ -68,5 +68,19 @@
       "id": 1,
       "name": "Party de Rémi"
     }
+  ],
+  "subscriptions": [
+    {
+      "type": "ezr",
+      "date": "aez",
+      "owner": 2,
+      "id": 1
+    },
+    {
+      "type": "ezr",
+      "date": "aez",
+      "owner": 2,
+      "id": 2
+    }
   ]
 }

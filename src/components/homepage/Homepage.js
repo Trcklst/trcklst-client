@@ -1,16 +1,6 @@
 import React from "react";
 import { useStyles } from "./useStyles";
-import {
-  AppBar,
-  Button,
-  Grid,
-  Toolbar,
-  Typography,
-  Box,
-  Container,
-} from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { LOGIN, REGISTER } from "../../helpers/route-constant";
+import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
 
 export const Homepage = () => {
   const classes = useStyles();
@@ -18,27 +8,6 @@ export const Homepage = () => {
   return (
     <>
       <section id="header" className={classes.heroImage}>
-        <header>
-          <AppBar position="static" className={classes.appbar}>
-            <Container>
-              <Toolbar>
-                <Typography variant="h6" className={classes.title}>
-                  Trcklst
-                </Typography>
-                <Box py={2}>
-                  <Link to={LOGIN} className={classes.link}>
-                    Connexion
-                  </Link>
-                </Box>
-                <Box px={2}>
-                  <Link to={REGISTER} className={classes.link}>
-                    Inscrption
-                  </Link>
-                </Box>
-              </Toolbar>
-            </Container>
-          </AppBar>
-        </header>
         <main>
           <Container>
             <Box pt={12} px={3} pb={3}>

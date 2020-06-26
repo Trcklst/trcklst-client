@@ -7,8 +7,6 @@ export const initialValues = {
   email: "",
   password: "",
   confirmPassword: "",
-  firstname: "",
-  lastname: "",
 };
 
 export const RegisterForm = ({
@@ -26,38 +24,6 @@ export const RegisterForm = ({
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container spacing={2} className={classes.container}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            className={classes.field}
-            type="text"
-            variant="outlined"
-            size="small"
-            id="lastname"
-            name="lastname"
-            label="Nom *"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.lastname}
-            error={touched.lastname && errors.lastname !== undefined}
-            helperText={touched.lastname && errors.lastname}
-          ></TextField>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            className={classes.field}
-            type="text"
-            variant="outlined"
-            size="small"
-            id="firstname"
-            name="firstname"
-            label="Prénom *"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.firstname}
-            error={touched.firstname && errors.firstname !== undefined}
-            helperText={touched.firstname && errors.firstname}
-          ></TextField>
-        </Grid>
         <Grid item xs={12}>
           <TextField
             className={classes.field}

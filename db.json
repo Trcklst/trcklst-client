@@ -54,6 +54,11 @@
       "name": "Test",
       "owner": 2,
       "id": 5
+    },
+    {
+      "name": "Ma nouvelle party",
+      "owner": 2,
+      "id": 6
     }
   ],
   "relations": [

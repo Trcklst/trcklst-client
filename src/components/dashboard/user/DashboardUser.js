@@ -2,6 +2,7 @@ import React from "react";
 import { Grid, makeStyles } from "@material-ui/core";
 
 import { CreateParty } from "./CreateParty";
+import { JoinParty } from "./JoinParty";
 import { ViewProfile } from "./ViewProfile";
 import { CardMySubscriptions } from "./CardMySubscriptions";
 import { CardMyInvoices } from "./CardMyInvoices";
@@ -26,6 +27,9 @@ export const DashboardUser = () => {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={3}>
           <CreateParty />
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <JoinParty />
         </Grid>
         <Grid item xs={12} sm={3}>
           <ViewProfile />

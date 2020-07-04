@@ -3,6 +3,7 @@ export const NOTFOUND = "/not-found";
 export const LOGIN = "/login";
 export const REGISTER = "/register";
 export const FORGOTPASSWORD = "/forgot-password";
+export const NEWPASSWORD = "/new-password";
 export const DASHBOARDADMIN = "/admin/dashboard";
 export const USERS = "/admin/users";
 export const ACCOUNTADMIN = "/admin/account";

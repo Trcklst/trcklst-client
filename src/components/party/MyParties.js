@@ -74,19 +74,21 @@ export const MyParties = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const dataOwnParty = await Party.mine(user.id);
-      const jsonDataOwnParty = await dataOwnParty.json();
+      const data = await Party.get();
+      const jsonData = await data.json();
+      const tempOwnParty = [];
+      const tempExternalParty = [];
 
-      const dataExternalParty = await Party.external(user.id);
-      const jsonExternalParty = await dataExternalParty.json();
+      if (data.status !== 200) throw jsonData;
 
-      if (dataOwnParty.status !== 200) throw jsonDataOwnParty;
+      jsonData.map((value) => {
+        return value.ownerId === user.id
+          ? tempOwnParty.push(value)
+          : tempExternalParty.push(value);
+      });
 
-      setOwnParty(jsonDataOwnParty);
-
-      if (dataExternalParty.status !== 200) throw jsonExternalParty;
-
-      setExternalParty(jsonExternalParty);
+      setOwnParty(tempOwnParty);
+      setExternalParty(tempExternalParty);
     };
     fetchData();
   }, [user.id]);
@@ -102,23 +104,21 @@ export const MyParties = () => {
                 <Grid item xs={12}>
                   <div className={classes.ownParty}>
                     <Grid container>
-                      <Grid item xs={12} sm={5} className={classes.element}>
+                      <Grid item xs={12} sm={6} className={classes.element}>
                         <h3 className={classes.title}>Nom</h3>
                         <p className={classes.subtitle}>{value.name}</p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
+                      <Grid item xs={12} sm={4} className={classes.element}>
                         <h3 className={classes.title}>Utilisateurs</h3>
-                        <p className={classes.subtitle}>65 utilisateurs</p>
+                        <p className={classes.subtitle}>
+                          {value.members.length} utilisateurs
+                        </p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
-                        <h3 className={classes.title}>Date</h3>
-                        <p className={classes.subtitle}>23/08/1996 12:12</p>
-                      </Grid>
-                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                      <Grid item xs={12} sm={2} className={classes.endElement}>
                         <IconButton
                           aria-label="see"
                           className={classes.margin}
-                          onClick={() => push(`/party/${value.id}`)}
+                          onClick={() => push(`/party/${value._id}`)}
                         >
                           <VisibilityIcon fontSize="large" />
                         </IconButton>
@@ -144,23 +144,21 @@ export const MyParties = () => {
                 <Grid item xs={12}>
                   <div className={classes.externalParty}>
                     <Grid container>
-                      <Grid item xs={12} sm={5} className={classes.element}>
+                      <Grid item xs={12} sm={6} className={classes.element}>
                         <h3 className={classes.title}>Nom</h3>
                         <p className={classes.subtitle}>{value.name}</p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
+                      <Grid item xs={12} sm={4} className={classes.element}>
                         <h3 className={classes.title}>Utilisateurs</h3>
-                        <p className={classes.subtitle}>65 utilisateurs</p>
+                        <p className={classes.subtitle}>
+                          {value.members.length} utilisateurs
+                        </p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
-                        <h3 className={classes.title}>Date</h3>
-                        <p className={classes.subtitle}>23/08/1996 12:12</p>
-                      </Grid>
-                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                      <Grid item xs={12} sm={2} className={classes.endElement}>
                         <IconButton
                           aria-label="see"
                           className={classes.margin}
-                          onClick={() => push(`/party/${value.idParty}`)}
+                          onClick={() => push(`/party/${value._id}`)}
                         >
                           <VisibilityIcon fontSize="large" />
                         </IconButton>

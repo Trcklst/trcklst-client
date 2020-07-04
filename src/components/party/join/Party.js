@@ -9,22 +9,20 @@ import { Party } from "../../../services/party";
 import { MYPARTIES } from "../../../helpers/route-constant";
 import { success, fail } from "../../common/Toast";
 
-export const PartyNew = () => {
+export const PartyJoin = () => {
   const classes = useStyles();
   const { push } = useHistory();
 
-  const handleSubmit = async ({ name }, { setErrors }) => {
-    const data = await Party.new(name);
+  const handleSubmit = async ({ idParty }) => {
+    const data = await Party.join(idParty);
     const jsonData = await data.json();
 
-    if (data.status !== 201) {
-      fail("Une erreur s'est produite lors de la création de la party.");
-      setErrors({ [jsonData.errors.property]: jsonData.errors.message });
+    if (data.status !== 200) {
+      fail("Une erreur s'est produite en essayant de rejoindre une party.");
+      throw jsonData;
     }
 
-    await Party.join(jsonData._id);
-
-    success("La party a été créée.");
+    success("Vous avez rejoint la party.");
 
     return push(MYPARTIES);
   };
@@ -34,7 +32,7 @@ export const PartyNew = () => {
       <div className={classes.party}>
         <div>
           <h2 className={classes.subtitle}>Party</h2>
-          <h1 className={classes.title}>Création d'une party</h1>
+          <h1 className={classes.title}>Rejoindre une party</h1>
         </div>
         <Formik
           initialErrors={initialValues}

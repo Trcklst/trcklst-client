@@ -13,13 +13,13 @@ export const defineRulesFor = (user) => {
   const { can, rules } = new AbilityBuilder();
 
   switch (user.role) {
-    case "ADMIN":
+    case "ROLE_ADMIN":
       can("view", "DashboardAdmin", { userId: user.id });
       can("view", "Users", { userId: user.id });
       can("view", "AccountAdmin", { userId: user.id });
       can("view", "Subscriptions", { userId: user.id });
       break;
-    case "USER":
+    case "ROLE_USER":
       can("view", "DashboardUser", { userId: user.id });
       can("view", "AccountUser", { userId: user.id });
       can("add", "Party", { userId: user.id });
@@ -27,6 +27,7 @@ export const defineRulesFor = (user) => {
       can("view", "MyInvoices", { userId: user.id });
       can("view", "MyParties", { userId: user.id });
       can("show", "Party", { userId: user.id });
+      can("join", "Party", { userId: user.id });
       break;
     default:
       break;

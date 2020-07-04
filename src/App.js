@@ -27,7 +27,6 @@ const App = () => {
   useEffect(() => {
     if (getSessionCookie().token) {
       const currentAuth = jwt_decode(getSessionCookie().token);
-
       ability.update(
         defineRulesFor({
           ...currentAuth,

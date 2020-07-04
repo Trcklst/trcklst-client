@@ -14,6 +14,7 @@ import { MySubscriptions } from "../components/subscriptions/user/";
 import { MyInvoices } from "../components/invoices/";
 import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
+import { PartyJoin } from "../components/party/join/Party";
 import {
   NOTFOUND,
   HOME,
@@ -28,6 +29,7 @@ import {
   MYINVOICES,
   MYPARTIES,
   PARTYSHOW,
+  PARTYJOIN,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -78,6 +80,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={ACCOUNTADMIN}
         component={(props) => (
           <Can I="view" a="AccountAdmin">
@@ -86,6 +89,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={ACCOUNTUSER}
         component={(props) => (
           <Can I="view" a="AccountUser">
@@ -94,6 +98,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={PARTYNEW}
         component={(props) => (
           <Can I="add" a="Party">
@@ -102,6 +107,16 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
+        path={PARTYJOIN}
+        component={(props) => (
+          <Can I="join" a="Party">
+            {() => <PartyJoin {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        exact
         path={SUBSRIPTIONS}
         component={(props) => (
           <Can I="view" a="Subscriptions">
@@ -110,6 +125,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={MYSUBSRIPTIONS}
         component={(props) => (
           <Can I="view" a="MySubscriptions">
@@ -118,6 +134,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={MYINVOICES}
         component={(props) => (
           <Can I="view" a="MyInvoices">
@@ -126,6 +143,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={MYPARTIES}
         component={(props) => (
           <Can I="view" a="MyParties">
@@ -134,6 +152,7 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
+        exact
         path={PARTYSHOW}
         component={(props) => (
           <Can I="show" a="Party">

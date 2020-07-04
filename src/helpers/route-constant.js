@@ -9,6 +9,7 @@ export const ACCOUNTADMIN = "/admin/account";
 export const DASHBOARDUSER = "/dashboard";
 export const ACCOUNTUSER = "/account";
 export const PARTYNEW = "/party/new";
+export const PARTYJOIN = "/party/join";
 export const MYSUBSRIPTIONS = "/mysubscriptions";
 export const SUBSRIPTIONS = "/admin/subscriptions";
 export const MYINVOICES = "/myinvoices";

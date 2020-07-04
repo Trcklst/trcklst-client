@@ -38,6 +38,15 @@ export const requests =
             },
             body: JSON.stringify(body),
           }),
+        patch: (url, body) =>
+          fetch(url, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
+            },
+            body: JSON.stringify(body),
+          }),
         delete: (url) =>
           fetch(url, {
             method: "DELETE",
@@ -76,6 +85,15 @@ export const requests =
         put: (url, body) =>
           fetch(`${process.env.REACT_APP_API_URL}${url}`, {
             method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: getSessionCookie().token,
+            },
+            body: JSON.stringify(body),
+          }),
+        patch: (url, body) =>
+          fetch(`${process.env.REACT_APP_API_URL}${url}`, {
+            method: "PATCH",
             headers: {
               "Content-Type": "application/json",
               Authorization: getSessionCookie().token,

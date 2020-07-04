@@ -104,21 +104,17 @@ export const MyParties = () => {
                 <Grid item xs={12}>
                   <div className={classes.ownParty}>
                     <Grid container>
-                      <Grid item xs={12} sm={5} className={classes.element}>
+                      <Grid item xs={12} sm={6} className={classes.element}>
                         <h3 className={classes.title}>Nom</h3>
                         <p className={classes.subtitle}>{value.name}</p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
+                      <Grid item xs={12} sm={4} className={classes.element}>
                         <h3 className={classes.title}>Utilisateurs</h3>
                         <p className={classes.subtitle}>
                           {value.members.length} utilisateurs
                         </p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
-                        <h3 className={classes.title}>Date</h3>
-                        <p className={classes.subtitle}>23/08/1996 12:12</p>
-                      </Grid>
-                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                      <Grid item xs={12} sm={2} className={classes.endElement}>
                         <IconButton
                           aria-label="see"
                           className={classes.margin}
@@ -148,21 +144,17 @@ export const MyParties = () => {
                 <Grid item xs={12}>
                   <div className={classes.externalParty}>
                     <Grid container>
-                      <Grid item xs={12} sm={5} className={classes.element}>
+                      <Grid item xs={12} sm={6} className={classes.element}>
                         <h3 className={classes.title}>Nom</h3>
                         <p className={classes.subtitle}>{value.name}</p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
+                      <Grid item xs={12} sm={4} className={classes.element}>
                         <h3 className={classes.title}>Utilisateurs</h3>
                         <p className={classes.subtitle}>
                           {value.members.length} utilisateurs
                         </p>
                       </Grid>
-                      <Grid item xs={12} sm={3} className={classes.element}>
-                        <h3 className={classes.title}>Date</h3>
-                        <p className={classes.subtitle}>23/08/1996 12:12</p>
-                      </Grid>
-                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                      <Grid item xs={12} sm={2} className={classes.endElement}>
                         <IconButton
                           aria-label="see"
                           className={classes.margin}

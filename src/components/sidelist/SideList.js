@@ -14,6 +14,7 @@ import {
   Payment as PaymentIcon,
   Subscriptions as SubscriptionsIcon,
   LibraryMusic as LibraryMusicIcon,
+  Directions as DirectionsIcon,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import * as Cookies from "js-cookie";
@@ -32,6 +33,7 @@ import {
   MYSUBSRIPTIONS,
   MYINVOICES,
   MYPARTIES,
+  PARTYJOIN,
 } from "../../helpers/route-constant";
 import { Links } from "../common/Links";
 import { SideListProfile } from "./SideListProfile";
@@ -119,6 +121,15 @@ export const SideList = () => {
               route={MYPARTIES}
               text="Mes party"
               Icon={LibraryMusicIcon}
+            ></Links>
+          )}
+        </Can>
+        <Can I="join" a="Party">
+          {() => (
+            <Links
+              route={PARTYJOIN}
+              text="Rejoindre une party"
+              Icon={DirectionsIcon}
             ></Links>
           )}
         </Can>

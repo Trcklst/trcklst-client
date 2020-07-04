@@ -27,12 +27,13 @@ const App = () => {
   useEffect(() => {
     if (getSessionCookie().token) {
       const currentAuth = jwt_decode(getSessionCookie().token);
-      const temp = {
-        ...currentAuth,
-        id: parseInt(currentAuth.sub),
-        role: process.env.REACT_APP_ROLE_USER,
-      };
-      ability.update(defineRulesFor(temp));
+      ability.update(
+        defineRulesFor({
+          ...currentAuth,
+          id: currentAuth.userId,
+          role: currentAuth.authorities[0],
+        })
+      );
     }
     return () => {
       setSession(getSessionCookie());

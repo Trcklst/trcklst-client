@@ -8,7 +8,6 @@ import {
   Badge,
 } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import MailIcon from "@material-ui/icons/Mail";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

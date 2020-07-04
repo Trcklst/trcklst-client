@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
-import {
-  makeStyles,
-  withStyles,
-  Button,
-  Grid,
-  Container,
-  Typography,
-  FormControl,
-  InputLabel,
-  InputAdornment,
-  Input,
-  Box,
-} from "@material-ui/core";
+import React, { useEffect, useState, useContext } from "react";
+import { makeStyles, Grid, Button, withStyles } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
 import { purple } from "@material-ui/core/colors";
 import { SupervisorAccount as SupervisorAccountIcon } from "@material-ui/icons";
-import { useLocation } from "react-router-dom";
-import SearchIcon from "@material-ui/icons/Search";
-import { Party } from "../../../services/party";
+
 import backgroundPlaylist from "../../../images/background-playlist.jpg";
+import { Party } from "../../../services/party";
 import { Music } from "./Music";
+import { isEmpty } from "../../../helpers/utility";
+import { SessionContext } from "../../../context/session";
+import { success } from "../../common/Toast";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -73,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#252525",
   },
   buttonState: {
-    width: 125,
     height: 35,
     borderRadius: 25,
   },
@@ -95,13 +85,13 @@ const useStyles = makeStyles((theme) => ({
 export const PartyShow = () => {
   const classes = useStyles();
   const location = useLocation();
-  const endpoint = parseInt(location.pathname.split("/").pop());
-  const [data, setData] = useState([]);
-  const [state, setState] = useState("Lire");
+  const endpoint = location.pathname.split("/").pop();
+  const [data, setData] = useState({});
+  const { user } = useContext(SessionContext);
 
   const handleClick = () => {
-    console.log("gestion de l'état de la musique");
-    state === "Lire" ? setState("Pause") : setState("Lire");
+    navigator.clipboard.writeText(data._id);
+    success("Code de partage copié !");
   };
 
   useEffect(() => {
@@ -111,67 +101,62 @@ export const PartyShow = () => {
 
       if (data.status !== 200) throw jsonData;
 
-      setData(jsonData[0]);
+      setData(jsonData);
     };
     fetchData();
   }, [endpoint]);
 
   return (
-    <>
-      <Container>
-        <Box justifyContent="center" mx="auto" py={3}>
-          <header>
-            <FormControl className={classes.margin}>
-              <InputLabel htmlFor="input-with-icon-adornment">
-                Recherche..
-              </InputLabel>
-              <Input
-                id="input-with-icon-adornment"
-                startAdornment={
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-          </header>
-        </Box>
-        <main>
-          <section id="top">
-            <Typography variant="h4" component="h1">
-              {data.name}
-            </Typography>
-            <Typography variant="body2" component="span">
-              Playlist de LAVAN
-            </Typography>
-            <Typography variant="overline" display="block" gutterBottom>
-              4 titres
-            </Typography>
-          </section>
-          <section id="main">
-            <Box p={5}>
-              <Grid xs={12}>
-                <Music
-                  icon="https://i.ytimg.com/vi/QHuo2pIyTH8/maxresdefault.jpg"
-                  title="Booba - Petite Fille (Clip Officiel)"
-                />
-                <Music
-                  icon="https://i.ytimg.com/vi/QHuo2pIyTH8/maxresdefault.jpg"
-                  title="Booba - Petite Fille (Clip Officiel)"
-                />
-                <Music
-                  icon="https://i.ytimg.com/vi/QHuo2pIyTH8/maxresdefault.jpg"
-                  title="Booba - Petite Fille (Clip Officiel)"
-                />
-                <Music
-                  icon="https://i.ytimg.com/vi/QHuo2pIyTH8/maxresdefault.jpg"
-                  title="Booba - Petite Fille (Clip Officiel)"
-                />
-              </Grid>
-            </Box>
-          </section>
-        </main>
-      </Container>
-    </>
+    !isEmpty(data) && (
+      <section className={classes.root}>
+        <div className={classes.head}>
+          <img
+            src={backgroundPlaylist}
+            alt="playlist"
+            className={classes.backgroundPlaylist}
+          />
+          <div className={classes.mainTitle}>
+            <h6 className={classes.subtitle}>Party</h6>
+            <h3 className={classes.title}>{data.name}</h3>
+            <p className={classes.createdBy}>
+              Créée par <span className={classes.author}>Rémi</span> - 3 titres,
+              11 min
+            </p>
+            {user.id === data.ownerId && (
+              <ColorButton
+                variant="contained"
+                color="primary"
+                className={classes.buttonState}
+                onClick={() => handleClick()}
+              >
+                {`code : ${data._id}`}
+              </ColorButton>
+            )}
+          </div>
+        </div>
+        <div className={classes.people}>
+          <SupervisorAccountIcon />
+          <p>{data.members.length} personnes participes</p>
+        </div>
+        <>
+          <Grid container className={classes.headPlaylist}>
+            <Grid item xs={2}></Grid>
+            <Grid item xs={4}>
+              <p>Titre</p>
+            </Grid>
+            <Grid item xs={3}>
+              <p>Artiste</p>
+            </Grid>
+            <Grid item xs={3}>
+              <p>Album</p>
+            </Grid>
+          </Grid>
+          <Music title="Petite fille" artist="Booba" album="Trône" />
+          <Music title="Petite fille" artist="Booba" album="Trône" />
+          <Music title="Petite fille" artist="Booba" album="Trône" />
+          <Music title="Petite fille" artist="Booba" album="Trône" />
+        </>
+      </section>
+    )
   );
 };

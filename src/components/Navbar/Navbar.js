@@ -77,7 +77,7 @@ export const Navbar = () => {
                 </Box>
                 <Box px={2}>
                   <Link to={REGISTER} className={classes.link}>
-                    Inscrption
+                    Inscription
                   </Link>
                 </Box>
               </>

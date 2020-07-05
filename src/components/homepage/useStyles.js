@@ -38,4 +38,36 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
   },
+  shapeDivider: {
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    overflow: "hidden",
+    lineHeight: 0,
+  },
+
+  shapeSvg: {
+    position: "relative",
+    display: "block",
+    width: "calc(100% + 1.3px)",
+    height: "150px",
+  },
+
+  shapeFill: {
+    fill: "#FFFFFF",
+  },
+  customButton: {
+    color: "black",
+    backgroundColor: "white",
+    borderRadius: "50px",
+    boxShadow: "0 0 50px white",
+    textTransform: "none",
+    "&:hover": {
+      color: "red",
+      backgroundColor: "white",
+      borderRadius: "50px",
+      boxShadow: "0 0 50px white",
+      textTransform: "none",
+    },
+  },
 }));

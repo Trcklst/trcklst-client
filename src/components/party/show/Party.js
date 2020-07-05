@@ -1,8 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { makeStyles, Grid, Button, withStyles } from "@material-ui/core";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { purple } from "@material-ui/core/colors";
-import { SupervisorAccount as SupervisorAccountIcon } from "@material-ui/icons";
+import {
+  SupervisorAccount as SupervisorAccountIcon,
+  CloudUpload as CloudUploadIcon,
+} from "@material-ui/icons";
+import moment from "moment";
 
 import backgroundPlaylist from "../../../images/background-playlist.jpg";
 import { Party } from "../../../services/party";
@@ -24,11 +28,16 @@ const ColorButton = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 1220,
-    padding: 15,
     margin: "0 auto",
+    position: "relative",
   },
   head: {
     display: "flex",
+  },
+  addTrack: {
+    position: "absolute",
+    top: "20px",
+    right: "20px",
   },
   backgroundPlaylist: {
     border: "1px solid #000",
@@ -88,10 +97,15 @@ export const PartyShow = () => {
   const endpoint = location.pathname.split("/").pop();
   const [data, setData] = useState({});
   const { user } = useContext(SessionContext);
+  const { push } = useHistory();
 
   const handleClick = () => {
     navigator.clipboard.writeText(data._id);
     success("Code de partage copié !");
+  };
+
+  const handleClickAddTrack = () => {
+    push({ pathname: `${endpoint}/track/new`, state: { idParty: endpoint } });
   };
 
   useEffect(() => {
@@ -100,7 +114,7 @@ export const PartyShow = () => {
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
-
+      console.log(jsonData);
       setData(jsonData);
     };
     fetchData();
@@ -119,8 +133,9 @@ export const PartyShow = () => {
             <h6 className={classes.subtitle}>Party</h6>
             <h3 className={classes.title}>{data.name}</h3>
             <p className={classes.createdBy}>
-              Créée par <span className={classes.author}>Rémi</span> - 3 titres,
-              11 min
+              Créée par{" "}
+              <span className={classes.author}>{data.owner.email}</span> - le{" "}
+              {moment(data.createdAt).format("DD/MM/YYYY hh:mm")}
             </p>
             {user.id === data.ownerId && (
               <ColorButton
@@ -134,6 +149,16 @@ export const PartyShow = () => {
             )}
           </div>
         </div>
+        <div className={classes.addTrack}>
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<CloudUploadIcon />}
+            onClick={() => handleClickAddTrack()}
+          >
+            Ajouter un son
+          </Button>
+        </div>
         <div className={classes.people}>
           <SupervisorAccountIcon />
           <p>{data.members.length} personnes participes</p>
@@ -141,20 +166,16 @@ export const PartyShow = () => {
         <>
           <Grid container className={classes.headPlaylist}>
             <Grid item xs={2}></Grid>
-            <Grid item xs={4}>
+            <Grid item xs={8}>
               <p>Titre</p>
             </Grid>
-            <Grid item xs={3}>
-              <p>Artiste</p>
-            </Grid>
-            <Grid item xs={3}>
-              <p>Album</p>
+            <Grid item xs={2}>
+              <p>J'aime</p>
             </Grid>
           </Grid>
-          <Music title="Petite fille" artist="Booba" album="Trône" />
-          <Music title="Petite fille" artist="Booba" album="Trône" />
-          <Music title="Petite fille" artist="Booba" album="Trône" />
-          <Music title="Petite fille" artist="Booba" album="Trône" />
+          {data.tracks.map((value) => {
+            return <Music icon={value.imageUrl} title={value.name} />;
+          })}
         </>
       </section>
     )

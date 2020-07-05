@@ -15,6 +15,7 @@ import { MyInvoices } from "../components/invoices/";
 import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
 import { PartyJoin } from "../components/party/join/Party";
+import { TrackNew } from "../components/track/new/Track";
 import {
   NOTFOUND,
   HOME,
@@ -30,6 +31,7 @@ import {
   MYPARTIES,
   PARTYSHOW,
   PARTYJOIN,
+  TRACKNEW,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -157,6 +159,15 @@ export const RoutesConnected = () => {
         component={(props) => (
           <Can I="show" a="Party">
             {() => <PartyShow {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        exact
+        path={TRACKNEW}
+        component={(props) => (
+          <Can I="add" a="Track">
+            {() => <TrackNew {...props} />}
           </Can>
         )}
       />

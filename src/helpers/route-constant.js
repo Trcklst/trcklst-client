@@ -15,3 +15,4 @@ export const SUBSRIPTIONS = "/admin/subscriptions";
 export const MYINVOICES = "/myinvoices";
 export const MYPARTIES = "/parties";
 export const PARTYSHOW = "/party/:slug";
+export const TRACKNEW = "/party/:slug/track/new";

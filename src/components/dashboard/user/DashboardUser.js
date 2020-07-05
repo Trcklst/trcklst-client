@@ -9,10 +9,7 @@ import { CardMyInvoices } from "./CardMyInvoices";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
     maxWidth: 1220,
-    padding: 15,
-    margin: "0 auto",
   },
   cards: {
     marginTop: 30,

@@ -9,7 +9,6 @@ import { SessionContext } from "../../context/session";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 1220,
-    padding: 15,
     margin: "0 auto",
   },
   mainBlock: {
@@ -82,7 +81,7 @@ export const MyParties = () => {
       if (data.status !== 200) throw jsonData;
 
       jsonData.map((value) => {
-        return value.ownerId === user.id
+        return value.owner.id === user.id
           ? tempOwnParty.push(value)
           : tempExternalParty.push(value);
       });

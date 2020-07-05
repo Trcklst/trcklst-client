@@ -7,7 +7,6 @@ const useStyles = makeStyles({
   root: {
     width: "100%",
     maxWidth: 1220,
-    padding: 15,
     margin: "0 auto",
   },
   title: {

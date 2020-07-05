@@ -6,10 +6,7 @@ import { CardSubscriptions } from "./CardSubscriptions";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
     maxWidth: 1220,
-    padding: 15,
-    margin: "0 auto",
   },
 });
 

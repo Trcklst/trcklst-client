@@ -5,15 +5,11 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
     height: "100%",
-    width: "100%",
   },
   party: {
-    position: "relative",
     width: "100%",
     maxWidth: 1220,
-    padding: 15,
     marginTop: -64,
   },
   title: {

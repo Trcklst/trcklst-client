@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import {
-  makeStyles,
-  Grid,
-  Box,
-  IconButton,
-  Typography,
-  Badge,
-} from "@material-ui/core";
+import { makeStyles, Grid, Box, IconButton, Badge } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    alignItems: "center",
+  },
+  boxIcon: {
+    textAlign: "center",
+  },
   icon: {
     width: "50px",
     height: "50px",
@@ -22,20 +21,15 @@ export const Music = ({ icon, title }) => {
   const [count, setCount] = useState(1);
 
   return (
-    <Grid container>
-      <Grid item xs={1}>
-        <Typography variant="body1">1.</Typography>
-      </Grid>
-      <Grid item xs={1}>
-        <Box mx="auto">
+    <Grid container className={classes.container}>
+      <Grid item xs={2}>
+        <Box mx="auto" className={classes.boxIcon}>
           <img src={icon} alt="Icon" className={classes.icon} />
         </Box>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={8}>
         <p>{title}</p>
       </Grid>
-      <Grid item xs={2}></Grid>
-      <Grid item xs={2}></Grid>
       <Grid item xs={1}>
         <IconButton
           aria-label="like"

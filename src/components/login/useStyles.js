@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: "100%",
     backgroundColor: "#f4f4f5",
   },
   grid: {
@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   backgroundTitle: {
-    height: "100vh",
+    height: "100%",
     backgroundColor: "#000000b8",
     display: "flex",
     justifyContent: "center",
@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: '40px 0px',
+    padding: "40px 0px",
     backgroundColor: "white",
     boxShadow: "0 2px 4px 0 rgba(0,0,0,.08)",
     borderRadius: "0.5rem",

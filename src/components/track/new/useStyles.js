@@ -6,11 +6,11 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
+    flexDirection: "column",
   },
-  party: {
+  track: {
     width: "100%",
     maxWidth: 1220,
-    marginTop: -64,
   },
   title: {
     color: "#263238",
@@ -32,5 +32,12 @@ export const useStyles = makeStyles((theme) => ({
   button: {
     height: 55,
     marginTop: 10,
+  },
+  containerCardMusic: {
+    padding: 80,
+    [theme.breakpoints.down("xs")]: {
+      padding: 0,
+      marginTop: 25,
+    },
   },
 }));

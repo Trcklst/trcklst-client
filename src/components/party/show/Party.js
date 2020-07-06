@@ -141,7 +141,7 @@ export const PartyShow = () => {
                 <span className={classes.author}>{data.owner.email}</span> - le{" "}
                 {moment(data.createdAt).format("DD/MM/YYYY hh:mm")}
               </p>
-              {user.id === data.ownerId && (
+              {user.id === data.owner.id && (
                 <ColorButton
                   variant="contained"
                   color="primary"

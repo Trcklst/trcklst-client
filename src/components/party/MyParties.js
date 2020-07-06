@@ -1,10 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Grid, makeStyles, IconButton } from "@material-ui/core";
-import { Visibility as VisibilityIcon } from "@material-ui/icons";
+import {
+  Visibility as VisibilityIcon,
+  Delete as DeleteIcon,
+  ExitToApp as ExitToAppIcon,
+} from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
 import { Party } from "../../services/party";
 import { SessionContext } from "../../context/session";
+import { Modal } from "../common/Modal";
+import { success } from "../common/Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,6 +77,46 @@ export const MyParties = () => {
   const { user } = useContext(SessionContext);
   const [OwnParty, setOwnParty] = useState([]);
   const [ExternalParty, setExternalParty] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [party, setParty] = useState("");
+
+  const handleClickLeave = (id) => {
+    setOpen(true);
+    setParty(id);
+  };
+
+  const leaveParty = async () => {
+    const data = await Party.leave(party);
+
+    if (data.status !== 200) throw { error: "leave error" };
+
+    let tempTab = [];
+    ExternalParty.map((value) => {
+      return value._id !== party ? tempTab.push(value) : "";
+    });
+
+    setExternalParty(tempTab);
+    success("Vous avez quitté la party");
+  };
+
+  const handleClickDelete = (id) => {
+    setOpen(true);
+    setParty(id);
+  };
+
+  const deleteParty = async () => {
+    const data = await Party.delete(party);
+
+    if (data.status !== 204) throw { error: "delete error" };
+
+    let tempTab = [];
+    OwnParty.map((value) => {
+      return value._id !== party ? tempTab.push(value) : "";
+    });
+
+    setOwnParty(tempTab);
+    success("La party a été supprimé");
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -114,14 +160,31 @@ export const MyParties = () => {
                           {value.members.length} utilisateurs
                         </p>
                       </Grid>
-                      <Grid item xs={12} sm={2} className={classes.endElement}>
+                      <Grid item xs={12} sm={1} className={classes.element}>
                         <IconButton
                           aria-label="see"
-                          className={classes.margin}
                           onClick={() => push(`/party/${value._id}`)}
                         >
-                          <VisibilityIcon fontSize="large" />
+                          <VisibilityIcon />
                         </IconButton>
+                      </Grid>
+                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                        <IconButton aria-label="delete">
+                          <DeleteIcon
+                            onClick={() => handleClickDelete(value._id)}
+                          />
+                        </IconButton>
+                        <Modal
+                          title={"Supprimer une party"}
+                          content={
+                            "Êtes-vous sûr de vouloir supprimer votre party ?"
+                          }
+                          leftLink={"Annuler"}
+                          rightLink={"Supprimer"}
+                          setOpen={setOpen}
+                          open={open}
+                          validate={deleteParty}
+                        />
                       </Grid>
                     </Grid>
                   </div>
@@ -154,14 +217,31 @@ export const MyParties = () => {
                           {value.members.length} utilisateurs
                         </p>
                       </Grid>
-                      <Grid item xs={12} sm={2} className={classes.endElement}>
+                      <Grid item xs={12} sm={1} className={classes.element}>
                         <IconButton
                           aria-label="see"
-                          className={classes.margin}
                           onClick={() => push(`/party/${value._id}`)}
                         >
-                          <VisibilityIcon fontSize="large" />
+                          <VisibilityIcon />
                         </IconButton>
+                      </Grid>
+                      <Grid item xs={12} sm={1} className={classes.endElement}>
+                        <IconButton aria-label="leave">
+                          <ExitToAppIcon
+                            onClick={() => handleClickLeave(value._id)}
+                          />
+                        </IconButton>
+                        <Modal
+                          title={"Quitter une party"}
+                          content={
+                            "Êtes-vous sûr de vouloir quitter cette party ?"
+                          }
+                          leftLink={"Annuler"}
+                          rightLink={"Quitter"}
+                          setOpen={setOpen}
+                          open={open}
+                          validate={leaveParty}
+                        />
                       </Grid>
                     </Grid>
                   </div>

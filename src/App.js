@@ -26,6 +26,8 @@ export const useStyles = makeStyles({
   content: {
     padding: 20,
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
 });
 

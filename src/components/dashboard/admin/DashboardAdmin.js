@@ -7,6 +7,7 @@ import { CardSubscriptions } from "./CardSubscriptions";
 const useStyles = makeStyles({
   root: {
     maxWidth: 1220,
+    width: "100%",
   },
 });
 

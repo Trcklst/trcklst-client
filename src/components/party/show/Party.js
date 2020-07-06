@@ -14,6 +14,7 @@ import { Music } from "./Music";
 import { isEmpty } from "../../../helpers/utility";
 import { SessionContext } from "../../../context/session";
 import { success } from "../../common/Toast";
+import { Playlist } from "../../playlist/";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -30,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 1220,
     margin: "0 auto",
     position: "relative",
+    width: "100%",
+    flexGrow: 1,
   },
   head: {
     display: "flex",
@@ -114,7 +117,7 @@ export const PartyShow = () => {
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
-      console.log(jsonData);
+
       setData(jsonData);
     };
     fetchData();
@@ -122,62 +125,67 @@ export const PartyShow = () => {
 
   return (
     !isEmpty(data) && (
-      <section className={classes.root}>
-        <div className={classes.head}>
-          <img
-            src={backgroundPlaylist}
-            alt="playlist"
-            className={classes.backgroundPlaylist}
-          />
-          <div className={classes.mainTitle}>
-            <h6 className={classes.subtitle}>Party</h6>
-            <h3 className={classes.title}>{data.name}</h3>
-            <p className={classes.createdBy}>
-              Créée par{" "}
-              <span className={classes.author}>{data.owner.email}</span> - le{" "}
-              {moment(data.createdAt).format("DD/MM/YYYY hh:mm")}
-            </p>
-            {user.id === data.ownerId && (
-              <ColorButton
-                variant="contained"
-                color="primary"
-                className={classes.buttonState}
-                onClick={() => handleClick()}
-              >
-                {`code : ${data._id}`}
-              </ColorButton>
-            )}
+      <>
+        <section className={classes.root}>
+          <div className={classes.head}>
+            <img
+              src={backgroundPlaylist}
+              alt="playlist"
+              className={classes.backgroundPlaylist}
+            />
+            <div className={classes.mainTitle}>
+              <h6 className={classes.subtitle}>Party</h6>
+              <h3 className={classes.title}>{data.name}</h3>
+              <p className={classes.createdBy}>
+                Créée par{" "}
+                <span className={classes.author}>{data.owner.email}</span> - le{" "}
+                {moment(data.createdAt).format("DD/MM/YYYY hh:mm")}
+              </p>
+              {user.id === data.ownerId && (
+                <ColorButton
+                  variant="contained"
+                  color="primary"
+                  className={classes.buttonState}
+                  onClick={() => handleClick()}
+                >
+                  {`code : ${data._id}`}
+                </ColorButton>
+              )}
+            </div>
           </div>
-        </div>
-        <div className={classes.addTrack}>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<CloudUploadIcon />}
-            onClick={() => handleClickAddTrack()}
-          >
-            Ajouter un son
-          </Button>
-        </div>
-        <div className={classes.people}>
-          <SupervisorAccountIcon />
-          <p>{data.members.length} personnes participes</p>
-        </div>
-        <>
-          <Grid container className={classes.headPlaylist}>
-            <Grid item xs={2}></Grid>
-            <Grid item xs={8}>
-              <p>Titre</p>
+          <div className={classes.addTrack}>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<CloudUploadIcon />}
+              onClick={() => handleClickAddTrack()}
+            >
+              Ajouter un son
+            </Button>
+          </div>
+          <div className={classes.people}>
+            <SupervisorAccountIcon />
+            <p>{data.members.length} personnes participes</p>
+          </div>
+          <>
+            <Grid container className={classes.headPlaylist}>
+              <Grid item xs={2}></Grid>
+              <Grid item xs={8}>
+                <p>Titre</p>
+              </Grid>
+              <Grid item xs={2}>
+                <p>J'aime</p>
+              </Grid>
             </Grid>
-            <Grid item xs={2}>
-              <p>J'aime</p>
-            </Grid>
-          </Grid>
-          {data.tracks.map((value) => {
-            return <Music icon={value.imageUrl} title={value.name} />;
-          })}
-        </>
-      </section>
+            {data.tracks.map((value, index) => {
+              return (
+                <Music key={index} icon={value.imageUrl} title={value.name} />
+              );
+            })}
+          </>
+        </section>
+        <Playlist tracks={data.tracks} />
+      </>
     )
   );
 };

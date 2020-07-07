@@ -1,9 +1,9 @@
 import React from "react";
 import { useStyles } from "./useStyles";
 import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
-import banner1 from "../../images/undraw_having_fun_iais.png";
-import banner2 from "../../images/undraw_music_r1se.png";
-import banner3 from "../../images/undraw_party_lqnv.png";
+import playing from "../../images/playing.png";
+import unknown from "../../images/unknown.png";
+import teamwork from "../../images/teamwork.png";
 
 export const Homepage = () => {
   const classes = useStyles();
@@ -15,23 +15,10 @@ export const Homepage = () => {
           <Container>
             <Box py={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
-                Trcklst.
+                Partagez votre musique.
               </Typography>
-              <Typography variant="body2" className={classes.whiteText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-                nec, ultricies sed, dolor. Cras elementum ultrices diam.
-                Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-                Proin porttitor, orci nec nonummy molestie, enim est eleifend
-                mi, non fermentum diam nisl sit amet erat. Duis semper. Duis
-                arcu massa, scelerisque vitae, consequat in, pretium a, enim.
-                Pellentesque congue. Ut in risus volutpat libero pharetra
-                tempor. Cras vestibulum bibendum augue. Praesent egestas leo in
-                pede. Praesent blandit odio eu enim. Pellentesque sed dui ut
-                augue blandit sodales. Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.
-                Mauris ac mauris sed pede pellentesque fermentum. Maecenas
-                adipiscing ante non diam sodales hendrerit.
+              <Typography variant="h6" className={classes.whiteText}>
+                Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
               <Box py={5}>
                 <Button
@@ -54,115 +41,148 @@ export const Homepage = () => {
             className={classes.shapeSvg}
           >
             <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              d="M1200 0L0 0 598.97 114.72 1200 0z"
               className={classes.shapeFill}
-              fill="#FFFFFF"
-              fill-opacity="1"
             ></path>
           </svg>{" "}
         </div>
       </section>
       <section id="maincontent">
-        <header>
-          <Container>
-            <Box py={8}>
-              <Typography variant="h3" align="center">
-                Pourquoi utiliser Trcklst ?
-              </Typography>
-              <Typography variant="body2" align="justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                varius velit eleifend orci consequat, sed commodo enim
-                vulputate. Suspendisse sit amet congue purus. Aenean auctor dui
-                non orci porttitor posuere. Donec eu enim arcu. Cras varius
-                euismod risus nec viverra. Quisque eu eros rutrum, mollis eros
-                non, ultricies erat. In et tellus ultrices, lacinia ligula nec,
-                tempor purus. Curabitur aliquet diam metus, non suscipit ante
-                interdum eu. Maecenas vulputate nunc sed nunc accumsan, nec
-                tempus enim elementum. Praesent tincidunt dignissim lectus, nec
-                congue urna. Pellentesque fringilla nec neque a dapibus.
-                Vestibulum nisl velit, vulputate id elementum ut, egestas eget
-                est. Proin consequat finibus scelerisque.
-              </Typography>
+        <Box paddingY={6}>
+          <Container maxWidth="lg">
+            <Box paddingY={4}>
+              <Grid container>
+                <Grid sm={5}></Grid>
+                <Grid
+                  sm={4}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <img src={playing} alt="website logo" width="100%" />
+                </Grid>
+                <Grid
+                  sm={3}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <Box>
+                    <Box paddingY={1}>
+                      <Typography
+                        variant="h4"
+                        className={classes.descriptionTitle}
+                      >
+                        Ceci est le premier point
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      className={classes.descriptionContent}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nullam sed ipsum ut ante consequat consequat. Quisque
+                      laoreet sem vitae nunc dignissim porta. Vestibulum
+                      lobortis tortor in blandit convallis. Proin tincidunt eros
+                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
+                      a tellus nibh. Cras nec ornare elit. Aliquam erat
+                      volutpat. Proin magna ipsum, hendrerit non odio vel,
+                      pharetra vulputate odio.
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
             </Box>
-          </Container>
-        </header>
-        <main>
-          <Container>
-            <Box py={5}>
-              <Grid container spacing={4}>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner1} alt="website logo" width="100%" />
+            <Box paddingY={4}>
+              <Grid container>
+                <Grid
+                  sm={3}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <Box>
+                    <Box paddingY={1}>
+                      <Typography
+                        variant="h4"
+                        align="right"
+                        className={classes.descriptionTitle}
+                      >
+                        Ceci est le premier point
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      align="right"
+                      className={classes.descriptionContent}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nullam sed ipsum ut ante consequat consequat. Quisque
+                      laoreet sem vitae nunc dignissim porta. Vestibulum
+                      lobortis tortor in blandit convallis. Proin tincidunt eros
+                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
+                      a tellus nibh. Cras nec ornare elit. Aliquam erat
+                      volutpat. Proin magna ipsum, hendrerit non odio vel,
+                      pharetra vulputate odio.
+                    </Typography>
                   </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Tout d'abord...
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
                 </Grid>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner2} alt="option2" width="100%" />
-                  </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Par la suite..
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
+                <Grid
+                  sm={4}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <img src={unknown} alt="website logo" width="100%" />
                 </Grid>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner3} alt="option3" width="100%" />
+                <Grid sm={5}></Grid>
+              </Grid>
+            </Box>
+            <Box paddingY={4}>
+              <Grid container>
+                <Grid sm={5}></Grid>
+                <Grid
+                  sm={4}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <img src={teamwork} alt="website logo" width="100%" />
+                </Grid>
+                <Grid
+                  sm={3}
+                  alignContent="center"
+                  alignItems="center"
+                  justify="center"
+                >
+                  <Box>
+                    <Box paddingY={1}>
+                      <Typography
+                        variant="h4"
+                        className={classes.descriptionTitle}
+                      >
+                        Ceci est le premier point
+                      </Typography>
+                    </Box>
+                    <Typography
+                      variant="body2"
+                      className={classes.descriptionContent}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nullam sed ipsum ut ante consequat consequat. Quisque
+                      laoreet sem vitae nunc dignissim porta. Vestibulum
+                      lobortis tortor in blandit convallis. Proin tincidunt eros
+                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
+                      a tellus nibh. Cras nec ornare elit. Aliquam erat
+                      volutpat. Proin magna ipsum, hendrerit non odio vel,
+                      pharetra vulputate odio.
+                    </Typography>
                   </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Après...
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
                 </Grid>
               </Grid>
             </Box>
           </Container>
-        </main>
+        </Box>
       </section>
       <section id="footer" className={classes.blackBg}>
         <Box py={8}>

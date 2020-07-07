@@ -44,6 +44,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     overflow: "hidden",
     lineHeight: 0,
+    transform: "rotate(180deg)",
   },
 
   shapeSvg: {
@@ -59,15 +60,20 @@ export const useStyles = makeStyles((theme) => ({
   customButton: {
     color: "black",
     backgroundColor: "white",
-    borderRadius: "50px",
-    boxShadow: "0 0 50px white",
+    border: "1px solid white",
     textTransform: "none",
     "&:hover": {
-      color: "red",
+      color: "black",
       backgroundColor: "white",
-      borderRadius: "50px",
       boxShadow: "0 0 50px white",
       textTransform: "none",
     },
+  },
+  descriptionTitle: {
+    color: "#1f1959",
+  },
+
+  descriptionContent: {
+    color: "grey",
   },
 }));

@@ -184,6 +184,73 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
+      <section id="pricing"  className={classes.pricing}>
+        <Box py={8}
+          align="center"
+          >
+          <Typography 
+            variant="h4"
+            className={classes.descriptionTitle}
+            >Notre plateforme propose deux types d'abonnements pour vous satisfaire.</Typography>
+          <Container>
+            <Grid container
+            alignItems="center">
+              <Grid sm={5} className={classes.cardPrice}>
+                <Typography 
+                  variant="h4"
+                  className={classes.descriptionTitle}
+                >
+                  Offre standard
+                </Typography>
+                <ul>
+                  <li className={classes.listItems}>Création de party</li>
+                  <li className={classes.listItems}>Nombre d'invités limité</li>
+                  <li className={classes.listItems}>Capacité de playlist limité</li>
+                  <li className={classes.listItems}>Avec publicité</li>
+                  <li className={classes.listItems}>Création de party</li>
+                  <li className={classes.listItems}>Nombre d'invités limité</li>
+                  <li className={classes.listItems}>Capacité de playlist limité</li>
+                  <li className={classes.listItems}>Avec publicité</li>
+                </ul>
+                <Typography 
+                  variant="h3"
+                  className={classes.descriptionTitle}
+                  align="right"
+                  >
+                  25 €
+                </Typography>
+
+              </Grid>
+              <Grid sm={5} className={classes.cardPrice}>
+                <Typography 
+                  variant="h4"
+                  className={classes.descriptionTitle}
+                >
+                  Offre premium
+                </Typography>
+                <ul>
+                  <li className={classes.listItems}>Création de party</li>
+                  <li className={classes.listItems}>Nombre d'invités illimité</li>
+                  <li className={classes.listItems}>Capacité de playlist illimité</li>
+                  <li className={classes.listItems}>Sans publicité</li>
+                  <li className={classes.listItems}>Création de party</li>
+                  <li className={classes.listItems}>Nombre d'invités illimité</li>
+                  <li className={classes.listItems}>Capacité de playlist illimité</li>
+                  <li className={classes.listItems}>Sans publicité</li>
+                </ul>
+                <Typography 
+                  variant="h3"
+                  className={classes.descriptionTitle}
+                  align="right"
+                >
+                      50 €
+                </Typography>
+              </Grid>
+              
+            </Grid>
+          </Container>
+        </Box>
+      </section>
       <section id="footer" className={classes.blackBg}>
         <Box py={8}>
           <Container>

@@ -47,7 +47,7 @@ export const Homepage = () => {
           </svg>{" "}
         </div>
       </section>
-      <section id="maincontent">
+      <section id="maincontent" style={{ backgroundColor: "#F9F9F9" }}>
         <Box paddingY={6}>
           <Container maxWidth="lg">
             <Box paddingY={4}>
@@ -184,6 +184,7 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
+      <section id="devices"></section>
       <section id="footer" className={classes.blackBg}>
         <Box py={8}>
           <Container>

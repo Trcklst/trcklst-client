@@ -55,7 +55,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   shapeFill: {
-    fill: "#FFFFFF",
+    fill: "#f9f9f9",
   },
   customButton: {
     color: "black",

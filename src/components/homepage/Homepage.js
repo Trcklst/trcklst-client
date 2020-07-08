@@ -4,7 +4,7 @@ import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
 import playing from "../../images/playing.png";
 import unknown from "../../images/unknown.png";
 import teamwork from "../../images/teamwork.png";
-
+import ticks from "../../images/ticks.png";
 export const Homepage = () => {
   const classes = useStyles();
 
@@ -13,14 +13,14 @@ export const Homepage = () => {
       <section id="header" className={classes.heroImage}>
         <main>
           <Container>
-            <Box py={24} px={3}>
+            <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
                 Partagez votre musique.
               </Typography>
               <Typography variant="h6" className={classes.whiteText}>
                 Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
-              <Box py={5}>
+              <Box paddingY={5}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -51,22 +51,12 @@ export const Homepage = () => {
         <Box paddingY={6}>
           <Container maxWidth="lg">
             <Box paddingY={4}>
-              <Grid container>
-                <Grid sm={5}></Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={playing} alt="website logo" width="100%" />
                 </Grid>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography
@@ -94,13 +84,8 @@ export const Homepage = () => {
               </Grid>
             </Box>
             <Box paddingY={4}>
-              <Grid container>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography
@@ -127,34 +112,19 @@ export const Homepage = () => {
                     </Typography>
                   </Box>
                 </Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={unknown} alt="website logo" width="100%" />
                 </Grid>
-                <Grid sm={5}></Grid>
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
               </Grid>
             </Box>
             <Box paddingY={4}>
-              <Grid container>
-                <Grid sm={5}></Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={teamwork} alt="website logo" width="100%" />
                 </Grid>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography
@@ -184,76 +154,288 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
-      <section id="pricing" className={classes.pricing}>
-        <Box py={8} align="center">
-          <Typography variant="h4" className={classes.descriptionTitle}>
-            Notre plateforme propose deux types d'abonnements pour vous
-            satisfaire.
-          </Typography>
-          <Container>
-            <Grid container alignItems="center">
-              <Grid sm={5} className={classes.cardPrice}>
-                <Typography variant="h4" className={classes.descriptionTitle}>
-                  Offre standard
-                </Typography>
-                <ul>
-                  <li className={classes.listItems}>Création de party</li>
-                  <li className={classes.listItems}>Nombre d'invités limité</li>
-                  <li className={classes.listItems}>
-                    Capacité de playlist limité
-                  </li>
-                  <li className={classes.listItems}>Avec publicité</li>
-                  <li className={classes.listItems}>Création de party</li>
-                  <li className={classes.listItems}>Nombre d'invités limité</li>
-                  <li className={classes.listItems}>
-                    Capacité de playlist limité
-                  </li>
-                  <li className={classes.listItems}>Avec publicité</li>
-                </ul>
-                <Typography
-                  variant="h3"
-                  className={classes.descriptionTitle}
-                  align="right"
-                >
-                  25 €
-                </Typography>
+      <section
+        id="pricing"
+        className={classes.pricing}
+        style={{ backgroundColor: "#F9F9F9" }}
+      >
+        <Box paddingY={6} align="center">
+          <Container maxWidth="lg">
+            <Box paddingY={2}>
+              <Typography variant="h4" className={classes.descriptionTitle}>
+                Notre plateforme propose deux types d'abonnements pour vous
+                satisfaire.
+              </Typography>
+            </Box>
+            <Grid container spacing={0} alignItems="center" justify="center">
+              <Grid
+                xl={4}
+                lg={4}
+                md={4}
+                sm={4}
+                xs={4}
+                className={classes.pricingBox}
+                style={{ backgroundColor: "white" }}
+              >
+                <Box paddingY={3}>
+                  <Typography variant="body2">Classique</Typography>
+                  <Typography variant="h2">0€</Typography>
+                  <Typography variant="body2">à vie, pour toujours</Typography>
+                </Box>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <img src={ticks} />
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={4}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <img src={ticks}></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={4}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <img src={ticks}></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={4}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <img src={ticks}></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={4}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <img src={ticks}></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={4}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
               </Grid>
-              <Grid sm={5} className={classes.cardPrice}>
-                <Typography variant="h4" className={classes.descriptionTitle}>
-                  Offre premium
-                </Typography>
-                <ul>
-                  <li className={classes.listItems}>Création de party</li>
-                  <li className={classes.listItems}>
-                    Nombre d'invités illimité
-                  </li>
-                  <li className={classes.listItems}>
-                    Capacité de playlist illimité
-                  </li>
-                  <li className={classes.listItems}>Sans publicité</li>
-                  <li className={classes.listItems}>Création de party</li>
-                  <li className={classes.listItems}>
-                    Nombre d'invités illimité
-                  </li>
-                  <li className={classes.listItems}>
-                    Capacité de playlist illimité
-                  </li>
-                  <li className={classes.listItems}>Sans publicité</li>
-                </ul>
-                <Typography
-                  variant="h3"
-                  className={classes.descriptionTitle}
-                  align="right"
-                >
-                  50 €
-                </Typography>
+              <Grid
+                xl={4}
+                lg={4}
+                md={4}
+                sm={4}
+                xs={4}
+                className={classes.pricingBox}
+                style={{ backgroundColor: "#1f1959", color: "white" }}
+              >
+                <Box paddingY={3}>
+                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="h2">15€</Typography>
+                  <Typography variant="body2">par mois</Typography>
+                </Box>
+                <Box>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                        <img src={ticks} />
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                        <img src={ticks}></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                        <img src={ticks}></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                        <img src={ticks}></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                        <img src={ticks}></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={4}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                </Box>
               </Grid>
             </Grid>
           </Container>
         </Box>
       </section>
       <section id="footer" className={classes.blackBg}>
-        <Box py={8}>
+        <Box paddingY={8}>
           <Container>
             <Typography
               variant="body2"

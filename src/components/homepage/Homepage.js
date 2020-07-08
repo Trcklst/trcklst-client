@@ -1,9 +1,15 @@
 import React from "react";
 import { useStyles } from "./useStyles";
 import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 import playing from "../../images/playing.png";
 import unknown from "../../images/unknown.png";
 import teamwork from "../../images/teamwork.png";
+import InboxIcon from "@material-ui/icons/Inbox";
+import DraftsIcon from "@material-ui/icons/Drafts";
 
 export const Homepage = () => {
   const classes = useStyles();
@@ -13,14 +19,14 @@ export const Homepage = () => {
       <section id="header" className={classes.heroImage}>
         <main>
           <Container>
-            <Box py={24} px={3}>
+            <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
                 Partagez votre musique.
               </Typography>
               <Typography variant="h6" className={classes.whiteText}>
                 Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
-              <Box py={5}>
+              <Box paddingY={5}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -155,14 +161,100 @@ export const Homepage = () => {
         </Box>
       </section>
       <section id="pricing" className={classes.pricing}>
-        <Box py={8} align="center">
-          <Typography variant="h4" className={classes.descriptionTitle}>
-            Notre plateforme propose deux types d'abonnements pour vous
-            satisfaire.
-          </Typography>
-          <Container>
+        <Box paddingY={6} align="center">
+          <Container maxWidth="lg">
+            <Typography variant="h4" className={classes.descriptionTitle}>
+              Notre plateforme propose deux types d'abonnements pour vous
+              satisfaire.
+            </Typography>
+            <Box paddingY={4}>
+              <Grid container spacing={2} alignItems="center" justify="center">
+                <Grid xl={3} lg={3} md={3} sm={3} xs={3}></Grid>
+                <Grid
+                  xl={3}
+                  lg={3}
+                  md={3}
+                  sm={3}
+                  xs={3}
+                  className={classes.cardPrice}
+                >
+                  <Typography variant="h4" className={classes.descriptionTitle}>
+                    Offre standard
+                  </Typography>
+                  <ul>
+                    <li className={classes.listItems}>Création de party</li>
+                    <li className={classes.listItems}>
+                      Nombre d'invités illimité
+                    </li>
+                    <li className={classes.listItems}>
+                      Capacité de playlist illimité
+                    </li>
+                    <li className={classes.listItems}>Sans publicité</li>
+                    <li className={classes.listItems}>Création de party</li>
+                    <li className={classes.listItems}>
+                      Nombre d'invités illimité
+                    </li>
+                    <li className={classes.listItems}>
+                      Capacité de playlist illimité
+                    </li>
+                    <li className={classes.listItems}>Sans publicité</li>
+                  </ul>
+                </Grid>
+                <Grid
+                  xl={3}
+                  lg={3}
+                  md={3}
+                  sm={3}
+                  xs={3}
+                  className={classes.cardPrice}
+                >
+                  <Typography variant="h4" className={classes.descriptionTitle}>
+                    Offre premium
+                  </Typography>
+                  <List component="nav" aria-label="main mailbox folders">
+                    <ListItem>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Création de party" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <DraftsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Nombre d'invités illimité" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <DraftsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Capacité de playlist illimité" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon>
+                        <DraftsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Sans publicité" />
+                    </ListItem>
+                  </List>
+                </Grid>
+                <Grid xl={3} lg={3} md={3} sm={3} xs={3}></Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </Box>
+
+        {/* <Container>
             <Grid container alignItems="center">
-              <Grid sm={5} className={classes.cardPrice}>
+              <Grid xs={3} sm={3} md={3} lg={3} xl={3}></Grid>
+              <Grid
+                xs={3}
+                sm={3}
+                md={3}
+                lg={3}
+                xl={3}
+                className={classes.cardPrice}
+              >
                 <Typography variant="h4" className={classes.descriptionTitle}>
                   Offre standard
                 </Typography>
@@ -188,7 +280,14 @@ export const Homepage = () => {
                   25 €
                 </Typography>
               </Grid>
-              <Grid sm={5} className={classes.cardPrice}>
+              <Grid
+                xs={3}
+                sm={3}
+                md={3}
+                lg={3}
+                xl={3}
+                className={classes.cardPrice}
+              >
                 <Typography variant="h4" className={classes.descriptionTitle}>
                   Offre premium
                 </Typography>
@@ -218,12 +317,12 @@ export const Homepage = () => {
                   50 €
                 </Typography>
               </Grid>
+              <Grid xs={3} sm={3} md={3} lg={3} xl={3}></Grid>
             </Grid>
-          </Container>
-        </Box>
+          </Container> */}
       </section>
       <section id="footer" className={classes.blackBg}>
-        <Box py={8}>
+        <Box paddingY={8}>
           <Container>
             <Typography
               variant="body2"

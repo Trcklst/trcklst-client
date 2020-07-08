@@ -78,20 +78,16 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   pricing: {
-    backgroundColor: "#E8E9FD"
+    backgroundColor: "#E8E9FD",
   },
   cardPrice: {
-    height: "320px",
-    margin: "20px",
-    border: "4px solid white",
-     borderRadius: "10px",
-     backgroundColor: "white",
-/*     boxShadow: "3px 2px 2px grey" */
+    borderRadius: "10px",
+    backgroundColor: "white",
   },
   listItems: {
-    listStyleType:"none",
+    listStyleType: "none",
     textAlign: "left",
     marginBottom: "5px",
-    color: "grey"
-  }
+    color: "grey",
+  },
 }));

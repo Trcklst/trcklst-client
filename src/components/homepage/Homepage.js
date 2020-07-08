@@ -51,22 +51,12 @@ export const Homepage = () => {
         <Box paddingY={6}>
           <Container maxWidth="lg">
             <Box paddingY={4}>
-              <Grid container>
-                <Grid sm={5}></Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={playing} alt="website logo" width="100%" />
                 </Grid>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography
@@ -94,13 +84,8 @@ export const Homepage = () => {
               </Grid>
             </Box>
             <Box paddingY={4}>
-              <Grid container>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography
@@ -127,34 +112,19 @@ export const Homepage = () => {
                     </Typography>
                   </Box>
                 </Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={unknown} alt="website logo" width="100%" />
                 </Grid>
-                <Grid sm={5}></Grid>
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
               </Grid>
             </Box>
             <Box paddingY={4}>
-              <Grid container>
-                <Grid sm={5}></Grid>
-                <Grid
-                  sm={4}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
+                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
                   <img src={teamwork} alt="website logo" width="100%" />
                 </Grid>
-                <Grid
-                  sm={3}
-                  alignContent="center"
-                  alignItems="center"
-                  justify="center"
-                >
+                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
                   <Box>
                     <Box paddingY={1}>
                       <Typography

@@ -12,7 +12,7 @@ export const Homepage = () => {
     <>
       <section id="header" className={classes.heroImage}>
         <main>
-          <Container>
+          <Container maxWidth="lg">
             <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
                 Partagez votre musique.
@@ -155,6 +155,28 @@ export const Homepage = () => {
         </Box>
       </section>
       <section
+        id="partnership"
+        style={{ backgroundColor: "#1f1959" }}
+        className={classes.whiteText}
+      >
+        <Box paddingY={6}>
+          <Container maxWidth="lg">
+            <Typography variant="h3">Envie d'un partenariat?</Typography>
+            <Typography variant="body2" align="justify">
+              Une publication de 1994 du magazine « Before & After » décrit
+              l'expression « Lorem ipsum ... » comme une version latine peu
+              fidèle d'un passage d'un traité de théorie éthique, de Finibus
+              Bonorum et Malorum, écrit par Cicéron en 45 avant Jésus-Christ. Le
+              passage « Lorem ipsum ... » est tiré du texte « Neque porro
+              quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit ... » qui peut se traduire par « Personne n'aime la
+              douleur en elle-même, ne la recherche et ne la souhaite, tout
+              simplement parce qu'il s'agit de la douleur... ».
+            </Typography>
+          </Container>
+        </Box>
+      </section>
+      <section
         id="pricing"
         className={classes.pricing}
         style={{ backgroundColor: "#F9F9F9" }}
@@ -173,7 +195,7 @@ export const Homepage = () => {
                 lg={4}
                 md={4}
                 sm={4}
-                xs={4}
+                xs={12}
                 className={classes.pricingBox}
                 style={{ backgroundColor: "white" }}
               >
@@ -189,7 +211,7 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} />
                     </Grid>
                     <Grid
@@ -197,7 +219,7 @@ export const Homepage = () => {
                       lg={4}
                       md={4}
                       sm={4}
-                      xs={4}
+                      xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2">Création de party</Typography>
@@ -211,7 +233,7 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks}></img>
                     </Grid>
                     <Grid
@@ -219,7 +241,7 @@ export const Homepage = () => {
                       lg={4}
                       md={4}
                       sm={4}
-                      xs={4}
+                      xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2">Création de party</Typography>
@@ -233,7 +255,7 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks}></img>
                     </Grid>
                     <Grid
@@ -241,7 +263,7 @@ export const Homepage = () => {
                       lg={4}
                       md={4}
                       sm={4}
-                      xs={4}
+                      xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2">Création de party</Typography>
@@ -255,7 +277,7 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks}></img>
                     </Grid>
                     <Grid
@@ -263,7 +285,7 @@ export const Homepage = () => {
                       lg={4}
                       md={4}
                       sm={4}
-                      xs={4}
+                      xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2">Création de party</Typography>
@@ -277,7 +299,7 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks}></img>
                     </Grid>
                     <Grid
@@ -285,7 +307,7 @@ export const Homepage = () => {
                       lg={4}
                       md={4}
                       sm={4}
-                      xs={4}
+                      xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2">Création de party</Typography>
@@ -298,7 +320,7 @@ export const Homepage = () => {
                 lg={4}
                 md={4}
                 sm={4}
-                xs={4}
+                xs={12}
                 className={classes.pricingBox}
                 style={{ backgroundColor: "#1f1959", color: "white" }}
               >
@@ -315,7 +337,7 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} />
                       </Grid>
                       <Grid
@@ -323,7 +345,7 @@ export const Homepage = () => {
                         lg={4}
                         md={4}
                         sm={4}
-                        xs={4}
+                        xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
@@ -339,7 +361,7 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks}></img>
                       </Grid>
                       <Grid
@@ -347,7 +369,7 @@ export const Homepage = () => {
                         lg={4}
                         md={4}
                         sm={4}
-                        xs={4}
+                        xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
@@ -363,7 +385,7 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks}></img>
                       </Grid>
                       <Grid
@@ -371,7 +393,7 @@ export const Homepage = () => {
                         lg={4}
                         md={4}
                         sm={4}
-                        xs={4}
+                        xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
@@ -387,7 +409,7 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks}></img>
                       </Grid>
                       <Grid
@@ -395,7 +417,7 @@ export const Homepage = () => {
                         lg={4}
                         md={4}
                         sm={4}
-                        xs={4}
+                        xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
@@ -411,7 +433,7 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={1}>
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks}></img>
                       </Grid>
                       <Grid
@@ -419,7 +441,7 @@ export const Homepage = () => {
                         lg={4}
                         md={4}
                         sm={4}
-                        xs={4}
+                        xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">

@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import { Party } from "../../services/party";
 import { SessionContext } from "../../context/session";
 import { Modal } from "../common/Modal";
-import { success } from "../common/Toast";
+import { success, fail } from "../common/Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -88,7 +88,7 @@ export const MyParties = () => {
   const leaveParty = async () => {
     const data = await Party.leave(party);
 
-    if (data.status !== 200) throw { error: "leave error" };
+    if (data.status !== 200) fail("Error");
 
     let tempTab = [];
     ExternalParty.map((value) => {
@@ -107,7 +107,7 @@ export const MyParties = () => {
   const deleteParty = async () => {
     const data = await Party.delete(party);
 
-    if (data.status !== 204) throw { error: "delete error" };
+    if (data.status !== 204) fail("Error");
 
     let tempTab = [];
     OwnParty.map((value) => {

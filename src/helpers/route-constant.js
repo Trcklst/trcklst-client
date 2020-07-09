@@ -11,6 +11,7 @@ export const ACCOUNTUSER = "/account";
 export const PARTYNEW = "/party/new";
 export const PARTYJOIN = "/party/join";
 export const MYSUBSRIPTIONS = "/mysubscriptions";
+export const NEWSUBSCRIPTION = "/newsubscription";
 export const SUBSRIPTIONS = "/admin/subscriptions";
 export const MYINVOICES = "/myinvoices";
 export const MYPARTIES = "/parties";

@@ -4,12 +4,15 @@ import { Subscriptions } from "../../../services/subscriptions";
 
 import { MTable } from "../../common/MTable";
 import { SessionContext } from "../../../context/session";
+import {
+  Link
+} from "react-router-dom";
+import {NEWSUBSCRIPTION} from "../../../helpers/route-constant";
 
 const useStyles = makeStyles({
   root: {
     width: "100%",
     maxWidth: 1220,
-    padding: 15,
     margin: "0 auto",
   },
   title: {
@@ -28,6 +31,9 @@ const useStyles = makeStyles({
     letterSpacing: "0.33px",
     textTransform: "uppercase",
   },
+  links: {
+    textAlign: "right"
+  }
 });
 
 export const MySubscriptions = () => {
@@ -66,6 +72,11 @@ export const MySubscriptions = () => {
       <div>
         <h2 className={classes.subtitle}>Abonnements</h2>
         <h1 className={classes.title}>Mes abonnements</h1>
+      </div>
+      <div className={classes.links}>
+        <Link to={NEWSUBSCRIPTION} className={classes.linkNewSubscription}>
+            Nouvel abonnement
+        </Link>
       </div>
       <div className={classes.table}>
         <MTable

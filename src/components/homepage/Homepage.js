@@ -1,9 +1,12 @@
 import React from "react";
 import { useStyles } from "./useStyles";
 import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
-import playing from "../../images/playing.png";
-import unknown from "../../images/unknown.png";
-import teamwork from "../../images/teamwork.png";
+// import playing from "../../images/playing.png";
+// import unknown from "../../images/unknown.png";
+// import teamwork from "../../images/teamwork.png";
+import spotify from "../../images/icons8-spotify-48.png";
+import deezer from "../../images/icons8-deezer-48.png";
+import youtube from "../../images/icons8-youtube-48.png";
 import ticks from "../../images/ticks.png";
 export const Homepage = () => {
   const classes = useStyles();
@@ -48,6 +51,73 @@ export const Homepage = () => {
         </div>
       </section>
       <section id="maincontent" style={{ backgroundColor: "#F9F9F9" }}>
+        <Box paddingY={6}>
+          <Container maxWidth="lg">
+            <Box paddingY={2}>
+              <Typography variant="h3" align="center">
+                Comment marche Trcklst? 👀
+              </Typography>
+            </Box>
+            <Box>
+              <Grid container spacing={0}>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 1</Typography>
+                    <Typography variant="body2">créer une partie</Typography>
+                  </Box>
+                </Grid>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 2</Typography>
+                    <Typography variant="body2">Invitez vos amis</Typography>
+                  </Box>
+                </Grid>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 3</Typography>
+                    <Typography variant="body2">
+                      recherche des 🎵 sur une platforme
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 4</Typography>
+                    <Typography variant="body2">
+                      ajouter à son salon des musiques
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 5</Typography>
+                    <Typography variant="body2">
+                      Votez pour la musique préférée afin qu'elle passe avant
+                      les cours
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid xs={2}>
+                  <hr />
+                  <Box paddingX={1}>
+                    <Typography variant="h6">Etape 6</Typography>
+                    <Typography variant="body2">
+                      profitez de la musique avec vos amis sans vous embetez à
+                      vous connecter
+                    </Typography>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </Box>
+      </section>
+      {/* <section id="maincontent" style={{ backgroundColor: "#F9F9F9" }}>
         <Box paddingY={6}>
           <Container maxWidth="lg">
             <Box paddingY={4}>
@@ -148,6 +218,36 @@ export const Homepage = () => {
                       pharetra vulputate odio.
                     </Typography>
                   </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </Box>
+      </section> */}
+      <section
+        id="supportAvailable"
+        style={{ backgroundColor: "black", color: "white" }}
+      >
+        <Box paddingY={6}>
+          <Container maxWidth="lg">
+            <Box py={2}>
+              <Typography variant="h4" align="center">
+                Disponible à présent sur...
+              </Typography>
+            </Box>
+            <Box pY={4}>
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xs={2} align="center">
+                  <img src={spotify} />
+                  <Typography variant="body2">(bientôt)</Typography>
+                </Grid>
+                <Grid xs={2} align="center">
+                  <img src={youtube} />
+                  <Typography variant="body2">(bientôt)</Typography>
+                </Grid>
+                <Grid xs={2} align="center">
+                  <img src={deezer} />
+                  <Typography variant="body2">(bientôt)</Typography>
                 </Grid>
               </Grid>
             </Box>

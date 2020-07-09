@@ -18,7 +18,7 @@ export const Homepage = () => {
           <Container maxWidth="lg">
             <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
-                Partagez votre musique.
+                Ensemble, créer votre playlist.
               </Typography>
               <Typography variant="h6" className={classes.whiteText}>
                 Soyez sans limites. Trcklst, maintenant disponible.
@@ -64,7 +64,7 @@ export const Homepage = () => {
                   <hr />
                   <Box paddingX={1}>
                     <Typography variant="h6">Etape 1</Typography>
-                    <Typography variant="body2">créer une partie</Typography>
+                    <Typography variant="body2">Créer une partie</Typography>
                   </Box>
                 </Grid>
                 <Grid xs={2}>
@@ -79,7 +79,7 @@ export const Homepage = () => {
                   <Box paddingX={1}>
                     <Typography variant="h6">Etape 3</Typography>
                     <Typography variant="body2">
-                      recherche des 🎵 sur une platforme
+                      Rechercher des 🎵 sur une platforme
                     </Typography>
                   </Box>
                 </Grid>
@@ -88,7 +88,7 @@ export const Homepage = () => {
                   <Box paddingX={1}>
                     <Typography variant="h6">Etape 4</Typography>
                     <Typography variant="body2">
-                      ajouter à son salon des musiques
+                      Ajouter à son salon des musiques
                     </Typography>
                   </Box>
                 </Grid>
@@ -107,7 +107,7 @@ export const Homepage = () => {
                   <Box paddingX={1}>
                     <Typography variant="h6">Etape 6</Typography>
                     <Typography variant="body2">
-                      profitez de la musique avec vos amis sans vous embetez à
+                      Profitez de la musique avec vos amis sans vous embetez à
                       vous connecter
                     </Typography>
                   </Box>
@@ -263,15 +263,7 @@ export const Homepage = () => {
           <Container maxWidth="lg">
             <Typography variant="h3">Envie d'un partenariat?</Typography>
             <Typography variant="body2" align="justify">
-              Une publication de 1994 du magazine « Before & After » décrit
-              l'expression « Lorem ipsum ... » comme une version latine peu
-              fidèle d'un passage d'un traité de théorie éthique, de Finibus
-              Bonorum et Malorum, écrit par Cicéron en 45 avant Jésus-Christ. Le
-              passage « Lorem ipsum ... » est tiré du texte « Neque porro
-              quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
-              adipisci velit ... » qui peut se traduire par « Personne n'aime la
-              douleur en elle-même, ne la recherche et ne la souhaite, tout
-              simplement parce qu'il s'agit de la douleur... ».
+              Vous pouvez nous contacter en envoyant un mail à trcklst.esgi@gmail.com
             </Typography>
           </Container>
         </Box>

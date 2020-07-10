@@ -18,7 +18,7 @@ export const Homepage = () => {
           <Container maxWidth="lg">
             <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
-                Ensemble, créer votre playlist.
+                Partagez votre musique.
               </Typography>
               <Typography variant="h6" className={classes.whiteText}>
                 Soyez sans limites. Trcklst, maintenant disponible.
@@ -35,195 +35,122 @@ export const Homepage = () => {
             </Box>
           </Container>
         </main>
-        <div className={classes.shapeDivider}>
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className={classes.shapeSvg}
-          >
-            <path
-              d="M1200 0L0 0 598.97 114.72 1200 0z"
-              className={classes.shapeFill}
-            ></path>
-          </svg>{" "}
-        </div>
       </section>
       <section id="maincontent" style={{ backgroundColor: "#F9F9F9" }}>
-        <Box paddingY={6}>
+        <Box paddingY={6} align="center">
           <Container maxWidth="lg">
             <Box paddingY={2}>
-              <Typography variant="h3" align="center">
-                Comment marche Trcklst? 👀
-              </Typography>
+              <Typography variant="h3">Comment marche Trcklst? 👀</Typography>
             </Box>
-            <Box>
-              <Grid container spacing={0}>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 1</Typography>
-                    <Typography variant="body2">Créer une partie</Typography>
+            <Box paddingY={6} align="center">
+              <Grid container>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{
+                    height: "200px",
+                    backgroundColor: "#1f1959",
+                    color: "white",
+                  }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Créez</Typography>
                   </Box>
+                  <Typography variant="body2">
+                    ...un salon/une partie
+                  </Typography>
                 </Grid>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 2</Typography>
-                    <Typography variant="body2">Invitez vos amis</Typography>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{ height: "200px" }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Invitez</Typography>
                   </Box>
+                  <Typography variant="body2">...vos amis</Typography>
                 </Grid>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 3</Typography>
-                    <Typography variant="body2">
-                      Rechercher des 🎵 sur une platforme
-                    </Typography>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{
+                    height: "200px",
+                    backgroundColor: "#1f1959",
+                    color: "white",
+                  }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Recherchez</Typography>
                   </Box>
+                  <Typography variant="body2">
+                    ...des 🎵 sur la plateforme musicale de votre choix
+                  </Typography>
                 </Grid>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 4</Typography>
-                    <Typography variant="body2">
-                      Ajouter à son salon des musiques
-                    </Typography>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{ height: "200px" }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Ajoutez</Typography>
                   </Box>
+                  <Typography variant="body2">
+                    ...à son salon des musiques
+                  </Typography>
                 </Grid>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 5</Typography>
-                    <Typography variant="body2">
-                      Votez pour la musique préférée afin qu'elle passe avant
-                      les cours
-                    </Typography>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{
+                    height: "200px",
+                    backgroundColor: "#1f1959",
+                    color: "white",
+                  }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Votez</Typography>
                   </Box>
+                  <Typography variant="body2">
+                    ...pour la musique préférée afin qu'elle puisse être lu en
+                    premier.
+                  </Typography>
                 </Grid>
-                <Grid xs={2}>
-                  <hr />
-                  <Box paddingX={1}>
-                    <Typography variant="h6">Etape 6</Typography>
-                    <Typography variant="body2">
-                      Profitez de la musique avec vos amis sans vous embetez à
-                      vous connecter
-                    </Typography>
+                <Grid
+                  xl={4}
+                  lg={4}
+                  md={4}
+                  sm={4}
+                  xs={12}
+                  style={{ height: "200px" }}
+                >
+                  <Box paddingY={3}>
+                    <Typography variant="h4">Profitez</Typography>{" "}
                   </Box>
+                  <Typography variant="body2">
+                    ...de la musique avec vos amis sans vous embetez à vous
+                    connecter
+                  </Typography>
                 </Grid>
               </Grid>
             </Box>
           </Container>
         </Box>
       </section>
-      {/* <section id="maincontent" style={{ backgroundColor: "#F9F9F9" }}>
-        <Box paddingY={6}>
-          <Container maxWidth="lg">
-            <Box paddingY={4}>
-              <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
-                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
-                  <img src={playing} alt="website logo" width="100%" />
-                </Grid>
-                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
-                  <Box>
-                    <Box paddingY={1}>
-                      <Typography
-                        variant="h4"
-                        className={classes.descriptionTitle}
-                      >
-                        Ceci est le premier point
-                      </Typography>
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      className={classes.descriptionContent}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nullam sed ipsum ut ante consequat consequat. Quisque
-                      laoreet sem vitae nunc dignissim porta. Vestibulum
-                      lobortis tortor in blandit convallis. Proin tincidunt eros
-                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
-                      a tellus nibh. Cras nec ornare elit. Aliquam erat
-                      volutpat. Proin magna ipsum, hendrerit non odio vel,
-                      pharetra vulputate odio.
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
-            <Box paddingY={4}>
-              <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
-                  <Box>
-                    <Box paddingY={1}>
-                      <Typography
-                        variant="h4"
-                        align="right"
-                        className={classes.descriptionTitle}
-                      >
-                        Ceci est le premier point
-                      </Typography>
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      align="right"
-                      className={classes.descriptionContent}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nullam sed ipsum ut ante consequat consequat. Quisque
-                      laoreet sem vitae nunc dignissim porta. Vestibulum
-                      lobortis tortor in blandit convallis. Proin tincidunt eros
-                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
-                      a tellus nibh. Cras nec ornare elit. Aliquam erat
-                      volutpat. Proin magna ipsum, hendrerit non odio vel,
-                      pharetra vulputate odio.
-                    </Typography>
-                  </Box>
-                </Grid>
-                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
-                  <img src={unknown} alt="website logo" width="100%" />
-                </Grid>
-                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
-              </Grid>
-            </Box>
-            <Box paddingY={4}>
-              <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid xl={5} lg={0} md={0} sm={0} xs={0}></Grid>
-                <Grid xl={4} lg={6} md={6} sm={6} xs={12} alignContent="center">
-                  <img src={teamwork} alt="website logo" width="100%" />
-                </Grid>
-                <Grid xl={3} lg={4} md={4} sm={4} xs={12} alignContent="center">
-                  <Box>
-                    <Box paddingY={1}>
-                      <Typography
-                        variant="h4"
-                        className={classes.descriptionTitle}
-                      >
-                        Ceci est le premier point
-                      </Typography>
-                    </Box>
-                    <Typography
-                      variant="body2"
-                      className={classes.descriptionContent}
-                    >
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nullam sed ipsum ut ante consequat consequat. Quisque
-                      laoreet sem vitae nunc dignissim porta. Vestibulum
-                      lobortis tortor in blandit convallis. Proin tincidunt eros
-                      quis erat tristique, eu lacinia nibh interdum. Suspendisse
-                      a tellus nibh. Cras nec ornare elit. Aliquam erat
-                      volutpat. Proin magna ipsum, hendrerit non odio vel,
-                      pharetra vulputate odio.
-                    </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
-          </Container>
-        </Box>
-      </section> */}
       <section
         id="supportAvailable"
         style={{ backgroundColor: "black", color: "white" }}
@@ -232,22 +159,37 @@ export const Homepage = () => {
           <Container maxWidth="lg">
             <Box py={2}>
               <Typography variant="h4" align="center">
-                Disponible à présent sur...
+                Nos platformes
               </Typography>
             </Box>
             <Box pY={4}>
               <Grid container spacing={0} alignItems="center" justify="center">
                 <Grid xs={2} align="center">
                   <img src={spotify} />
-                  <Typography variant="body2">(bientôt)</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    bientôt
+                  </Typography>
                 </Grid>
                 <Grid xs={2} align="center">
                   <img src={youtube} />
-                  <Typography variant="body2">(bientôt)</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    bientôt
+                  </Typography>
                 </Grid>
                 <Grid xs={2} align="center">
                   <img src={deezer} />
-                  <Typography variant="body2">(bientôt)</Typography>
+                  <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    bientôt
+                  </Typography>
                 </Grid>
               </Grid>
             </Box>
@@ -261,9 +203,19 @@ export const Homepage = () => {
       >
         <Box paddingY={6}>
           <Container maxWidth="lg">
-            <Typography variant="h3">Envie d'un partenariat?</Typography>
+            <Typography variant="h3">
+              Inscrivez-vous à notre newsletter!
+            </Typography>
             <Typography variant="body2" align="justify">
-              Vous pouvez nous contacter en envoyant un mail à trcklst.esgi@gmail.com
+              Une publication de 1994 du magazine « Before & After » décrit
+              l'expression « Lorem ipsum ... » comme une version latine peu
+              fidèle d'un passage d'un traité de théorie éthique, de Finibus
+              Bonorum et Malorum, écrit par Cicéron en 45 avant Jésus-Christ. Le
+              passage « Lorem ipsum ... » est tiré du texte « Neque porro
+              quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit ... » qui peut se traduire par « Personne n'aime la
+              douleur en elle-même, ne la recherche et ne la souhaite, tout
+              simplement parce qu'il s'agit de la douleur... ».
             </Typography>
           </Container>
         </Box>

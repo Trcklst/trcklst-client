@@ -115,7 +115,6 @@ export const MyParties = () => {
     });
 
     setOwnParty(tempTab);
-    success("La party a été supprimé");
   };
 
   useEffect(() => {

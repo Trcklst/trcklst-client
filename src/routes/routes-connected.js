@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import io from "socket.io-client";
+import socketIOClient from "socket.io-client";
 
 import { Homepage } from "../components/homepage/Homepage";
 import { DashboardAdmin } from "../components/dashboard/admin/DashboardAdmin";
@@ -49,10 +49,11 @@ export const RoutesConnected = () => {
         role: currentAuth.authorities[0],
       });
 
-      const socket = io.connect(process.env.REACT_APP_SOCKET, {
-        query: `token=${getSessionCookie().token}&transport=websocket`,
+      const socket = socketIOClient(process.env.REACT_APP_SOCKET, {
+        query: { token: getSessionCookie().token },
       });
       console.log(socket);
+
       setSocket(socket);
     };
     getOwnUser();

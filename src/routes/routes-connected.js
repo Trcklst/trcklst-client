@@ -52,8 +52,6 @@ export const RoutesConnected = () => {
       const socket = socketIOClient(process.env.REACT_APP_SOCKET, {
         query: { token: getSessionCookie().token },
       });
-      console.log(socket);
-
       setSocket(socket);
     };
     getOwnUser();

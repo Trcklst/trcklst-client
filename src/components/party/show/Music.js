@@ -12,8 +12,8 @@ const useStyles = makeStyles({
     textAlign: "center",
   },
   icon: {
-    width: "50px",
-    height: "50px",
+    width: "35px",
+    height: "35px",
     borderRadius: "70px",
   },
 });

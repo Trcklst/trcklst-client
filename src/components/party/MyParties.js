@@ -74,6 +74,13 @@ export const MyParties = () => {
     setParty(id);
   };
 
+  const handleClickEdit = (value) => {
+    push({
+      pathname: `party/${value._id}/edit`,
+      state: { idParty: value._id, name: value.name },
+    });
+  };
+
   const deleteParty = async () => {
     const dataDelete = await Party.delete(party);
 
@@ -128,7 +135,7 @@ export const MyParties = () => {
                       <Grid item xs={4} sm={1} className={classes.element}>
                         <IconButton
                           aria-label="edit"
-                          onClick={() => console.log("rename")}
+                          onClick={() => handleClickEdit(value)}
                         >
                           <EditIcon />
                         </IconButton>

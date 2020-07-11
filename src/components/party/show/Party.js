@@ -212,8 +212,11 @@ export const PartyShow = () => {
           case "pause":
             setStep("Play");
             break;
+          case "edit":
+            setName(param.party.name);
+            break;
           default:
-            console.log(`error`);
+            console.log("error", param);
         }
       });
       socket.on("member-joined", (param) => {

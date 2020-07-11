@@ -17,6 +17,7 @@ import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
 import { PartyJoin } from "../components/party/join/Party";
 import { TrackNew } from "../components/track/new/Track";
+import { PartyEdit } from "../components/party/edit/Party";
 import {
   NOTFOUND,
   HOME,
@@ -33,6 +34,7 @@ import {
   PARTYSHOW,
   PARTYJOIN,
   TRACKNEW,
+  PARTYEDIT,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -164,6 +166,15 @@ export const RoutesConnected = () => {
         component={(props) => (
           <Can I="show" a="Party">
             {() => <PartyShow {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        exact
+        path={PARTYEDIT}
+        component={(props) => (
+          <Can I="edit" a="Party">
+            {() => <PartyEdit {...props} />}
           </Can>
         )}
       />

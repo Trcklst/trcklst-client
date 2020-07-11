@@ -22,8 +22,6 @@ export const PartyNew = () => {
       setErrors({ [jsonData.errors.property]: jsonData.errors.message });
     }
 
-    await Party.join(jsonData._id);
-
     success("La party a été créée.");
 
     return push(MYPARTIES);

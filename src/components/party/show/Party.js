@@ -16,7 +16,7 @@ import { Music } from "./Music";
 import { SessionContext } from "../../../context/session";
 import { success, fail, warning } from "../../common/Toast";
 import { isEmpty } from "../../../helpers/utility";
-import { MYPARTIES } from "../../../helpers/route-constant";
+import { PARTYJOIN } from "../../../helpers/route-constant";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -116,7 +116,7 @@ export const PartyShow = () => {
   const endpoint = location.pathname.split("/").pop();
   const { socket, user } = useContext(SessionContext);
   const { push } = useHistory();
-  const [step, setStep] = useState("Lecture");
+  const [step, setStep] = useState("Play");
   const [id, setId] = useState("");
   const [owner, setOwner] = useState({});
   const [createdAt, setCreatedAt] = useState({});
@@ -143,12 +143,9 @@ export const PartyShow = () => {
         const jsonData = await data.json();
 
         if (data.status !== 200) throw jsonData;
-
-        setCurrentTrack(jsonData.currentTrack);
-        setTracks(jsonData.tracks);
       }
     } else {
-      if (action === "Lecture") {
+      if (action === "Play") {
         await Track.play(endpoint);
       } else {
         await Track.pause(endpoint);
@@ -166,8 +163,14 @@ export const PartyShow = () => {
     setTracks(jsonData.tracks);
   };
 
+  window.onbeforeunload = async (e) => {
+    await Party.leave(endpoint);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
+      await Party.join(endpoint);
+
       const data = await Party.show(endpoint);
       const jsonData = await data.json();
 
@@ -183,12 +186,35 @@ export const PartyShow = () => {
         setCurrentTrack(jsonData.currentTrack);
     };
     fetchData();
+    return async () => {
+      await Party.leave(endpoint);
+    };
   }, [endpoint]);
 
   useEffect(() => {
     if (!isEmpty(socket)) {
       socket.on("party-updated", (param) => {
-        console.log(param);
+        switch (param.action) {
+          case "add-track":
+            setTracks(param.party.tracks);
+            break;
+          case "next-track":
+            setCurrentTrack(param.party.currentTrack);
+            setTracks(param.party.tracks);
+            setStep("Pause");
+            break;
+          case "vote":
+            setTracks(param.party.tracks);
+            break;
+          case "play":
+            setStep("Pause");
+            break;
+          case "pause":
+            setStep("Play");
+            break;
+          default:
+            console.log(`error`);
+        }
       });
       socket.on("member-joined", (param) => {
         setMembers(param.party.members);
@@ -198,10 +224,16 @@ export const PartyShow = () => {
       });
       socket.on("party-deleted", () => {
         warning("La party a été supprimé");
-        push(MYPARTIES);
+        push(PARTYJOIN);
       });
+      return () => {
+        socket.off("party-updated");
+        socket.off("member-joined");
+        socket.off("member-leaved");
+        socket.off("party-deleted");
+      };
     }
-  }, [push, socket]);
+  }, [socket, push]);
 
   return (
     <>
@@ -226,16 +258,7 @@ export const PartyShow = () => {
                 </p>
                 <ColorButton
                   className={classes.buttonState}
-                  onClick={() => [
-                    handleClickAction(step),
-                    setStep(
-                      tracks.length > 0 || !isEmpty(currentTrack)
-                        ? step === "Lecture"
-                          ? "Pause"
-                          : "Lecture"
-                        : step
-                    ),
-                  ]}
+                  onClick={() => [handleClickAction(step)]}
                 >
                   {step}
                 </ColorButton>
@@ -284,7 +307,7 @@ export const PartyShow = () => {
       {!isEmpty(currentTrack) && (
         <section className={classes.reactPlayer}>
           <ReactPlayer
-            playing={step === "Lecture" ? false : true}
+            playing={step === "Play" ? false : true}
             onEnded={() => handleClickNextTrack()}
             url={`https://www.youtube.com/watch?v=${currentTrack.id}`}
           />

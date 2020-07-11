@@ -15,6 +15,7 @@ import spotify from "../../images/icons8-spotify-48.png";
 import deezer from "../../images/icons8-deezer-48.png";
 import youtube from "../../images/icons8-youtube-48.png";
 import ticks from "../../images/ticks.png";
+
 export const Homepage = () => {
   const classes = useStyles();
 
@@ -300,6 +301,306 @@ export const Homepage = () => {
                 </Grid>
               </Grid>
             </Box>
+          </Container>
+        </Box>
+      </section>
+      <section
+        id="pricing"
+        className={classes.pricing}
+        style={{ backgroundColor: "#F9F9F9" }}
+      >
+        <Box paddingY={6} align="center">
+          <Container maxWidth="lg">
+            <Box paddingY={2}>
+              <Typography variant="h4" className={classes.descriptionTitle}>
+                Notre plateforme propose deux types d'abonnements pour vous
+                satisfaire.
+              </Typography>
+            </Box>
+            <Grid container spacing={0} alignItems="center" justify="center">
+              <Grid
+                xl={4}
+                lg={4}
+                md={4}
+                sm={4}
+                xs={12}
+                className={classes.pricingBox}
+                style={{ backgroundColor: "white" }}
+              >
+                <Box paddingY={3}>
+                  <Typography variant="body2">Classique</Typography>
+                  <Typography variant="h2">0€</Typography>
+                  <Typography variant="body2">à vie, pour toujours</Typography>
+                </Box>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <img src={ticks} alt="ticksLogo" />
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={6}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Création de party</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <img src={ticks} alt="ticksLogo"></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={6}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">Inviter des amis</Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <img src={ticks} alt="ticksLogo"></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={6}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">
+                        Nombre de party limités
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <img src={ticks} alt="ticksLogo"></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={6}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">
+                        Nombre d'invités limités
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div>
+                  <Grid
+                    container
+                    spacing={0}
+                    alignItems="center"
+                    justify="center"
+                  >
+                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <img src={ticks} alt="ticksLogo"></img>
+                    </Grid>
+                    <Grid
+                      xl={4}
+                      lg={4}
+                      md={4}
+                      sm={4}
+                      xs={6}
+                      style={{ alignSelf: "center" }}
+                    >
+                      <Typography variant="body2">
+                        Nombre de sons limités
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </div>
+              </Grid>
+              <Grid
+                xl={4}
+                lg={4}
+                md={4}
+                sm={4}
+                xs={12}
+                className={classes.pricingBox}
+                style={{ backgroundColor: "#1f1959", color: "white" }}
+              >
+                <Box paddingY={3}>
+                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="h2">15€</Typography>
+                  <Typography variant="body2">par mois</Typography>
+                </Box>
+                <Box>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo" />
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Inviter des amis
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Nombre de party illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          CréNombre d'invités illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        xl={4}
+                        lg={4}
+                        md={4}
+                        sm={4}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2">
+                          Nombre de sons illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                </Box>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
+      </section>
+      <section id="footer" className={classes.blackBg}>
+        <Box paddingY={8}>
+          <Container>
+            <Typography
+              variant="body2"
+              composant="p"
+              className={classes.whiteText}
+              align="center"
+            >
+              © Tous droits réservés - Trcklst | 2020
+            </Typography>
           </Container>
         </Box>
       </section>

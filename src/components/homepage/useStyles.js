@@ -3,15 +3,54 @@ import { makeStyles } from "@material-ui/core";
 import landingWallpaper from "../../images/home.jpg";
 
 export const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: "1",
+  // general
+  purpleText: {
+    color: "#1f1959",
   },
+  purpleBg: {
+    backgroundColor: "1f1959",
+  },
+  whiteText: {
+    color: "white",
+  },
+  whiteBg: {
+    backgroundColor: "#F9F9F9",
+  },
+  blackBg: {
+    backgroundColor: "black",
+  },
+  boldText: {
+    fontFamily: "'PublicSansBold' !important",
+  },
+
+  // section header
   heroImage: {
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${landingWallpaper})`,
   },
+  customButton: {
+    color: "black",
+    backgroundColor: "white",
+    border: "1px solid white",
+    textTransform: "none",
+    "&:hover": {
+      color: "black",
+      backgroundColor: "white",
+      boxShadow: "0 0 50px white",
+      textTransform: "none",
+    },
+  },
+
+  // main content section
+  stepsBox: {
+    height: "500px",
+    backgroundColor: "white",
+    margin: "20px",
+    boxShadow: "0 20px 30px 0 rgba(36,50,66,.14)",
+  },
+
   appbar: {
     backgroundColor: "transparent",
     boxShadow: "none",
@@ -28,12 +67,7 @@ export const useStyles = makeStyles((theme) => ({
     letterSpacing: "2px",
     boxShadow: "none",
   },
-  blackBg: {
-    backgroundColor: "black",
-  },
-  whiteText: {
-    color: "white",
-  },
+
   link: {
     textDecoration: "none",
     color: "white",
@@ -57,18 +91,7 @@ export const useStyles = makeStyles((theme) => ({
   shapeFill: {
     fill: "#f9f9f9",
   },
-  customButton: {
-    color: "black",
-    backgroundColor: "white",
-    border: "1px solid white",
-    textTransform: "none",
-    "&:hover": {
-      color: "black",
-      backgroundColor: "white",
-      boxShadow: "0 0 50px white",
-      textTransform: "none",
-    },
-  },
+
   descriptionTitle: {
     color: "#1f1959",
   },

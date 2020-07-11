@@ -18,7 +18,7 @@ export const Homepage = () => {
           <Container maxWidth="lg">
             <Box paddingY={24} px={3}>
               <Typography variant="h1" className={classes.whiteText}>
-                Partagez votre musique.
+                Composez votre playlist.
               </Typography>
               <Typography variant="h6" className={classes.whiteText}>
                 Soyez sans limites. Trcklst, maintenant disponible.
@@ -288,7 +288,7 @@ export const Homepage = () => {
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Création de party</Typography>
+                      <Typography variant="body2">Inviter des amis</Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -310,7 +310,7 @@ export const Homepage = () => {
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Création de party</Typography>
+                      <Typography variant="body2">Nombre de party limités</Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -332,7 +332,7 @@ export const Homepage = () => {
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Création de party</Typography>
+                      <Typography variant="body2">Nombre d'invités limités</Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -354,7 +354,7 @@ export const Homepage = () => {
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Création de party</Typography>
+                      <Typography variant="body2">Nombre de sons limités</Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -417,7 +417,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
-                          Création de party
+                          Inviter des amis
                         </Typography>
                       </Grid>
                     </Grid>
@@ -441,7 +441,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
-                          Création de party
+                          Nombre de party illimités
                         </Typography>
                       </Grid>
                     </Grid>
@@ -465,7 +465,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
-                          Création de party
+                          CréNombre d'invités illimités
                         </Typography>
                       </Grid>
                     </Grid>
@@ -489,7 +489,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2">
-                          Création de party
+                          Nombre de sons illimités
                         </Typography>
                       </Grid>
                     </Grid>

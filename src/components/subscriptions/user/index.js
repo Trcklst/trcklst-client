@@ -43,8 +43,9 @@ export const MySubscriptions = () => {
 
   const optionTable = {
     columns: [
-      { title: "Type", field: "type" },
       { title: "Date", field: "date" },
+      { title: "Prix", field: "price" },
+      { title: "Facture", field: "invoice" }
     ],
     options: {
       sorting: false,
@@ -57,15 +58,15 @@ export const MySubscriptions = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await Subscriptions.mine(user.id);
+      const data = await Subscriptions.mine();
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
-
-      setData(jsonData);
+      
+      setData(jsonData.billingItems);
     };
     fetchData();
-  }, [user.id]);
+  }, []);
 
   return (
     <div className={classes.root}>
@@ -86,5 +87,6 @@ export const MySubscriptions = () => {
         ></MTable>
       </div>
     </div>
+    
   );
 };

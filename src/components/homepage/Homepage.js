@@ -277,33 +277,23 @@ export const Homepage = () => {
             </Box>
             <Box paddingX={3}>
               <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid item xs={12} sm={2} md={2} lg={2} xl={2} align="center">
-                  <img src={spotify} alt="spotifyLogo" />
-                  {/* <Typography
-                    variant="subtitle1"
-                    style={{ letterSpacing: "2px" }}
-                  >
-                    bientôt
-                  </Typography> */}
-                  <Chip size="small" label="bientôt" />
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={spotify} alt="spotifyLogo" width="40%" />
+                  <Box paddingY={1}>
+                    <Chip size="small" label="bientôt" />
+                  </Box>
                 </Grid>
-                <Grid item xs={12} sm={2} md={2} lg={2} xl={2} align="center">
-                  <img src={youtube} alt="youtubeLogo" />
-                  <Typography
-                    variant="subtitle1"
-                    style={{ letterSpacing: "2px" }}
-                  >
-                    disponible
-                  </Typography>
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={youtube} alt="youtubeLogo" width="40%" />
+                  <Box paddingY={1}>
+                    <Chip size="small" label="bientôt" />
+                  </Box>
                 </Grid>
-                <Grid item xs={12} sm={2} md={2} lg={2} xl={2} align="center">
-                  <img src={deezer} alt="deezerLogo" />
-                  <Typography
-                    variant="subtitle1"
-                    style={{ letterSpacing: "2px" }}
-                  >
-                    bientôt
-                  </Typography>
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={deezer} alt="deezerLogo" width="40%" />
+                  <Box paddingY={1}>
+                    <Chip size="small" label="bientôt" />
+                  </Box>
                 </Grid>
               </Grid>
             </Box>

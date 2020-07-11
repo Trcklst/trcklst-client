@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { TextField, Button } from "@material-ui/core";
 
 import { useStyles } from "./useStyles";
-import { SessionContext } from "../../context/session";
 
 export const initialValues = {
   name: "",
@@ -19,8 +18,6 @@ export const NewSubscriptionForm = ({
   handleBlur,
 }) => {
   const classes = useStyles();
-  const { user } = useContext(SessionContext);
-  console.log(user.id);
 
   return (
     <form onSubmit={handleSubmit} className={classes.form}>
@@ -31,6 +28,9 @@ export const NewSubscriptionForm = ({
         id="cardNumber"
         label="Numéro de carte de crédit"
         name="cardNumber"
+        inputProps={{
+          maxLength: 16,
+        }}
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -44,6 +44,8 @@ export const NewSubscriptionForm = ({
         label="Mois d'expiration"
         id="month"
         name="month"
+        inputProps={{ min: "1", max: "12", step: "1" }}
+
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -55,8 +57,8 @@ export const NewSubscriptionForm = ({
         type="number"
         id="year"
         name="year"
-        inputProps={{ min: "0", max: "12", step: "1" }}
         label="Année d'expiration"
+        inputProps={{ min: "2020", max: "2030", step: "1" }}
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -65,10 +67,12 @@ export const NewSubscriptionForm = ({
         variant="outlined"
         margin="normal"
         required
-        type="number"
         id="cryptogramme"
         label="Cryptogramme"
         name="cryptogramme"
+        inputProps={{
+          maxLength: 3,
+        }}
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}

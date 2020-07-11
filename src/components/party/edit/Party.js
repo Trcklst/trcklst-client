@@ -3,26 +3,35 @@ import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 
 import { useStyles } from "./useStyles";
-import { initialValues, PartyForm } from "./PartyForm";
+import { PartyForm } from "./PartyForm";
 import { partySchema } from "./partySchema";
 import { Party } from "../../../services/party";
 import { MYPARTIES } from "../../../helpers/route-constant";
 import { success, fail } from "../../common/Toast";
 
-export const PartyNew = () => {
+export const PartyEdit = (props) => {
   const classes = useStyles();
+  const { idParty, name } = props.location.state;
   const { push } = useHistory();
 
+  const initialValues = {
+    name: name,
+  };
+
+  const initialErrors = {
+    name: "",
+  };
+
   const handleSubmit = async ({ name }, { setErrors }) => {
-    const data = await Party.new(name);
+    const data = await Party.edit(idParty, name);
     const jsonData = await data.json();
 
-    if (data.status !== 201) {
-      fail("Une erreur s'est produite lors de la création de la party.");
+    if (data.status !== 200) {
+      fail("Une erreur s'est produite lors de la modification de la party.");
       setErrors({ [jsonData.errors.property]: jsonData.errors.message });
     }
 
-    success("La party a été créée.");
+    success("La party a été modifié.");
 
     return push(MYPARTIES);
   };
@@ -32,10 +41,10 @@ export const PartyNew = () => {
       <div className={classes.party}>
         <div>
           <h2 className={classes.subtitle}>Party</h2>
-          <h1 className={classes.title}>Création d'une party</h1>
+          <h1 className={classes.title}>Modification d'une party</h1>
         </div>
         <Formik
-          initialErrors={initialValues}
+          initialErrors={initialErrors}
           initialValues={initialValues}
           component={PartyForm}
           validationSchema={partySchema}

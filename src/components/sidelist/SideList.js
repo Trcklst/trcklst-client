@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
   disconnect: {
     padding: 15,
     fontSize: 11,
-    [theme.breakpoints.down("sm")]: { display: "none" },
   },
 }));
 

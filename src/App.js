@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 import { RoutesNotConnected } from "./routes/routes-notconnected";
 import { RoutesConnected } from "./routes/routes-connected";
-import { Navbar } from "./components/Navbar/Navbar";
+import { Navbar } from "./components/navbar/Navbar";
 import { getSessionCookie, SessionContext } from "./context/session";
 import { ability, defineRulesFor } from "./helpers/ability";
 import "./App.css";
@@ -34,11 +34,14 @@ const App = () => {
   const classes = useStyles();
   const [session, setSession] = useState(getSessionCookie());
   const [user, setUser] = useState({});
+  const [socket, setSocket] = useState({});
   const contextValue = {
     session,
     setSession,
     user,
     setUser,
+    socket,
+    setSocket,
   };
   const wrapper = createRef();
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import socketIOClient from "socket.io-client";
 
 import { Homepage } from "../components/homepage/Homepage";
 import { DashboardAdmin } from "../components/dashboard/admin/DashboardAdmin";
@@ -16,6 +17,7 @@ import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
 import { PartyJoin } from "../components/party/join/Party";
 import { TrackNew } from "../components/track/new/Track";
+import { PartyEdit } from "../components/party/edit/Party";
 import {
   NOTFOUND,
   HOME,
@@ -32,12 +34,13 @@ import {
   PARTYSHOW,
   PARTYJOIN,
   TRACKNEW,
+  PARTYEDIT,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
 
 export const RoutesConnected = () => {
-  const { setUser } = useContext(SessionContext);
+  const { setUser, setSocket } = useContext(SessionContext);
 
   useEffect(() => {
     const getOwnUser = async () => {
@@ -47,9 +50,13 @@ export const RoutesConnected = () => {
         id: currentAuth.userId,
         role: currentAuth.authorities[0],
       });
+      const socket = socketIOClient(process.env.REACT_APP_SOCKET, {
+        query: { token: getSessionCookie().token },
+      });
+      setSocket(socket);
     };
     getOwnUser();
-  }, [setUser]);
+  }, [setSocket, setUser]);
 
   return (
     <Switch>
@@ -159,6 +166,15 @@ export const RoutesConnected = () => {
         component={(props) => (
           <Can I="show" a="Party">
             {() => <PartyShow {...props} />}
+          </Can>
+        )}
+      />
+      <Route
+        exact
+        path={PARTYEDIT}
+        component={(props) => (
+          <Can I="edit" a="Party">
+            {() => <PartyEdit {...props} />}
           </Can>
         )}
       />

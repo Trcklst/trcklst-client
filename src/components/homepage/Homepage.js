@@ -53,6 +53,7 @@ export const Homepage = () => {
             <Box paddingX={3}>
               <Grid container spacing={0} alignItems="center" justify="center">
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -85,6 +86,7 @@ export const Homepage = () => {
                   </Box>
                 </Grid>
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -117,6 +119,7 @@ export const Homepage = () => {
                   </Box>
                 </Grid>
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -155,6 +158,7 @@ export const Homepage = () => {
               </Grid>
               <Grid container spacing={2} alignItems="center" justify="center">
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -187,6 +191,7 @@ export const Homepage = () => {
                   </Box>
                 </Grid>
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -220,6 +225,7 @@ export const Homepage = () => {
                   </Box>
                 </Grid>
                 <Grid
+                  item
                   xs={12}
                   sm={6}
                   md={3}
@@ -309,6 +315,7 @@ export const Homepage = () => {
             </Box>
             <Grid container spacing={0} alignItems="center" justify="center">
               <Grid
+                item
                 xl={4}
                 lg={4}
                 md={4}
@@ -329,10 +336,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} alt="ticksLogo" />
                     </Grid>
                     <Grid
+                      item
                       xl={4}
                       lg={4}
                       md={4}
@@ -351,10 +359,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} alt="ticksLogo"></img>
                     </Grid>
                     <Grid
+                      item
                       xl={4}
                       lg={4}
                       md={4}
@@ -373,10 +382,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} alt="ticksLogo"></img>
                     </Grid>
                     <Grid
+                      item
                       xl={4}
                       lg={4}
                       md={4}
@@ -397,10 +407,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} alt="ticksLogo"></img>
                     </Grid>
                     <Grid
+                      item
                       xl={4}
                       lg={4}
                       md={4}
@@ -421,10 +432,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                       <img src={ticks} alt="ticksLogo"></img>
                     </Grid>
                     <Grid
+                      item
                       xl={4}
                       lg={4}
                       md={4}
@@ -440,6 +452,7 @@ export const Homepage = () => {
                 </div>
               </Grid>
               <Grid
+                item
                 xl={4}
                 lg={4}
                 md={4}
@@ -461,10 +474,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} alt="ticksLogo" />
                       </Grid>
                       <Grid
+                        item
                         xl={4}
                         lg={4}
                         md={4}
@@ -485,10 +499,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} alt="ticksLogo"></img>
                       </Grid>
                       <Grid
+                        item
                         xl={4}
                         lg={4}
                         md={4}
@@ -509,10 +524,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} alt="ticksLogo"></img>
                       </Grid>
                       <Grid
+                        item
                         xl={4}
                         lg={4}
                         md={4}
@@ -533,10 +549,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} alt="ticksLogo"></img>
                       </Grid>
                       <Grid
+                        item
                         xl={4}
                         lg={4}
                         md={4}
@@ -557,10 +574,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid xl={1} lg={1} md={1} sm={1} xs={3}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
                         <img src={ticks} alt="ticksLogo"></img>
                       </Grid>
                       <Grid
+                        item
                         xl={4}
                         lg={4}
                         md={4}

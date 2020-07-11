@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles, Grid, Box, IconButton, Badge } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const useStyles = makeStyles((theme) => ({
+import { Track } from "../../../services/track";
+
+const useStyles = makeStyles({
   container: {
     alignItems: "center",
   },
@@ -14,11 +16,17 @@ const useStyles = makeStyles((theme) => ({
     height: "50px",
     borderRadius: "70px",
   },
-}));
+});
 
-export const Music = ({ icon, title }) => {
+export const Music = ({ id, icon, title, votesCount, idParty }) => {
   const classes = useStyles();
-  const [count, setCount] = useState(1);
+
+  const handleClick = async () => {
+    const data = await Track.vote(idParty, id);
+    const jsonData = await data.json();
+
+    if (data.status !== 200) throw jsonData;
+  };
 
   return (
     <Grid container className={classes.container}>
@@ -30,18 +38,18 @@ export const Music = ({ icon, title }) => {
       <Grid item xs={8}>
         <p>{title}</p>
       </Grid>
-      <Grid item xs={1}>
-        <IconButton
-          aria-label="like"
-          onClick={() => {
-            setCount(count + 1);
-          }}
-        >
-          <FavoriteIcon style={{ color: "rgb(255, 0, 47)" }} />
-        </IconButton>
-      </Grid>
-      <Grid item xs={1}>
-        <Badge color="secondary" badgeContent={count}></Badge>
+      <Grid item xs={2}>
+        <Badge color="secondary" badgeContent={votesCount}>
+          <IconButton
+            style={{ padding: 1 }}
+            aria-label="like"
+            onClick={() => {
+              handleClick();
+            }}
+          >
+            <FavoriteIcon style={{ color: "rgb(15, 11, 255)" }} />
+          </IconButton>
+        </Badge>
       </Grid>
     </Grid>
   );

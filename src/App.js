@@ -24,7 +24,6 @@ export const useStyles = makeStyles({
     flexGrow: 1,
   },
   content: {
-    padding: 20,
     height: "100%",
     display: "flex",
     flexDirection: "column",

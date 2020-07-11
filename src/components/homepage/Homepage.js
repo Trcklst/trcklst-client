@@ -1,10 +1,20 @@
 import React from "react";
 import { useStyles } from "./useStyles";
-import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
-import banner1 from "../../images/undraw_having_fun_iais.png";
-import banner2 from "../../images/undraw_music_r1se.png";
-import banner3 from "../../images/undraw_party_lqnv.png";
-
+import {
+  Button,
+  Grid,
+  Typography,
+  Box,
+  Container,
+  Chip,
+} from "@material-ui/core";
+import playing from "../../images/playing.png";
+import unknown from "../../images/unknown.png";
+import teamwork from "../../images/teamwork.png";
+import spotify from "../../images/icons8-spotify-48.png";
+import deezer from "../../images/icons8-deezer-48.png";
+import youtube from "../../images/icons8-youtube-48.png";
+import ticks from "../../images/ticks.png";
 export const Homepage = () => {
   const classes = useStyles();
 
@@ -12,28 +22,13 @@ export const Homepage = () => {
     <>
       <section id="header" className={classes.heroImage}>
         <main>
-          <Container>
-            <Box py={24} px={3}>
-              <Typography variant="h1" className={classes.whiteText}>
-                Trcklst.
+          <Container maxWidth="lg">
+            <Box paddingY={24} paddingX={3} className={classes.whiteText}>
+              <Typography variant="h2">Composez votre playlist.</Typography>
+              <Typography variant="h6">
+                Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
-              <Typography variant="body2" className={classes.whiteText}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-                nec, ultricies sed, dolor. Cras elementum ultrices diam.
-                Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-                Proin porttitor, orci nec nonummy molestie, enim est eleifend
-                mi, non fermentum diam nisl sit amet erat. Duis semper. Duis
-                arcu massa, scelerisque vitae, consequat in, pretium a, enim.
-                Pellentesque congue. Ut in risus volutpat libero pharetra
-                tempor. Cras vestibulum bibendum augue. Praesent egestas leo in
-                pede. Praesent blandit odio eu enim. Pellentesque sed dui ut
-                augue blandit sodales. Vestibulum ante ipsum primis in faucibus
-                orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.
-                Mauris ac mauris sed pede pellentesque fermentum. Maecenas
-                adipiscing ante non diam sodales hendrerit.
-              </Typography>
-              <Box py={5}>
+              <Box paddingY={5}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -45,136 +40,266 @@ export const Homepage = () => {
             </Box>
           </Container>
         </main>
-        <div className={classes.shapeDivider}>
-          <svg
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className={classes.shapeSvg}
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              className={classes.shapeFill}
-              fill="#FFFFFF"
-              fill-opacity="1"
-            ></path>
-          </svg>{" "}
-        </div>
       </section>
-      <section id="maincontent">
-        <header>
-          <Container>
-            <Box py={8}>
-              <Typography variant="h3" align="center">
-                Pourquoi utiliser Trcklst ?
-              </Typography>
-              <Typography variant="body2" align="justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                varius velit eleifend orci consequat, sed commodo enim
-                vulputate. Suspendisse sit amet congue purus. Aenean auctor dui
-                non orci porttitor posuere. Donec eu enim arcu. Cras varius
-                euismod risus nec viverra. Quisque eu eros rutrum, mollis eros
-                non, ultricies erat. In et tellus ultrices, lacinia ligula nec,
-                tempor purus. Curabitur aliquet diam metus, non suscipit ante
-                interdum eu. Maecenas vulputate nunc sed nunc accumsan, nec
-                tempus enim elementum. Praesent tincidunt dignissim lectus, nec
-                congue urna. Pellentesque fringilla nec neque a dapibus.
-                Vestibulum nisl velit, vulputate id elementum ut, egestas eget
-                est. Proin consequat finibus scelerisque.
+      <section id="maincontent" className={classes.whiteBg}>
+        <Box paddingY={6} align="center">
+          <Container maxWidth="lg">
+            <Box paddingY={3}>
+              <Typography variant="h3" className={classes.boldText}>
+                Comment ça marche ?
               </Typography>
             </Box>
-          </Container>
-        </header>
-        <main>
-          <Container>
-            <Box py={5}>
-              <Grid container spacing={4}>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner1} alt="website logo" width="100%" />
+            <Box paddingX={3}>
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={playing} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Créez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...un salon/une partie
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Tout d'abord...
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
                 </Grid>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner2} alt="option2" width="100%" />
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={unknown} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Invitez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...vos amis
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Par la suite..
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
                 </Grid>
-                <Grid item xs={12} sm={4}>
-                  <Box height="400px">
-                    <img src={banner3} alt="option3" width="100%" />
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={teamwork} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Recherchez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...des{" "}
+                        <span role="img" aria-label="music">
+                          🎵
+                        </span>{" "}
+                        sur la plateforme musicale de votre choix
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
                   </Box>
-                  <Typography variant="h4" component="h1" align="center">
-                    Après...
-                  </Typography>
-                  <Typography variant="body2" align="justify">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenean varius velit eleifend orci consequat, sed commodo
-                    enim vulputate. Suspendisse sit amet congue purus. Aenean
-                    auctor dui non orci porttitor posuere. Donec eu enim arcu.
-                    Cras varius euismod risus nec viverra. Quisque eu eros
-                    rutrum, mollis eros non, ultricies erat. In et tellus
-                    ultrices, lacinia ligula nec, tempor purus. Curabitur
-                    aliquet diam metus, non suscipit ante interdum eu. Maecenas
-                    vulputate nunc sed nunc accumsan, nec tempus enim elementum.
-                    Praesent tincidunt dignissim lectus, nec congue urna.
-                    Pellentesque fringilla nec neque a dapibus. Vestibulum nisl
-                    velit, vulputate id elementum ut, egestas eget est. Proin
-                    consequat finibus scelerisque.
-                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid container spacing={2} alignItems="center" justify="center">
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={playing} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Ajoutez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...à son salon des musiques
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={playing} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Votez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...pour la musique préférée afin qu'elle puisse être lu
+                        en premier.
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+                <Grid
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  lg={3}
+                  xl={3}
+                  className={classes.stepsBox}
+                >
+                  <Box padding={2}>
+                    <Box paddingY={3}>
+                      <img src={playing} alt="boxPicture" width="100%" />
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
+                      Profitez
+                    </Typography>
+                    <Box paddingX={2}>
+                      <Typography variant="body2" align="left">
+                        ...de la musique avec vos amis sans vous embetez à vous
+                        connecter
+                      </Typography>
+                      <Typography variant="body2" align="justify">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
+                        condimentum luctus commodo non, dapibus finibus augue.
+                        Proin efficitur, magna at faucibus gravida, justo justo
+                        augue.
+                      </Typography>
+                    </Box>
+                  </Box>
                 </Grid>
               </Grid>
             </Box>
           </Container>
-        </main>
+        </Box>
       </section>
-      <section id="footer" className={classes.blackBg}>
-        <Box py={8}>
-          <Container>
-            <Typography
-              variant="body2"
-              composant="p"
-              className={classes.whiteText}
-              align="center"
-            >
-              © Tous droits réservés - Trcklst | 2020
-            </Typography>
+      <section
+        id="supportAvailable"
+        className={classes.whiteText}
+        style={{ backgroundColor: "black", color: "white" }}
+      >
+        <Box paddingY={6} align="center">
+          <Container maxWidth="lg">
+            <Box paddingY={3}>
+              <Typography variant="h3" className={classes.boldText}>
+                Nos platformes
+              </Typography>
+            </Box>
+            <Box paddingX={3}>
+              <Grid container spacing={0} alignItems="center" justify="center">
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={spotify} alt="spotifyLogo" />
+                  {/* <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    bientôt
+                  </Typography> */}
+                  <Chip size="small" label="bientôt" />
+                </Grid>
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={youtube} alt="youtubeLogo" />
+                  <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    disponible
+                  </Typography>
+                </Grid>
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
+                  <img src={deezer} alt="deezerLogo" />
+                  <Typography
+                    variant="subtitle1"
+                    style={{ letterSpacing: "2px" }}
+                  >
+                    bientôt
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
           </Container>
         </Box>
       </section>

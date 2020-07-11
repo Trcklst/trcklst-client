@@ -1,11 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
+    padding: 20,
   },
   party: {
     width: "100%",
@@ -33,4 +34,4 @@ export const useStyles = makeStyles((theme) => ({
     height: 55,
     marginTop: 10,
   },
-}));
+});

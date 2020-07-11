@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     height: "100%",
+    padding: 20,
   },
   party: {
     width: "100%",

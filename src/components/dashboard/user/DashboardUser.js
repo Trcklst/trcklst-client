@@ -10,7 +10,7 @@ import { CardMyInvoices } from "./CardMyInvoices";
 const useStyles = makeStyles({
   root: {
     maxWidth: 1220,
-    width: "100%",
+    padding: 20,
   },
   cards: {
     marginTop: 30,

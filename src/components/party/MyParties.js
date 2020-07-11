@@ -14,9 +14,7 @@ import { fail } from "../common/Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 1220,
-    margin: "0 auto",
-    width: "100%",
+    padding: 20,
   },
   mainBlock: {
     paddingTop: 10,

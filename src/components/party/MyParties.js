@@ -134,18 +134,18 @@ export const MyParties = () => {
                       </Grid>
                       <Grid item xs={4} sm={1} className={classes.element}>
                         <IconButton
-                          aria-label="edit"
-                          onClick={() => handleClickEdit(value)}
-                        >
-                          <EditIcon />
-                        </IconButton>
-                      </Grid>
-                      <Grid item xs={4} sm={1} className={classes.element}>
-                        <IconButton
                           aria-label="see"
                           onClick={() => push(`/party/${value._id}`)}
                         >
                           <VisibilityIcon />
+                        </IconButton>
+                      </Grid>
+                      <Grid item xs={4} sm={1} className={classes.element}>
+                        <IconButton
+                          aria-label="edit"
+                          onClick={() => handleClickEdit(value)}
+                        >
+                          <EditIcon />
                         </IconButton>
                       </Grid>
                       <Grid item xs={4} sm={1} className={classes.element}>

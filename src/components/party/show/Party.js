@@ -1,11 +1,22 @@
 import React, { useEffect, useState, useContext } from "react";
-import { makeStyles, Grid, Button, withStyles } from "@material-ui/core";
+import {
+  makeStyles,
+  Grid,
+  Button,
+  withStyles,
+  LinearProgress,
+  Slider,
+} from "@material-ui/core";
 import { useLocation, useHistory } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { purple } from "@material-ui/core/colors";
 import {
   SupervisorAccount as SupervisorAccountIcon,
   CloudUpload as CloudUploadIcon,
+  PlayCircleOutline as PlayCircleOutlineIcon,
+  PauseCircleOutline as PauseCircleOutlineIcon,
+  VolumeDown as VolumeDownIcon,
+  VolumeUp as VolumeUpIcon,
 } from "@material-ui/icons";
 import moment from "moment";
 
@@ -104,9 +115,66 @@ const useStyles = makeStyles((theme) => ({
   },
   reactPlayer: {
     marginTop: 50,
-    "& > div": {
-      width: "100%!important",
+  },
+  player: {
+    backgroundColor: "#313131",
+    margin: -20,
+    width: "calc(100% + 40px)",
+    color: "#FFF",
+  },
+  playerNoOwn: {
+    backgroundColor: "#313131",
+    margin: -20,
+    width: "calc(100% + 40px)",
+    color: "#FFF",
+    cursor: "not-allowed",
+  },
+  playerInfo: {
+    display: "flex",
+    padding: 5,
+  },
+  playerInfoName: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: 10,
+  },
+  iconStep: {
+    fontSize: 45,
+    paddingBottom: 6,
+    "&:hover": {
+      cursor: "pointer",
     },
+  },
+  iconStepNoOwn: {
+    fontSize: 45,
+    marginBottom: 6,
+  },
+  playerAction: {
+    display: "flex",
+    alignItems: "center",
+    padding: 20,
+  },
+  payerActionDiv: {
+    width: "100%",
+    textAlign: "center",
+  },
+  linearProgressBlock: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  linearProgress: {
+    width: "80%",
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  blockVolume: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  volume: {
+    width: 200,
   },
 }));
 
@@ -124,6 +192,24 @@ export const PartyShow = () => {
   const [name, setName] = useState("");
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState({});
+  const [trackDuration, setTrackDuration] = useState(0);
+  const [trackProgress, setTrackProgress] = useState(0);
+  const [trackVolume, setTrackVolume] = useState(100);
+
+  const normalise = (value) => ((value - 1) * 100) / (trackDuration - 1);
+
+  const convertSecondstoTime = (givenSeconds) => {
+    const dateObj = new Date(givenSeconds * 1000);
+    const minutes = dateObj.getUTCMinutes();
+    const seconds = dateObj.getSeconds();
+
+    const timeString =
+      minutes.toString().padStart(2, "0") +
+      ":" +
+      seconds.toString().padStart(2, "0");
+
+    return timeString;
+  };
 
   const handleClick = () => {
     navigator.clipboard.writeText(id);
@@ -132,6 +218,10 @@ export const PartyShow = () => {
 
   const handleClickAddTrack = () => {
     push({ pathname: `${endpoint}/track/new`, state: { idParty: endpoint } });
+  };
+
+  const handleChangeVolume = (event, newValue) => {
+    setTrackVolume(newValue);
   };
 
   const handleClickAction = async (action) => {
@@ -310,10 +400,86 @@ export const PartyShow = () => {
       {!isEmpty(currentTrack) && (
         <section className={classes.reactPlayer}>
           <ReactPlayer
+            style={{ display: "none" }}
             playing={step === "Play" ? false : true}
+            volume={trackVolume / 100}
+            muted={!isEmpty(owner) && user.id === owner.id ? false : true}
             onEnded={() => handleClickNextTrack()}
+            onDuration={(e) => setTrackDuration(e)}
+            onProgress={(e) => setTrackProgress(e.playedSeconds)}
             url={`https://www.youtube.com/watch?v=${currentTrack.id}`}
           />
+          <Grid
+            container
+            className={
+              !isEmpty(owner) && user.id === owner.id
+                ? classes.player
+                : classes.playerNoOwn
+            }
+          >
+            <Grid item xs={12} sm={3} className={classes.playerInfo}>
+              <img src={currentTrack.imageUrl} alt="imgUrl" />
+              <div className={classes.playerInfoName}>
+                <p>{currentTrack.name}</p>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={6} className={classes.playerAction}>
+              <div className={classes.payerActionDiv}>
+                <div>
+                  {!isEmpty(owner) && user.id === owner.id ? (
+                    step === "Play" ? (
+                      <PlayCircleOutlineIcon
+                        onClick={() => [handleClickAction(step)]}
+                        className={classes.iconStep}
+                      />
+                    ) : (
+                      <PauseCircleOutlineIcon
+                        onClick={() => [handleClickAction(step)]}
+                        className={classes.iconStep}
+                      />
+                    )
+                  ) : step === "Play" ? (
+                    <PlayCircleOutlineIcon className={classes.iconStepNoOwn} />
+                  ) : (
+                    <PauseCircleOutlineIcon className={classes.iconStepNoOwn} />
+                  )}
+                </div>
+                <div className={classes.linearProgressBlock}>
+                  <span>{convertSecondstoTime(trackProgress)}</span>
+                  <LinearProgress
+                    variant="determinate"
+                    value={normalise(trackProgress)}
+                    className={classes.linearProgress}
+                  />
+                  <span>
+                    -{convertSecondstoTime(trackDuration - trackProgress)}
+                  </span>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={3} className={classes.blockVolume}>
+              {!isEmpty(owner) && user.id === owner.id && (
+                <div className={classes.volume}>
+                  <Grid container spacing={2}>
+                    <Grid item>
+                      <VolumeDownIcon />
+                    </Grid>
+                    <Grid item xs>
+                      <Slider
+                        value={trackVolume}
+                        style={{ color: "#FFF" }}
+                        onChange={handleChangeVolume}
+                        aria-labelledby="continuous-slider"
+                      />
+                    </Grid>
+                    <Grid item>
+                      <VolumeUpIcon />
+                    </Grid>
+                  </Grid>
+                </div>
+              )}
+            </Grid>
+          </Grid>
         </section>
       )}
     </>

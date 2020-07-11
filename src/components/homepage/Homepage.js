@@ -67,7 +67,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Créez
                     </Typography>
@@ -100,7 +100,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Invitez
                     </Typography>
@@ -133,7 +133,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Recherchez
                     </Typography>
@@ -172,7 +172,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Ajoutez
                     </Typography>
@@ -205,7 +205,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Votez
                     </Typography>
@@ -239,7 +239,7 @@ export const Homepage = () => {
                     </Box>
                     <Typography
                       variant="h6"
-                      className={(classes.purpleText, classes.boldText)}
+                      className={[classes.purpleText, classes.boldText]}
                     >
                       Profitez
                     </Typography>
@@ -263,12 +263,8 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
-      <section
-        id="supportAvailable"
-        className={classes.whiteText}
-        style={{ backgroundColor: "black", color: "white" }}
-      >
-        <Box paddingY={6} align="center">
+      <section id="supportAvailable" className={classes.purpleBg}>
+        <Box paddingY={6} align="center" className={classes.whiteText}>
           <Container maxWidth="lg">
             <Box paddingY={3}>
               <Typography variant="h3" className={classes.boldText}>
@@ -286,7 +282,7 @@ export const Homepage = () => {
                 <Grid item xs={12} sm={2} md={2} lg={2} xl={2} align="center">
                   <img src={youtube} alt="youtubeLogo" width="40%" />
                   <Box paddingY={1}>
-                    <Chip size="small" label="bientôt" />
+                    <Chip size="small" label="disponible" />
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={2} md={2} lg={2} xl={2} align="center">
@@ -300,17 +296,15 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
-      <section
-        id="pricing"
-        className={classes.pricing}
-        style={{ backgroundColor: "#F9F9F9" }}
-      >
+      <section id="pricing" className={[classes.pricing, classes.whiteBg]}>
         <Box paddingY={6} align="center">
           <Container maxWidth="lg">
             <Box paddingY={2}>
-              <Typography variant="h4" className={classes.descriptionTitle}>
-                Notre plateforme propose deux types d'abonnements pour vous
-                satisfaire.
+              <Typography
+                variant="h3"
+                className={[classes.purpleText, classes.boldText]}
+              >
+                Deux types d'abonnements pour vous satisfaire.
               </Typography>
             </Box>
             <Grid container spacing={0} alignItems="center" justify="center">
@@ -321,8 +315,7 @@ export const Homepage = () => {
                 md={4}
                 sm={4}
                 xs={12}
-                className={classes.pricingBox}
-                style={{ backgroundColor: "white" }}
+                className={[classes.pricingBox, classes.whiteBg]}
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Classique</Typography>
@@ -458,8 +451,11 @@ export const Homepage = () => {
                 md={4}
                 sm={4}
                 xs={12}
-                className={classes.pricingBox}
-                style={{ backgroundColor: "#1f1959", color: "white" }}
+                className={[
+                  classes.pricingBox,
+                  classes.purpleBg,
+                  classes.whiteText,
+                ]}
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Preminum</Typography>

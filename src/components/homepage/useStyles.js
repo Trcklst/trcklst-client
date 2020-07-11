@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     color: "#1f1959",
   },
   purpleBg: {
-    backgroundColor: "1f1959",
+    backgroundColor: "#1f1959",
   },
   whiteText: {
     color: "white",
@@ -90,10 +90,6 @@ export const useStyles = makeStyles((theme) => ({
 
   shapeFill: {
     fill: "#f9f9f9",
-  },
-
-  descriptionTitle: {
-    color: "#1f1959",
   },
 
   descriptionContent: {

@@ -1,6 +1,13 @@
 import React from "react";
 import { useStyles } from "./useStyles";
-import { Button, Grid, Typography, Box, Container } from "@material-ui/core";
+import {
+  Button,
+  Grid,
+  Typography,
+  Box,
+  Container,
+  Chip,
+} from "@material-ui/core";
 import playing from "../../images/playing.png";
 import unknown from "../../images/unknown.png";
 import teamwork from "../../images/teamwork.png";
@@ -34,16 +41,16 @@ export const Homepage = () => {
           </Container>
         </main>
       </section>
-      <section id="maincontent" className={classes.whit}>
+      <section id="maincontent" className={classes.whiteBg}>
         <Box paddingY={6} align="center">
           <Container maxWidth="lg">
-            <Box paddingX={3}>
+            <Box paddingY={3}>
               <Typography variant="h3" className={classes.boldText}>
                 Comment ça marche ?
               </Typography>
             </Box>
             <Box paddingX={3}>
-              <Grid container spacing={2} alignItems="center" justify="center">
+              <Grid container spacing={0} alignItems="center" justify="center">
                 <Grid
                   xs={12}
                   sm={6}
@@ -56,7 +63,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Créez
                     </Typography>
                     <Box paddingX={2}>
@@ -85,7 +95,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={unknown} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Invitez
                     </Typography>
                     <Box paddingX={2}>
@@ -114,7 +127,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={teamwork} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Recherchez
                     </Typography>
                     <Box paddingX={2}>
@@ -149,7 +165,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Ajoutez
                     </Typography>
                     <Box paddingX={2}>
@@ -178,7 +197,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Votez
                     </Typography>
                     <Box paddingX={2}>
@@ -208,7 +230,10 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={classes.purpleText}>
+                    <Typography
+                      variant="h6"
+                      className={(classes.purpleText, classes.boldText)}
+                    >
                       Profitez
                     </Typography>
                     <Box paddingX={2}>
@@ -233,27 +258,29 @@ export const Homepage = () => {
       </section>
       <section
         id="supportAvailable"
+        className={classes.whiteText}
         style={{ backgroundColor: "black", color: "white" }}
       >
-        <Box paddingY={6}>
+        <Box paddingY={6} align="center">
           <Container maxWidth="lg">
-            <Box py={2}>
-              <Typography variant="h4" align="center">
+            <Box paddingY={3}>
+              <Typography variant="h3" className={classes.boldText}>
                 Nos platformes
               </Typography>
             </Box>
-            <Box pY={4}>
+            <Box paddingX={3}>
               <Grid container spacing={0} alignItems="center" justify="center">
-                <Grid xs={2} align="center">
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
                   <img src={spotify} alt="spotifyLogo" />
-                  <Typography
+                  {/* <Typography
                     variant="subtitle1"
                     style={{ letterSpacing: "2px" }}
                   >
                     bientôt
-                  </Typography>
+                  </Typography> */}
+                  <Chip size="small" label="bientôt" />
                 </Grid>
-                <Grid xs={2} align="center">
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
                   <img src={youtube} alt="youtubeLogo" />
                   <Typography
                     variant="subtitle1"
@@ -262,7 +289,7 @@ export const Homepage = () => {
                     disponible
                   </Typography>
                 </Grid>
-                <Grid xs={2} align="center">
+                <Grid xs={12} sm={2} md={2} lg={2} xl={2} align="center">
                   <img src={deezer} alt="deezerLogo" />
                   <Typography
                     variant="subtitle1"

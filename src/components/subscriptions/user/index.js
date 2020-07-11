@@ -7,9 +7,7 @@ import { SessionContext } from "../../../context/session";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
-    maxWidth: 1220,
-    margin: "0 auto",
+    padding: 20,
   },
   title: {
     color: "#263238",

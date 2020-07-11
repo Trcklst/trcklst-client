@@ -41,11 +41,9 @@ const ColorButton = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 1220,
-    margin: "0 auto",
     position: "relative",
-    width: "100%",
     flexGrow: 1,
+    padding: 20,
   },
   head: {
     display: "flex",
@@ -59,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #000",
     width: 245,
     [theme.breakpoints.down("xs")]: {
-      width: 200,
+      display: "none",
     },
   },
   mainTitle: {
@@ -114,12 +112,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#40eadb",
   },
   reactPlayer: {
-    marginTop: 50,
+    marginTop: 20,
   },
   player: {
     backgroundColor: "#313131",
-    margin: -20,
-    width: "calc(100% + 40px)",
+    width: "100%",
     color: "#FFF",
   },
   playerNoOwn: {
@@ -176,6 +173,13 @@ const useStyles = makeStyles((theme) => ({
   volume: {
     width: 200,
   },
+  listMusic: {
+    height: 300,
+    overflow: "overlay",
+    [theme.breakpoints.down("xs")]: {
+      height: 215,
+    },
+  },
 }));
 
 export const PartyShow = () => {
@@ -225,6 +229,7 @@ export const PartyShow = () => {
   };
 
   const handleClickAction = async (action) => {
+    console.log(action);
     if (isEmpty(currentTrack)) {
       if (tracks.length === 0) {
         fail("Ajoutez un son avant de jouer la playlist");
@@ -291,7 +296,9 @@ export const PartyShow = () => {
           case "next-track":
             setCurrentTrack(param.party.currentTrack);
             setTracks(param.party.tracks);
-            setStep("Pause");
+            setTimeout(() => {
+              setStep("Pause");
+            }, 2000);
             break;
           case "vote":
             setTracks(param.party.tracks);
@@ -383,18 +390,20 @@ export const PartyShow = () => {
               <p>J'aime</p>
             </Grid>
           </Grid>
-          {tracks.map((value, index) => {
-            return (
-              <Music
-                key={index}
-                id={value.id}
-                icon={value.imageUrl}
-                title={value.name}
-                votesCount={value.votesCount}
-                idParty={endpoint}
-              />
-            );
-          })}
+          <div className={classes.listMusic}>
+            {tracks.map((value, index) => {
+              return (
+                <Music
+                  key={index}
+                  id={value.id}
+                  icon={value.imageUrl}
+                  title={value.name}
+                  votesCount={value.votesCount}
+                  idParty={endpoint}
+                />
+              );
+            })}
+          </div>
         </>
       </section>
       {!isEmpty(currentTrack) && (
@@ -460,7 +469,11 @@ export const PartyShow = () => {
             <Grid item xs={12} sm={3} className={classes.blockVolume}>
               {!isEmpty(owner) && user.id === owner.id && (
                 <div className={classes.volume}>
-                  <Grid container spacing={2}>
+                  <Grid
+                    container
+                    spacing={2}
+                    style={{ display: "flex", alignItems: "center" }}
+                  >
                     <Grid item>
                       <VolumeDownIcon />
                     </Grid>

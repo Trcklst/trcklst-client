@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: "100%",
     flexDirection: "column",
+    padding: 20,
   },
   track: {
     width: "100%",

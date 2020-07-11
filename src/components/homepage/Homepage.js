@@ -296,7 +296,7 @@ export const Homepage = () => {
           </Container>
         </Box>
       </section>
-      <section id="pricing" className={[classes.pricing, classes.whiteBg]}>
+      <section id="pricing" className={classes.whiteBg}>
         <Box paddingY={6} align="center">
           <Container maxWidth="lg">
             <Box paddingY={2}>

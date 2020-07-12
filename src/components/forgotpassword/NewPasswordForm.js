@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField, Button, Grid } from "@material-ui/core";
+
 import { useStyles } from "./useStyles";
 
 export const initialValues = {
@@ -55,7 +56,6 @@ export const NewPasswordForm = ({
             helperText={touched.password && errors.password}
           ></TextField>
         </Grid>
-
         <Grid item xs={12}>
           <TextField
             className={classes.field}
@@ -75,7 +75,6 @@ export const NewPasswordForm = ({
           ></TextField>
         </Grid>
       </Grid>
-
       <Button
         type="submit"
         fullWidth
@@ -84,7 +83,7 @@ export const NewPasswordForm = ({
         disabled={isSubmitting || !isValid}
         className={classes.submit}
       >
-        Changer
+        Modifier votre mot de passe
       </Button>
     </form>
   );

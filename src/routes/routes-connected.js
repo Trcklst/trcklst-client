@@ -87,7 +87,6 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
-        exact
         path={ACCOUNTADMIN}
         component={(props) => (
           <Can I="view" a="AccountAdmin">
@@ -96,7 +95,6 @@ export const RoutesConnected = () => {
         )}
       />
       <Route
-        exact
         path={ACCOUNTUSER}
         component={(props) => (
           <Can I="view" a="AccountUser">

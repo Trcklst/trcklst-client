@@ -8,7 +8,7 @@ export const initialValues = {
   confirmPassword: ""
 };
 
-export const NewpasswordForm = ({
+export const NewPasswordForm = ({
   handleSubmit,
   handleChange,
   values,

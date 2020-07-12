@@ -1,6 +1,6 @@
 import React from "react";
-import {TextField, Button, Grid} from "@material-ui/core";
-import {useStyles} from "./useStyles";
+import { TextField, Button, Grid } from "@material-ui/core";
+import { useStyles } from "./useStyles";
 
 export const initialValues = {
   email: "",
@@ -14,15 +14,15 @@ export const ForgotPasswordForm = ({
   errors,
   isValid,
   isSubmitting,
-  handleBlur
+  handleBlur,
 }) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <form onSubmit={handleSubmit} className={classes.form} >
+    <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container spacing={2} className={classes.container}>
         <Grid item xs={12}>
-        <TextField
+          <TextField
             variant="outlined"
             margin="normal"
             required
@@ -34,8 +34,8 @@ export const ForgotPasswordForm = ({
             onBlur={handleBlur}
             value={values.email}
             error={touched.email && errors.email !== undefined}
-            helperText={touched.email && errors.email}/>
-
+            helperText={touched.email && errors.email}
+          />
         </Grid>
       </Grid>
       <Button
@@ -44,7 +44,8 @@ export const ForgotPasswordForm = ({
         variant="contained"
         color="primary"
         disabled={isSubmitting || !isValid}
-        className={classes.submit}>
+        className={classes.submit}
+      >
         Réinitialiser votre mot de passe
       </Button>
     </form>

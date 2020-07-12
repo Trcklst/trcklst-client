@@ -8,47 +8,40 @@ import { ResetPassword } from "../../services/reset-password";
 import { useHistory } from "react-router-dom";
 import { LOGIN } from "../../helpers/route-constant";
 
-
 export const NewPassword = () => {
   const classes = useStyles();
   const { push } = useHistory();
 
   const handleSubmit = async ({ token, password }, { setErrors }) => {
     try {
-
       const data = await ResetPassword.reset(token, password);
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
       return push(LOGIN);
-
     } catch (error) {
       setErrors({ error: error.message });
     }
   };
-    
 
-return (
-<Grid container component="main">
-    <div className={classes.paper}>
+  return (
+    <Grid container component="main">
+      <div className={classes.paper}>
         <Container maxWidth="xs">
-          <Typography
-            component="h1"
-            variant="h5"
-          >
+          <Typography component="h1" variant="h5">
             <span> Nouveau mot passe </span>
           </Typography>
           <Formik
             initialErrors={initialValues}
             initialValues={initialValues}
-            component={NewPasswordForm}      
-            validationSchema={newPasswordSchema}      
+            component={NewPasswordForm}
+            validationSchema={newPasswordSchema}
             onSubmit={handleSubmit}
             validateOnBlur
             validateOnChange
           ></Formik>
-          
         </Container>
-    </div>
-    </Grid>);
+      </div>
+    </Grid>
+  );
 };

@@ -1,15 +1,15 @@
 import React from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import { Formik } from "formik";
-import { initialValues, NewpasswordForm } from "./NewpasswordForm";
-import { NewpasswordSchema } from "./NewpasswordSchema";
+import { initialValues, NewPasswordForm } from "./NewPasswordForm";
+import { newPasswordSchema } from "./newPasswordSchema";
 import { useStyles } from "./useStyles";
 import { ResetPassword } from "../../services/reset-password";
 import { useHistory } from "react-router-dom";
 import { LOGIN } from "../../helpers/route-constant";
 
 
-export const Newpassword = () => {
+export const NewPassword = () => {
   const classes = useStyles();
   const { push } = useHistory();
 

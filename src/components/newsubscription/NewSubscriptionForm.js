@@ -4,14 +4,12 @@ import { TextField, Button } from "@material-ui/core";
 import { useStyles } from "./useStyles";
 
 export const initialValues = {
-  name: "",
+  cardNumber: "",
 };
 
 export const NewSubscriptionForm = ({
   handleSubmit,
   handleChange,
-  values,
-  touched,
   errors,
   isValid,
   isSubmitting,
@@ -77,6 +75,11 @@ export const NewSubscriptionForm = ({
         onChange={handleChange}
         onBlur={handleBlur}
       />
+      {errors.unauthorized
+        ? (
+          <span className={classes.error}>{errors.unauthorized}</span>
+        )
+        : ("")}
       <Button
         type="submit"
         fullWidth

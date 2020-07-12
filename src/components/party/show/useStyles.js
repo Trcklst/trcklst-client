@@ -137,4 +137,60 @@ export const useStyles = makeStyles((theme) => ({
       height: 215,
     },
   },
+  modal: {
+    position: "fixed",
+    zIndex: 1,
+    left: 0,
+    top: 0,
+    width: "100%",
+    height: "100%",
+    overflow: "auto",
+    backgroundColor: "rgba(0,0,0,0.4)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalContent: {
+    backgroundColor: "#fefefe",
+    width: 640,
+  },
+  close: {
+    color: "#aaa",
+    float: "right",
+    fontSize: 28,
+    fontWeight: "bold",
+    "&:hover": {
+      color: "black",
+      textDecoration: "none",
+      cursor: "pointer",
+    },
+  },
+  imageUrl: {
+    cursor: "pointer",
+    position: "relative",
+    width: 300,
+    "& > img": {
+      height: "100%",
+      width: "100%",
+    },
+  },
+  videoIconBlock: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0,0,0,.6)",
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,.4)",
+    },
+  },
+  videoIcon: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+    "& > svg": {
+      fontSize: 35,
+    },
+  },
 }));

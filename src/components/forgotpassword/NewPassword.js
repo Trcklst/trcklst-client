@@ -8,6 +8,7 @@ import { useStyles } from "./useStyles";
 import { ResetPassword } from "../../services/reset-password";
 import { useHistory } from "react-router-dom";
 import { LOGIN } from "../../helpers/route-constant";
+import { success, fail } from "../common/Toast";
 
 export const NewPassword = () => {
   const classes = useStyles();
@@ -20,16 +21,18 @@ export const NewPassword = () => {
 
       if (data.status !== 200) throw jsonData;
 
+      success("Votre mot de passe a été mis à jour.");
+
       return push(LOGIN);
-    } catch (error) {
-      setErrors({ error: error.message });
+    } catch (err) {
+      fail(err.message);
     }
   };
 
   return (
-    <Grid container component="main">
+    <Grid container component="main" style={{ height: "100%" }}>
       <div className={classes.paper}>
-        <Container maxWidth="xs">
+        <Container style={{ padding: 20 }}>
           <Typography component="h1" variant="h5">
             <span> Nouveau mot passe </span>
           </Typography>
@@ -37,8 +40,8 @@ export const NewPassword = () => {
             initialErrors={initialValues}
             initialValues={initialValues}
             component={NewPasswordForm}
-            validationSchema={newPasswordSchema}
             onSubmit={handleSubmit}
+            validationSchema={newPasswordSchema}
             validateOnBlur
             validateOnChange
           ></Formik>

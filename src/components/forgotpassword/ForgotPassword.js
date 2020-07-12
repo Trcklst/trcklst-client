@@ -8,22 +8,18 @@ import { useStyles } from "./useStyles";
 import { ResetPassword } from "../../services/reset-password";
 import { NEWPASSWORD } from "../../helpers/route-constant";
 import { forgotPasswordSchema } from "./forgotPasswordSchema";
+import { success } from "../common/Toast";
 
 export const ForgotPassword = () => {
   const classes = useStyles();
   const { push } = useHistory();
 
-  const handleSubmit = async ({ email }, { setErrors }) => {
-    try {
-      const data = await ResetPassword.sendmail(email);
-      const jsonData = await data.json();
+  const handleSubmit = async ({ email }) => {
+    await ResetPassword.sendmail(email);
 
-      if (data.status !== 200) throw jsonData;
+    success("E-mail de réinitialisation de mot de passe envoyé");
 
-      return push(NEWPASSWORD);
-    } catch (error) {
-      setErrors({ error: error.message });
-    }
+    return push(NEWPASSWORD);
   };
 
   return (
@@ -31,7 +27,7 @@ export const ForgotPassword = () => {
       <div className={classes.paper}>
         <Container style={{ padding: 20 }}>
           <Typography component="h1" variant="h5">
-            <span> Mot de passe oublié ? </span>
+            <span>Mot de passe oublié ?</span>
           </Typography>
           <Formik
             initialErrors={initialValues}

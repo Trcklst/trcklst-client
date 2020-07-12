@@ -30,7 +30,7 @@ export const NewPasswordForm = ({
             margin="normal"
             required
             id="token"
-            label="Token"
+            label="Code"
             name="token"
             fullWidth
             onChange={handleChange}
@@ -42,13 +42,13 @@ export const NewPasswordForm = ({
         </Grid>
         <Grid item xs={12}>
           <TextField
-            className={classes.field}
             type="password"
             variant="outlined"
-            size="small"
             id="password"
             name="password"
-            label="Mot de passe *"
+            label="Mot de passe"
+            required
+            fullWidth
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
@@ -58,13 +58,13 @@ export const NewPasswordForm = ({
         </Grid>
         <Grid item xs={12}>
           <TextField
-            className={classes.field}
             type="password"
             variant="outlined"
-            size="small"
             id="confirmPassword"
             name="confirmPassword"
-            label="Confirmation du mot de passe *"
+            required
+            label="Confirmation du mot de passe"
+            fullWidth
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.confirmPassword}

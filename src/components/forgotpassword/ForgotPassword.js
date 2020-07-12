@@ -1,14 +1,14 @@
 import React from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import { Formik } from "formik";
-import { initialValues, ForgotpasswordForm } from "./ForgotpasswordForm";
+import { initialValues, ForgotPasswordForm } from "./ForgotPasswordForm";
 import { useStyles } from "./useStyles";
 import { ResetPassword } from "../../services/reset-password";
 import { NEWPASSWORD } from "../../helpers/route-constant";
 import { useHistory } from "react-router-dom";
 
 
-export const Forgotpassword = () => {
+export const ForgotPassword = () => {
   const classes = useStyles();
   const { push } = useHistory();
 
@@ -40,7 +40,7 @@ return (
           <Formik
             initialErrors={initialValues}
             initialValues={initialValues}
-            component={ForgotpasswordForm}            
+            component={ForgotPasswordForm}            
             onSubmit={handleSubmit}
             validateOnBlur
             validateOnChange

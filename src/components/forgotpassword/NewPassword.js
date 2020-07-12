@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import { Formik } from "formik";
+
 import { initialValues, NewPasswordForm } from "./NewPasswordForm";
 import { newPasswordSchema } from "./newPasswordSchema";
 import { useStyles } from "./useStyles";
@@ -18,6 +19,7 @@ export const NewPassword = () => {
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
+
       return push(LOGIN);
     } catch (error) {
       setErrors({ error: error.message });

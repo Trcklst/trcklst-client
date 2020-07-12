@@ -28,10 +28,8 @@ export const useStyles = makeStyles((theme) => ({
   },
   paper: {
     margin: "auto",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "40px 0px",
+    width: "100%",
+    maxWidth: 1220,
   },
   slash: {
     color: "#3f51b5",

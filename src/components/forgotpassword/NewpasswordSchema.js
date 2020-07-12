@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const NewpasswordSchema = Yup.object().shape({
+export const newPasswordSchema = Yup.object().shape({
   token: Yup.string()
     .trim(),
   password: Yup.string()

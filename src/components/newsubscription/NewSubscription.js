@@ -22,16 +22,13 @@ export const NewSubscription = () => {
 
       let subscriptionType = 'PRO'; 
 
-      console.log(creditCard);
-      console.log(subscriptionType);
-
       const data = await Subscriptions.new(creditCard, subscriptionType);
       const jsonData = await data.json();
       console.log(data);
       console.log(jsonData);
       
     } catch (err) {
-      setErrors({ unauthorized: "L'email ou le mot de passe est invalide." });
+      setErrors({ unauthorized: "Les informations renseignées sont invalides." });
     } finally {
       setSubmitting(false);
     }

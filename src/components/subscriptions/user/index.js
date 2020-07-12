@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core";
 import { Subscriptions } from "../../../services/subscriptions";
 
 import { MTable } from "../../common/MTable";
-import { SessionContext } from "../../../context/session";
 import {
   Link
 } from "react-router-dom";
@@ -36,7 +35,6 @@ const useStyles = makeStyles({
 
 export const MySubscriptions = () => {
   const classes = useStyles();
-  const { user } = useContext(SessionContext);
   const [data, setData] = useState([]);
 
   const optionTable = {

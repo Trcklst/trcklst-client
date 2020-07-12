@@ -13,18 +13,19 @@ export const PartyNew = () => {
   const classes = useStyles();
   const { push } = useHistory();
 
-  const handleSubmit = async ({ name }, { setErrors }) => {
-    const data = await Party.new(name);
-    const jsonData = await data.json();
+  const handleSubmit = async ({ name }) => {
+    try {
+      const data = await Party.new(name);
+      const jsonData = await data.json();
 
-    if (data.status !== 201) {
-      fail("Une erreur s'est produite lors de la création de la party.");
-      setErrors({ [jsonData.errors.property]: jsonData.errors.message });
+      if (data.status !== 201) throw jsonData;
+
+      success("La party a été créée.");
+
+      return push(MYPARTIES);
+    } catch (err) {
+      fail(err.message);
     }
-
-    success("La party a été créée.");
-
-    return push(MYPARTIES);
   };
 
   return (

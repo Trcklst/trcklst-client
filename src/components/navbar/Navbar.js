@@ -15,7 +15,6 @@ import { SessionContext } from "../../context/session";
 import { Box, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { LOGIN, REGISTER, HOME } from "../../helpers/route-constant";
-import { logoWhite2 } from "../../images/logo_white2.png";
 
 export const Navbar = () => {
   const [drawer, setDrawer] = useState({ open: false });
@@ -53,7 +52,7 @@ export const Navbar = () => {
             )}
             <Typography variant="h6" className={classes.title}>
               <Link to={HOME} className={classes.link}>
-                <img src={logoWhite2} alt="logoWhite" />
+                Trcklst
               </Link>
             </Typography>
             {Object.keys(user).length !== 0 ? (

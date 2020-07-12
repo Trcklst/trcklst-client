@@ -77,7 +77,14 @@ const App = () => {
             />
           </Container>
         ) : (
-          <RoutesNotConnected />
+          <>
+            <RoutesNotConnected />
+            <ToastContainer
+              enableMultiContainer
+              position={toast.POSITION.BOTTOM_LEFT}
+              containerId={"mainToast"}
+            />
+          </>
         )}
       </div>
     </SessionContext.Provider>

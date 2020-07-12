@@ -22,10 +22,7 @@ export const NewSubscription = () => {
 
       let subscriptionType = 'PRO'; 
 
-      const data = await Subscriptions.new(creditCard, subscriptionType);
-      const jsonData = await data.json();
-      console.log(data);
-      console.log(jsonData);
+       await Subscriptions.new(creditCard, subscriptionType);
       
     } catch (err) {
       setErrors({ unauthorized: "Les informations renseignées sont invalides." });

@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, Grid, Box, IconButton, Badge } from "@material-ui/core";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-import { Track } from "../../../services/track";
+import { Track } from "../../../../services/track";
 
 const useStyles = makeStyles({
   container: {

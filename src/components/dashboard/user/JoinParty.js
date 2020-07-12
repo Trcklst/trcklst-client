@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { PARTYJOIN } from "../../../helpers/route-constant";
 import joinIcon from "../../../images/dashboard/join-icon.png";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   link: {
     textDecoration: "none",
   },
@@ -44,8 +44,14 @@ const useStyles = makeStyles({
     position: "absolute",
     bottom: 0,
     right: 0,
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+    [theme.breakpoints.down("xs")]: {
+      display: "block",
+    },
   },
-});
+}));
 
 export const JoinParty = () => {
   const classes = useStyles();

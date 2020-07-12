@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import {
   SupervisorAccount as SupervisorAccountIcon,
   CloudUpload as CloudUploadIcon,
+  Person as PersonIcon,
 } from "@material-ui/icons";
-import { Grid, Button } from "@material-ui/core";
+import {
+  Grid,
+  Button,
+  Dialog,
+  DialogTitle,
+  List,
+  ListItem,
+  Avatar,
+  ListItemText,
+  ListItemAvatar,
+} from "@material-ui/core";
 
 import backgroundPlaylist from "../../../../images/background-playlist.jpg";
 import { success } from "../../../common/Toast";
@@ -27,10 +38,15 @@ export const Playlist = ({
   tracks,
 }) => {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     navigator.clipboard.writeText(id);
     success("Code de partage copié !");
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -73,9 +89,34 @@ export const Playlist = ({
           Ajouter un son
         </Button>
       </div>
-      <div className={classes.people}>
-        <SupervisorAccountIcon />
-        <p>{members.length} personnes participes</p>
+      <div className={classes.peopleBlock}>
+        <div className={classes.people} onClick={() => setOpen(true)}>
+          <SupervisorAccountIcon />
+          <p>{`${members.length} personne${
+            members.length > 1 ? "s" : ""
+          } participe${members.length > 1 ? "s" : ""}`}</p>
+        </div>
+        <Dialog
+          onClose={handleClose}
+          aria-labelledby="simple-dialog-title"
+          open={open}
+        >
+          <DialogTitle id="simple-dialog-title">
+            Liste des membres de la party
+          </DialogTitle>
+          <List>
+            {members.map((value) => (
+              <ListItem key={value}>
+                <ListItemAvatar>
+                  <Avatar className={classes.avatar}>
+                    <PersonIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={value.email} />
+              </ListItem>
+            ))}
+          </List>
+        </Dialog>
       </div>
       <>
         <Grid container className={classes.headPlaylist}>

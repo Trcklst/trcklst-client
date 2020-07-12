@@ -26,6 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "flex-end",
     paddingLeft: 25,
+    marginTop: 20,
   },
   subtitle: {
     margin: 0,
@@ -57,7 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     width: 250,
     height: 35,
     borderRadius: 25,
-    marginTop: 20,
+    marginTop: 10,
   },
   headPlaylist: {
     color: "#c3c3c3",
@@ -65,12 +66,19 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     borderBottom: "1px solid #f5f5f5",
   },
-  people: {
+  peopleBlock: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
     padding: 20,
+  },
+  people: {
     color: "#40eadb",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    "&:hover": {
+      color: "#1eccbc",
+    },
   },
   player: {
     backgroundColor: "#313131",
@@ -192,5 +200,9 @@ export const useStyles = makeStyles((theme) => ({
     "& > svg": {
       fontSize: 35,
     },
+  },
+  avatar: {
+    color: "#727272",
+    backgroundColor: "#e4e4e4",
   },
 }));

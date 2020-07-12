@@ -6,6 +6,7 @@ import {
   PauseCircleOutline as PauseCircleOutlineIcon,
   VolumeDown as VolumeDownIcon,
   VolumeUp as VolumeUpIcon,
+  VideoLibrary as VideoLibraryIcon,
 } from "@material-ui/icons";
 
 import { normalise, convertSecondstoTime } from "../utility";
@@ -24,23 +25,37 @@ export const PlayerIndex = ({
   const [trackDuration, setTrackDuration] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [trackVolume, setTrackVolume] = useState(100);
+  const [open, setOpen] = useState(false);
 
   const handleChangeVolume = (event, newValue) => {
     setTrackVolume(newValue);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <section>
       {!isEmpty(owner) && user.id === owner.id && (
-        <ReactPlayer
-          style={{ display: "none" }}
-          playing={step === "Play" ? false : true}
-          volume={trackVolume / 100}
-          onEnded={() => handleClickNextTrack()}
-          onDuration={(e) => setTrackDuration(e)}
-          onProgress={(e) => setTrackProgress(e.playedSeconds)}
-          url={`https://www.youtube.com/watch?v=${currentTrack.id}`}
-        />
+        <div
+          className={classes.modal}
+          style={{ display: open ? "flex" : "none" }}
+          onClick={() => handleClose()}
+        >
+          <div className={classes.modalContent}>
+            <ReactPlayer
+              playing={step === "Play" ? false : true}
+              volume={trackVolume / 100}
+              onEnded={() => handleClickNextTrack()}
+              onDuration={(e) => setTrackDuration(e)}
+              onProgress={(e) => setTrackProgress(e.playedSeconds)}
+              onPlay={() => handleClickAction("Play")}
+              onPause={() => handleClickAction("Pause")}
+              url={`https://www.youtube.com/watch?v=${currentTrack.id}`}
+            />
+          </div>
+        </div>
       )}
       <Grid
         container
@@ -51,7 +66,18 @@ export const PlayerIndex = ({
         }
       >
         <Grid item xs={12} sm={3} className={classes.playerInfo}>
-          <img src={currentTrack.imageUrl} alt="imgUrl" />
+          {!isEmpty(owner) && user.id === owner.id ? (
+            <div className={classes.imageUrl} onClick={() => setOpen(true)}>
+              <img src={currentTrack.imageUrl} alt="imgUrl" />
+              <div className={classes.videoIconBlock}>
+                <div className={classes.videoIcon}>
+                  <VideoLibraryIcon />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <img src={currentTrack.imageUrl} alt="imgUrl" />
+          )}
           <div className={classes.playerInfoName}>
             <p>{currentTrack.name}</p>
           </div>
@@ -62,12 +88,12 @@ export const PlayerIndex = ({
               {!isEmpty(owner) && user.id === owner.id ? (
                 step === "Play" ? (
                   <PlayCircleOutlineIcon
-                    onClick={() => [handleClickAction(step)]}
+                    onClick={() => handleClickAction(step)}
                     className={classes.iconStep}
                   />
                 ) : (
                   <PauseCircleOutlineIcon
-                    onClick={() => [handleClickAction(step)]}
+                    onClick={() => handleClickAction(step)}
                     className={classes.iconStep}
                   />
                 )

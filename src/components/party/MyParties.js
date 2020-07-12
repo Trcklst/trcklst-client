@@ -1,16 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Grid, makeStyles, IconButton } from "@material-ui/core";
+import {
+  makeStyles,
+  IconButton,
+  Card,
+  CardContent,
+  Typography,
+  CardMedia,
+} from "@material-ui/core";
 import {
   Visibility as VisibilityIcon,
   Delete as DeleteIcon,
   Edit as EditIcon,
 } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
+import moment from "moment";
 
 import { Party } from "../../services/party";
 import { SessionContext } from "../../context/session";
 import { Modal } from "../common/Modal";
-import { fail } from "../common/Toast";
+import { success, fail } from "../common/Toast";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +65,34 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "1px",
     fontSize: 12,
   },
+  rootCard: {
+    display: "flex",
+    maxWidth: 750,
+    width: "100%",
+    height: 180,
+    marginBottom: 20,
+  },
+  detailsCard: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+  },
+  contentCard: {
+    flex: "1 0 auto",
+  },
+  coverCard: {
+    width: 250,
+  },
+  controlsCard: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+  },
+  playIconCard: {
+    height: 38,
+    width: 38,
+  },
 }));
 
 export const MyParties = () => {
@@ -90,6 +126,8 @@ export const MyParties = () => {
     });
 
     setData(tempTab);
+
+    success("La party a été supprimée");
   };
 
   useEffect(() => {
@@ -112,62 +150,58 @@ export const MyParties = () => {
   return (
     <section className={classes.root}>
       <div className={classes.mainBlock}>
-        <p className={classes.mainTitle}>Party créée</p>
+        <p className={classes.mainTitle}>Mes party créée</p>
         {data.length > 0 ? (
           data.map((value, index) => {
             return (
-              <Grid container className={classes.main} key={index}>
-                <Grid item xs={12}>
-                  <div className={classes.ownParty}>
-                    <Grid container>
-                      <Grid item xs={12} sm={5} className={classes.element}>
-                        <h3 className={classes.title}>Nom</h3>
-                        <p className={classes.subtitle}>{value.name}</p>
-                      </Grid>
-                      <Grid item xs={12} sm={4} className={classes.element}>
-                        <h3 className={classes.title}>Utilisateurs</h3>
-                        <p className={classes.subtitle}>
-                          {value.members.length} utilisateurs
-                        </p>
-                      </Grid>
-                      <Grid item xs={4} sm={1} className={classes.element}>
-                        <IconButton
-                          aria-label="see"
-                          onClick={() => push(`/party/${value._id}`)}
-                        >
-                          <VisibilityIcon />
-                        </IconButton>
-                      </Grid>
-                      <Grid item xs={4} sm={1} className={classes.element}>
-                        <IconButton
-                          aria-label="edit"
-                          onClick={() => handleClickEdit(value)}
-                        >
-                          <EditIcon />
-                        </IconButton>
-                      </Grid>
-                      <Grid item xs={4} sm={1} className={classes.element}>
-                        <IconButton aria-label="delete">
-                          <DeleteIcon
-                            onClick={() => handleClickDelete(value._id)}
-                          />
-                        </IconButton>
-                        <Modal
-                          title={"Supprimer une party"}
-                          content={
-                            "Êtes-vous sûr de vouloir supprimer votre party ?"
-                          }
-                          leftLink={"Annuler"}
-                          rightLink={"Supprimer"}
-                          setOpen={setOpen}
-                          open={open}
-                          validate={deleteParty}
-                        />
-                      </Grid>
-                    </Grid>
+              <Card className={classes.rootCard} key={index}>
+                <div className={classes.detailsCard}>
+                  <CardContent className={classes.contentCard}>
+                    <Typography component="h5" variant="h5">
+                      {value.name}
+                    </Typography>
+                    <Typography variant="subtitle1" color="textSecondary">
+                      Créé le{" "}
+                      {moment(value.createdAt).format("DD/MM/YYYY HH:mm")}
+                    </Typography>
+                  </CardContent>
+                  <div className={classes.controlsCard}>
+                    <IconButton
+                      aria-label="edit"
+                      onClick={() => handleClickEdit(value)}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="see"
+                      onClick={() => push(`/party/${value._id}`)}
+                    >
+                      <VisibilityIcon className={classes.playIconCard} />
+                    </IconButton>
+                    <IconButton aria-label="delete">
+                      <DeleteIcon
+                        onClick={() => handleClickDelete(value._id)}
+                      />
+                    </IconButton>
+                    <Modal
+                      title={"Supprimer une party"}
+                      content={
+                        "Êtes-vous sûr de vouloir supprimer votre party ?"
+                      }
+                      leftLink={"Annuler"}
+                      rightLink={"Supprimer"}
+                      setOpen={setOpen}
+                      open={open}
+                      validate={deleteParty}
+                    />
                   </div>
-                </Grid>
-              </Grid>
+                </div>
+                <CardMedia
+                  className={classes.coverCard}
+                  image="https://img2.goodfon.com/wallpaper/nbig/8/91/party-smoke-electronica.jpg"
+                  title="Wallpaper party"
+                />
+              </Card>
             );
           })
         ) : (

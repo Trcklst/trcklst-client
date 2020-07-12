@@ -88,72 +88,78 @@ export const Account = () => {
   };
 
   return (
-    <Router>
-      <>
-        <h2 className={classes.subtitle}>Gestion du compte</h2>
-        <h1 className={classes.title}>Modifier les informations du compte</h1>
-      </>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        className={classes.tabs}
-      >
-        <Tab label="Général" component={Link} to={`${url}/general`} />
-        <Tab label="Identification" component={Link} to={`${url}/identifier`} />
-        <Tab label="Sécurité" component={Link} to={`${url}/security`} />
-      </Tabs>
-      <Divider className={classes.divider} />
-      <Switch>
-        <Redirect exact from={url} to={`${url}/general`} />
-        <Route path={`${url}/general`}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={4}>
-              <AccountProfile user={user} />
+    <section style={{ padding: 20 }}>
+      <Router>
+        <>
+          <h2 className={classes.subtitle}>Gestion du compte</h2>
+          <h1 className={classes.title}>Modifier les informations du compte</h1>
+        </>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          className={classes.tabs}
+        >
+          <Tab label="Général" component={Link} to={`${url}/general`} />
+          <Tab
+            label="Identification"
+            component={Link}
+            to={`${url}/identifier`}
+          />
+          <Tab label="Sécurité" component={Link} to={`${url}/security`} />
+        </Tabs>
+        <Divider className={classes.divider} />
+        <Switch>
+          <Redirect exact from={url} to={`${url}/general`} />
+          <Route path={`${url}/general`}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} md={6} lg={4}>
+                <AccountProfile user={user} />
+              </Grid>
+              <Grid item xs={12} md={6} lg={8}>
+                <Formik
+                  initialErrors={{}}
+                  initialValues={{
+                    newFirstname: "",
+                    newLastname: "",
+                  }}
+                  component={UpdateGeneral}
+                  validationSchema={generalSchema}
+                  onSubmit={handleSubmitGeneral}
+                  initialStatus={initialStatus}
+                  validateOnBlur
+                  validateOnChange
+                ></Formik>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6} lg={8}>
-              <Formik
-                initialErrors={{}}
-                initialValues={{
-                  newFirstname: "",
-                  newLastname: "",
-                }}
-                component={UpdateGeneral}
-                validationSchema={generalSchema}
-                onSubmit={handleSubmitGeneral}
-                initialStatus={initialStatus}
-                validateOnBlur
-                validateOnChange
-              ></Formik>
-            </Grid>
-          </Grid>
-        </Route>
-        <Route path={`${url}/identifier`}>
-          <Formik
-            initialErrors={identifierValues}
-            initialValues={identifierValues}
-            component={UpdateIdentifier}
-            validationSchema={identifierSchema}
-            onSubmit={handleSubmitIdentifier}
-            initialStatus={initialStatus}
-            validateOnBlur
-            validateOnChange
-          ></Formik>
-        </Route>
-        <Route path={`${url}/security`}>
-          <Formik
-            initialErrors={securityValues}
-            initialValues={securityValues}
-            component={UpdateSecurity}
-            validationSchema={securitySchema}
-            onSubmit={handleSubmitSecurity}
-            initialStatus={initialStatus}
-            validateOnBlur
-            validateOnChange
-          ></Formik>
-        </Route>
-      </Switch>
-    </Router>
+          </Route>
+          <Route path={`${url}/identifier`}>
+            <Formik
+              initialErrors={identifierValues}
+              initialValues={identifierValues}
+              component={UpdateIdentifier}
+              validationSchema={identifierSchema}
+              onSubmit={handleSubmitIdentifier}
+              initialStatus={initialStatus}
+              validateOnBlur
+              validateOnChange
+            ></Formik>
+          </Route>
+          <Route path={`${url}/security`}>
+            <Formik
+              initialErrors={securityValues}
+              initialValues={securityValues}
+              component={UpdateSecurity}
+              validationSchema={securitySchema}
+              onSubmit={handleSubmitSecurity}
+              initialStatus={initialStatus}
+              validateOnBlur
+              validateOnChange
+            ></Formik>
+          </Route>
+        </Switch>
+      </Router>
+    </section>
   );
 };

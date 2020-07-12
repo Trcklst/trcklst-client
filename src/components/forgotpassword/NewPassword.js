@@ -41,8 +41,8 @@ return (
           <Formik
             initialErrors={initialValues}
             initialValues={initialValues}
-            component={NewpasswordForm}      
-            validationSchema={NewpasswordSchema}      
+            component={NewPasswordForm}      
+            validationSchema={newPasswordSchema}      
             onSubmit={handleSubmit}
             validateOnBlur
             validateOnChange

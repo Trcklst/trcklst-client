@@ -8,13 +8,17 @@ import {
   Container,
   Chip,
 } from "@material-ui/core";
+import { LOGIN } from "../../helpers/route-constant";
+import { Link } from "react-router-dom";
+
 import playing from "../../images/playing.png";
 import unknown from "../../images/unknown.png";
 import teamwork from "../../images/teamwork.png";
-import spotify from "../../images/icons8-spotify-48.png";
-import deezer from "../../images/icons8-deezer-48.png";
-import youtube from "../../images/icons8-youtube-48.png";
+import spotify from "../../images/spotifyColor.png";
+import deezer from "../../images/deezerColor.png";
+import youtube from "../../images/youtubeColor.png";
 import ticks from "../../images/ticks.png";
+import logo from "../../images/logo_white2.png";
 
 export const Homepage = () => {
   const classes = useStyles();
@@ -25,27 +29,45 @@ export const Homepage = () => {
         <main>
           <Container maxWidth="lg">
             <Box paddingY={24} paddingX={3} className={classes.whiteText}>
+              <Grid item xs={10} sm={12} md={12} lg={2} xl={3}>
+                <Box py={3}>
+                  <img src={logo} alt="logo" width="100%" />
+                </Box>
+              </Grid>
               <Typography variant="h2">Composez votre playlist.</Typography>
               <Typography variant="h6">
                 Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
               <Box paddingY={5}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.customButton}
-                >
-                  Rejoignez notre platforme
-                </Button>
+                <Link to={LOGIN} className={classes.link}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.customButton}
+                  >
+                    Rejoignez notre platforme{"  "}
+                    <span role="img" aria-label="music">
+                      🎵
+                    </span>
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Container>
         </main>
       </section>
-      <section id="maincontent" className={classes.whiteBg}>
+      <section
+        id="maincontent"
+        className={`${classes.purpleText} ${classes.whiteBg}`}
+      >
         <Box paddingY={6} align="center">
           <Container maxWidth="lg">
             <Box paddingY={3}>
+              <Typography variant="h4">
+                <span role="img" aria-label="thinkEmoji">
+                  🤔
+                </span>
+              </Typography>
               <Typography variant="h3" className={classes.boldText}>
                 Comment ça marche ?
               </Typography>
@@ -65,10 +87,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Créez
                     </Typography>
                     <Box paddingX={2}>
@@ -98,10 +117,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={unknown} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Invitez
                     </Typography>
                     <Box paddingX={2}>
@@ -131,10 +147,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={teamwork} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Recherchez
                     </Typography>
                     <Box paddingX={2}>
@@ -170,10 +183,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Ajoutez
                     </Typography>
                     <Box paddingX={2}>
@@ -203,10 +213,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Votez
                     </Typography>
                     <Box paddingX={2}>
@@ -237,10 +244,7 @@ export const Homepage = () => {
                     <Box paddingY={3}>
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography
-                      variant="h6"
-                      className={[classes.purpleText, classes.boldText]}
-                    >
+                    <Typography variant="h6" className={[classes.boldText]}>
                       Profitez
                     </Typography>
                     <Box paddingX={2}>
@@ -267,6 +271,11 @@ export const Homepage = () => {
         <Box paddingY={6} align="center" className={classes.whiteText}>
           <Container maxWidth="lg">
             <Box paddingY={3}>
+              <Typography variant="h4">
+                <span role="img" aria-label="thinkEmoji">
+                  🎤
+                </span>
+              </Typography>
               <Typography variant="h3" className={classes.boldText}>
                 Nos platformes
               </Typography>
@@ -300,6 +309,11 @@ export const Homepage = () => {
         <Box paddingY={6} align="center">
           <Container maxWidth="lg">
             <Box paddingY={2}>
+              <Typography variant="h4">
+                <span role="img" aria-label="thinkEmoji">
+                  🤑
+                </span>
+              </Typography>
               <Typography
                 variant="h3"
                 className={[classes.purpleText, classes.boldText]}
@@ -310,10 +324,10 @@ export const Homepage = () => {
             <Grid container spacing={0} alignItems="center" justify="center">
               <Grid
                 item
-                xl={4}
-                lg={4}
-                md={4}
-                sm={4}
+                xl={3}
+                lg={3}
+                md={3}
+                sm={3}
                 xs={12}
                 className={[classes.pricingBox, classes.whiteBg]}
               >
@@ -334,14 +348,16 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={4}
-                      lg={4}
-                      md={4}
-                      sm={4}
+                      xl={6}
+                      lg={6}
+                      md={6}
+                      sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Création de party</Typography>
+                      <Typography variant="body2" align="left">
+                        Création de party
+                      </Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -357,14 +373,16 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={4}
-                      lg={4}
-                      md={4}
-                      sm={4}
+                      xl={6}
+                      lg={6}
+                      md={6}
+                      sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">Inviter des amis</Typography>
+                      <Typography variant="body2" align="left">
+                        Inviter des amis
+                      </Typography>
                     </Grid>
                   </Grid>
                 </div>
@@ -380,14 +398,14 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={4}
-                      lg={4}
-                      md={4}
-                      sm={4}
+                      xl={6}
+                      lg={6}
+                      md={6}
+                      sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">
+                      <Typography variant="body2" align="left">
                         Nombre de party limités
                       </Typography>
                     </Grid>
@@ -405,14 +423,14 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={4}
-                      lg={4}
-                      md={4}
-                      sm={4}
+                      xl={6}
+                      lg={6}
+                      md={6}
+                      sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">
+                      <Typography variant="body2" align="left">
                         Nombre d'invités limités
                       </Typography>
                     </Grid>
@@ -430,14 +448,14 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={4}
-                      lg={4}
-                      md={4}
-                      sm={4}
+                      xl={6}
+                      lg={6}
+                      md={6}
+                      sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
-                      <Typography variant="body2">
+                      <Typography variant="body2" align="left">
                         Nombre de sons limités
                       </Typography>
                     </Grid>
@@ -446,10 +464,10 @@ export const Homepage = () => {
               </Grid>
               <Grid
                 item
-                xl={4}
-                lg={4}
-                md={4}
-                sm={4}
+                xl={3}
+                lg={3}
+                md={3}
+                sm={3}
                 xs={12}
                 className={[
                   classes.pricingBox,
@@ -475,14 +493,14 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={4}
-                        lg={4}
-                        md={4}
-                        sm={4}
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
-                        <Typography variant="body2">
+                        <Typography variant="body2" align="left">
                           Création de party
                         </Typography>
                       </Grid>
@@ -500,14 +518,14 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={4}
-                        lg={4}
-                        md={4}
-                        sm={4}
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
-                        <Typography variant="body2">
+                        <Typography variant="body2" align="left">
                           Inviter des amis
                         </Typography>
                       </Grid>
@@ -525,14 +543,14 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={4}
-                        lg={4}
-                        md={4}
-                        sm={4}
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
-                        <Typography variant="body2">
+                        <Typography variant="body2" align="left">
                           Nombre de party illimités
                         </Typography>
                       </Grid>
@@ -550,15 +568,15 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={4}
-                        lg={4}
-                        md={4}
-                        sm={4}
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
-                        <Typography variant="body2">
-                          CréNombre d'invités illimités
+                        <Typography variant="body2" align="left">
+                          Nombre d'invités illimités
                         </Typography>
                       </Grid>
                     </Grid>
@@ -575,14 +593,160 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={4}
-                        lg={4}
-                        md={4}
-                        sm={4}
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
-                        <Typography variant="body2">
+                        <Typography variant="body2" align="left">
+                          Nombre de sons illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                </Box>
+              </Grid>
+              <Grid
+                item
+                xl={3}
+                lg={3}
+                md={3}
+                sm={3}
+                xs={12}
+                className={[
+                  classes.pricingBox,
+                  classes.blackBg,
+                  classes.whiteText,
+                ]}
+              >
+                <Box paddingY={3}>
+                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="h2">15€</Typography>
+                  <Typography variant="body2">par mois</Typography>
+                </Box>
+                <Box>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo" />
+                      </Grid>
+                      <Grid
+                        item
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2" align="left">
+                          Création de party
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        item
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2" align="left">
+                          Inviter des amis
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        item
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2" align="left">
+                          Nombre de party illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        item
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2" align="left">
+                          Nombre d'invités illimités
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </div>
+                  <div>
+                    <Grid
+                      container
+                      spacing={0}
+                      alignItems="center"
+                      justify="center"
+                    >
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                      <Grid
+                        item
+                        xl={6}
+                        lg={6}
+                        md={6}
+                        sm={6}
+                        xs={6}
+                        style={{ alignSelf: "center" }}
+                      >
+                        <Typography variant="body2" align="left">
                           Nombre de sons illimités
                         </Typography>
                       </Grid>

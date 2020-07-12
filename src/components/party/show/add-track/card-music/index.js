@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 
 import { Track } from "../../../../../services/track";
+import { fail } from "../../../../common/Toast";
 
 const useStyles = makeStyles({
   media: {
@@ -23,17 +24,21 @@ export const CardMusic = ({ music, idParty, setView }) => {
   const classes = useStyles();
 
   const handleClick = async (music) => {
-    const data = await Track.add(
-      idParty,
-      music.videoId,
-      music.title,
-      music.thumbnail
-    );
-    const jsonData = await data.json();
+    try {
+      const data = await Track.add(
+        idParty,
+        music.videoId,
+        music.title,
+        music.thumbnail
+      );
+      const jsonData = await data.json();
 
-    if (data.status !== 201) throw jsonData;
+      if (data.status !== 201) throw jsonData;
 
-    setView("playlist");
+      setView("playlist");
+    } catch (err) {
+      fail(err.message);
+    }
   };
 
   return (

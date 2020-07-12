@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 import { useStyles } from "./useStyles";
@@ -9,28 +9,37 @@ import { trackSchema } from "./trackSchema";
 import { isEmpty } from "../../../../helpers/utility";
 import { Track } from "../../../../services/track";
 import { CardMusic } from "./card-music/";
+import { warning, fail } from "../../../common/Toast";
 
 export const TrackNew = ({ idParty, setView }) => {
   const classes = useStyles();
   const [data, setData] = useState({});
 
   const handleSubmit = async ({ title }) => {
-    const data = await Track.search(title);
-    const jsonData = await data.json();
+    try {
+      const data = await Track.search(title);
+      const jsonData = await data.json();
 
-    if (data.status !== 200) throw jsonData;
+      if (data.status !== 200) throw jsonData;
 
-    setData(jsonData.items);
+      if (jsonData.items.length === 0) warning("Aucun son n'a été trouvé");
+
+      setData(jsonData.items);
+    } catch (err) {
+      fail(err.message);
+    }
   };
 
   return (
     <section className={classes.root}>
       <div className={classes.track}>
         <div>
-          <h2 className={classes.subtitle} onClick={() => setView("playlist")}>
-            <ArrowBackIcon />
-            Retour
-          </h2>
+          <Button variant="outlined" onClick={() => setView("playlist")}>
+            <h2 className={classes.subtitle}>
+              <ArrowBackIcon />
+              Retour
+            </h2>
+          </Button>
           <h1 className={classes.title}>Ajout d'un son</h1>
         </div>
         <Formik

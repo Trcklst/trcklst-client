@@ -65,33 +65,38 @@ export const PartyShow = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await Party.join(endpoint);
+      try {
+        await Party.join(endpoint);
 
-      const data = await Party.show(endpoint);
-      const jsonData = await data.json();
+        const data = await Party.show(endpoint);
+        const jsonData = await data.json();
 
-      if (data.status !== 200) throw jsonData;
+        if (data.status !== 200) throw jsonData;
 
-      setId(jsonData._id);
-      setOwner(jsonData.owner);
-      setCreatedAt(jsonData.createdAt);
-      setMembers(jsonData.members);
-      setName(jsonData.name);
-      setTracks(jsonData.tracks);
-      if (jsonData.currentTrack !== undefined) {
-        setCurrentTrack(jsonData.currentTrack);
-        if (jsonData.currentTrack.status === 1) {
-          setTimeout(() => {
-            setStep("Pause");
-          }, 2000);
+        setId(jsonData._id);
+        setOwner(jsonData.owner);
+        setCreatedAt(jsonData.createdAt);
+        setMembers(jsonData.members);
+        setName(jsonData.name);
+        setTracks(jsonData.tracks);
+        if (jsonData.currentTrack !== undefined) {
+          setCurrentTrack(jsonData.currentTrack);
+          if (jsonData.currentTrack.status === 1) {
+            setTimeout(() => {
+              setStep("Pause");
+            }, 2000);
+          }
         }
+      } catch (err) {
+        fail(err.message);
+        push(PARTYJOIN);
       }
     };
     fetchData();
     return async () => {
       await Party.leave(endpoint);
     };
-  }, [endpoint]);
+  }, [endpoint, push]);
 
   useEffect(() => {
     if (!isEmpty(socket)) {

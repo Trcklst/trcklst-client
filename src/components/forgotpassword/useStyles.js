@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: '40px 0px',
+    padding: "40px 0px",
   },
   slash: {
     color: "#3f51b5",
@@ -59,5 +59,4 @@ export const useStyles = makeStyles((theme) => ({
     color: "red",
     fontSize: 13,
   },
-  
 }));

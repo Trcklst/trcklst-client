@@ -1,11 +1,11 @@
 import React from "react";
-import {TextField, Button, Grid} from "@material-ui/core";
-import {useStyles} from "./useStyles";
+import { TextField, Button, Grid } from "@material-ui/core";
+import { useStyles } from "./useStyles";
 
 export const initialValues = {
   token: "",
   password: "",
-  confirmPassword: ""
+  confirmPassword: "",
 };
 
 export const NewPasswordForm = ({
@@ -16,16 +16,15 @@ export const NewPasswordForm = ({
   errors,
   isValid,
   isSubmitting,
-  handleBlur
+  handleBlur,
 }) => {
-    const classes = useStyles();
+  const classes = useStyles();
 
   return (
-
-    <form onSubmit={handleSubmit} className={classes.form} >
+    <form onSubmit={handleSubmit} className={classes.form}>
       <Grid container spacing={2} className={classes.container}>
         <Grid item xs={12}>
-        <TextField
+          <TextField
             variant="outlined"
             margin="normal"
             required
@@ -37,10 +36,10 @@ export const NewPasswordForm = ({
             onBlur={handleBlur}
             value={values.token}
             error={touched.token && errors.token !== undefined}
-            helperText={touched.token && errors.token}/>
-
+            helperText={touched.token && errors.token}
+          />
         </Grid>
-      <Grid item xs={12}>
+        <Grid item xs={12}>
           <TextField
             className={classes.field}
             type="password"
@@ -83,10 +82,10 @@ export const NewPasswordForm = ({
         variant="contained"
         color="primary"
         disabled={isSubmitting || !isValid}
-        className={classes.submit}>
+        className={classes.submit}
+      >
         Changer
       </Button>
-      
     </form>
   );
 };

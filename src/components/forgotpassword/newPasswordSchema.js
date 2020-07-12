@@ -1,8 +1,7 @@
 import * as Yup from "yup";
 
 export const newPasswordSchema = Yup.object().shape({
-  token: Yup.string()
-    .trim(),
+  token: Yup.string().trim(),
   password: Yup.string()
     .trim()
     .required("Le mot de passe est obligatoire.")

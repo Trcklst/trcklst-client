@@ -6,7 +6,7 @@ export const initialValues = {
   email: "",
 };
 
-export const ForgotpasswordForm = ({
+export const ForgotPasswordForm = ({
   handleSubmit,
   handleChange,
   values,
@@ -19,7 +19,6 @@ export const ForgotpasswordForm = ({
     const classes = useStyles();
 
   return (
-
     <form onSubmit={handleSubmit} className={classes.form} >
       <Grid container spacing={2} className={classes.container}>
         <Grid item xs={12}>
@@ -39,7 +38,6 @@ export const ForgotpasswordForm = ({
 
         </Grid>
       </Grid>
-     
       <Button
         type="submit"
         fullWidth
@@ -49,7 +47,6 @@ export const ForgotpasswordForm = ({
         className={classes.submit}>
         Réinitialiser votre mot de passe
       </Button>
-      
     </form>
   );
 };

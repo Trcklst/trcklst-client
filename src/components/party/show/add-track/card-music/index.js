@@ -10,9 +10,8 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 
-import { Track } from "../../services/track";
+import { Track } from "../../../../../services/track";
 
 const useStyles = makeStyles({
   media: {
@@ -20,9 +19,8 @@ const useStyles = makeStyles({
   },
 });
 
-export const CardMusic = ({ music, idParty }) => {
+export const CardMusic = ({ music, idParty, setView }) => {
   const classes = useStyles();
-  const { push } = useHistory();
 
   const handleClick = async (music) => {
     const data = await Track.add(
@@ -35,7 +33,7 @@ export const CardMusic = ({ music, idParty }) => {
 
     if (data.status !== 201) throw jsonData;
 
-    push(`/party/${idParty}`);
+    setView("playlist");
   };
 
   return (

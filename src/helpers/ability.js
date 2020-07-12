@@ -29,7 +29,6 @@ export const defineRulesFor = (user) => {
       can("show", "Party", { userId: user.id });
       can("edit", "Party", { userId: user.id });
       can("join", "Party", { userId: user.id });
-      can("add", "Track", { userId: user.id });
       break;
     default:
       break;

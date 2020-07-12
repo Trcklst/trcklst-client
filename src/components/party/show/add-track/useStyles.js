@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -29,16 +29,17 @@ export const useStyles = makeStyles((theme) => ({
     letterSpacing: "0.33px",
     textTransform: "uppercase",
     marginTop: 0,
+    display: "flex",
+    alignItems: "center",
+    "& > svg": {
+      fontSize: 21,
+    },
   },
   button: {
     height: 55,
     marginTop: 10,
   },
   containerCardMusic: {
-    padding: 80,
-    [theme.breakpoints.down("xs")]: {
-      padding: 0,
-      marginTop: 25,
-    },
+    marginTop: 20,
   },
-}));
+});

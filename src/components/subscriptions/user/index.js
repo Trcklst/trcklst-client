@@ -10,7 +10,7 @@ import {NEWSUBSCRIPTION} from "../../../helpers/route-constant";
 
 const useStyles = makeStyles({
   root: {
-    padding: 20,
+    padding: 100,
   },
   title: {
     color: "#263238",
@@ -29,7 +29,17 @@ const useStyles = makeStyles({
     textTransform: "uppercase",
   },
   links: {
-    textAlign: "right"
+    textAlign: "right",
+    marginBottom: "50px"
+  },
+  linkNewSubscription:
+  {
+    textDecoration: "none",
+    padding: 10,
+    color: "white",
+    backgroundColor: "#1f1959",
+    border: "1px solid white",
+    borderRadius:"1px",
   }
 });
 
@@ -58,8 +68,17 @@ export const MySubscriptions = () => {
       const jsonData = await data.json();
 
       if (data.status !== 200) throw jsonData;
-      
-      setData(jsonData.billingItems);
+    
+      var tab = jsonData.billingItems;
+
+      for (const property in tab) {
+          tab[property]['price'] = tab[property]['price'] + ' €';
+          var date = new Date(tab[property]['date']);
+          tab[property]['date'] = date.toLocaleDateString();
+          tab[property]['invoice'] = <a href={tab[property]['invoice']} target="_blank" rel="noopener noreferrer"> {tab[property]['invoice']} </a>;
+      } 
+
+      setData(tab);
     };
     fetchData();
   }, []);

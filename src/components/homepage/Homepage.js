@@ -14,9 +14,15 @@ import { Link } from "react-router-dom";
 import playing from "../../images/playing.png";
 import unknown from "../../images/unknown.png";
 import teamwork from "../../images/teamwork.png";
+
+import aze1 from "../../images/undraw_personalization_triu.png";
+import aze2 from "../../images/undraw_social_interaction_cy9i.png";
+import aze3 from "../../images/undraw_social_dashboard_k3pt.png";
+
 import spotify from "../../images/spotifyColor.png";
 import deezer from "../../images/deezerColor.png";
 import youtube from "../../images/youtubeColor.png";
+
 import ticks from "../../images/ticks.png";
 import logo from "../../images/logo_white2.png";
 
@@ -84,22 +90,21 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
-                      <img src={playing} alt="boxPicture" width="100%" />
+                    <Box paddingY={3} height="200px">
+                      <img src={aze1} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Créez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
-                        ...un salon/une partie
-                      </Typography>
                       <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        ...un salon. Vous aurez la possibilité de créer autant
+                        de salons que vous le souhaitez afin de gérer la musique
+                        de votre{" "}
+                        <span role="img" aria-label="music">
+                          🎉
+                        </span>{" "}
+                        . Ainsi, la musique sera entre vos mains.
                       </Typography>
                     </Box>
                   </Box>
@@ -114,22 +119,22 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
-                      <img src={unknown} alt="boxPicture" width="100%" />
+                    <Box paddingY={3} height="200px">
+                      <img src={teamwork} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Invitez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
-                        ...vos amis
-                      </Typography>
                       <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        ...vos{" "}
+                        <span role="img" aria-label="music">
+                          👨‍🎤
+                        </span>{" "}
+                        afin qu'ils puissent rejoindre votre salon. Envoyez leur
+                        le lien d'invitation, et bénéficiez des fonctionnalités
+                        que propose Trcklst afin de mettre autant de musiques
+                        que vous le souhaitez.
                       </Typography>
                     </Box>
                   </Box>
@@ -144,26 +149,21 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
-                      <img src={teamwork} alt="boxPicture" width="100%" />
+                    <Box paddingY={3} height="200px">
+                      <img src={unknown} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Recherchez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
+                      <Typography variant="body2" align="justify">
                         ...des{" "}
                         <span role="img" aria-label="music">
                           🎵
                         </span>{" "}
-                        sur la plateforme musicale de votre choix
-                      </Typography>
-                      <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        sur la plateforme musicale de votre choix. Liez votre
+                        compte Trcklst ainsi que votre platforme de streaming
+                        musicale préférée.
                       </Typography>
                     </Box>
                   </Box>
@@ -180,22 +180,21 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
-                      <img src={playing} alt="boxPicture" width="100%" />
+                    <Box paddingY={3} height="200px">
+                      <img src={aze3} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Ajoutez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
-                        ...à son salon des musiques
-                      </Typography>
                       <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        ...à votre salon des musiques. Notre système de{" "}
+                        <span role="img" aria-label="music">
+                          🔍
+                        </span>{" "}
+                        permettant de rechercher à travers des millons de
+                        musiques fera votre bonheur. Ajoutez les à votre
+                        playlist en illimité grâce à Trcklst.
                       </Typography>
                     </Box>
                   </Box>
@@ -210,23 +209,21 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
-                      <img src={playing} alt="boxPicture" width="100%" />
+                    <Box paddingY={3} height="200px">
+                      <img src={aze2} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Votez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
-                        ...pour la musique préférée afin qu'elle puisse être lu
-                        en premier.
-                      </Typography>
                       <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        ...pour la musique préférée afin qu'elle puisse être lue
+                        en premier. Une chanson dans votre salon que vous{" "}
+                        <span role="img" aria-label="music">
+                          💖
+                        </span>{" "}
+                        ? Parlez en avec vos amis afin qu'elle puisse être
+                        remonté en haut de liste!
                       </Typography>
                     </Box>
                   </Box>
@@ -241,23 +238,20 @@ export const Homepage = () => {
                   className={classes.stepsBox}
                 >
                   <Box padding={2}>
-                    <Box paddingY={3}>
+                    <Box paddingY={3} height="200px">
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={[classes.boldText]}>
                       Profitez
                     </Typography>
                     <Box paddingX={2}>
-                      <Typography variant="body2" align="left">
-                        ...de la musique avec vos amis sans vous embetez à vous
-                        connecter
-                      </Typography>
                       <Typography variant="body2" align="justify">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Integer sed rutrum leo, eu tempus dui. Mauris sem nibh,
-                        condimentum luctus commodo non, dapibus finibus augue.
-                        Proin efficitur, magna at faucibus gravida, justo justo
-                        augue.
+                        ...de la musique avec vos amis en créant la playlist de
+                        vos{" "}
+                        <span role="img" aria-label="music">
+                          ✨
+                        </span>{" "}
+                        !
                       </Typography>
                     </Box>
                   </Box>
@@ -348,15 +342,15 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={6}
-                      lg={6}
+                      xl={8}
+                      lg={8}
                       md={6}
                       sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2" align="left">
-                        Création de party
+                        Création de party avec 10 personnes maximum
                       </Typography>
                     </Grid>
                   </Grid>
@@ -373,90 +367,15 @@ export const Homepage = () => {
                     </Grid>
                     <Grid
                       item
-                      xl={6}
-                      lg={6}
+                      xl={8}
+                      lg={8}
                       md={6}
                       sm={6}
                       xs={6}
                       style={{ alignSelf: "center" }}
                     >
                       <Typography variant="body2" align="left">
-                        Inviter des amis
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </div>
-                <div>
-                  <Grid
-                    container
-                    spacing={0}
-                    alignItems="center"
-                    justify="center"
-                  >
-                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                      <img src={ticks} alt="ticksLogo"></img>
-                    </Grid>
-                    <Grid
-                      item
-                      xl={6}
-                      lg={6}
-                      md={6}
-                      sm={6}
-                      xs={6}
-                      style={{ alignSelf: "center" }}
-                    >
-                      <Typography variant="body2" align="left">
-                        Nombre de party limités
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </div>
-                <div>
-                  <Grid
-                    container
-                    spacing={0}
-                    alignItems="center"
-                    justify="center"
-                  >
-                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                      <img src={ticks} alt="ticksLogo"></img>
-                    </Grid>
-                    <Grid
-                      item
-                      xl={6}
-                      lg={6}
-                      md={6}
-                      sm={6}
-                      xs={6}
-                      style={{ alignSelf: "center" }}
-                    >
-                      <Typography variant="body2" align="left">
-                        Nombre d'invités limités
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </div>
-                <div>
-                  <Grid
-                    container
-                    spacing={0}
-                    alignItems="center"
-                    justify="center"
-                  >
-                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                      <img src={ticks} alt="ticksLogo"></img>
-                    </Grid>
-                    <Grid
-                      item
-                      xl={6}
-                      lg={6}
-                      md={6}
-                      sm={6}
-                      xs={6}
-                      style={{ alignSelf: "center" }}
-                    >
-                      <Typography variant="body2" align="left">
-                        Nombre de sons limités
+                        1 playlist par jour
                       </Typography>
                     </Grid>
                   </Grid>
@@ -477,7 +396,7 @@ export const Homepage = () => {
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Preminum</Typography>
-                  <Typography variant="h2">15€</Typography>
+                  <Typography variant="h2">3,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
                 <Box>
@@ -493,15 +412,15 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={6}
-                        lg={6}
+                        xl={8}
+                        lg={8}
                         md={6}
                         sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Création de party
+                          Création de party avec 25 personnes maximum
                         </Typography>
                       </Grid>
                     </Grid>
@@ -518,90 +437,15 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={6}
-                        lg={6}
+                        xl={8}
+                        lg={8}
                         md={6}
                         sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Inviter des amis
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre de party illimités
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre d'invités illimités
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre de sons illimités
+                          Nombre illimités de playlist
                         </Typography>
                       </Grid>
                     </Grid>
@@ -623,7 +467,7 @@ export const Homepage = () => {
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Preminum</Typography>
-                  <Typography variant="h2">15€</Typography>
+                  <Typography variant="h2">9,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
                 <Box>
@@ -639,15 +483,15 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={6}
-                        lg={6}
+                        xl={8}
+                        lg={8}
                         md={6}
                         sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Création de party
+                          Création de party avec une illimité de personnes
                         </Typography>
                       </Grid>
                     </Grid>
@@ -664,90 +508,15 @@ export const Homepage = () => {
                       </Grid>
                       <Grid
                         item
-                        xl={6}
-                        lg={6}
+                        xl={8}
+                        lg={8}
                         md={6}
                         sm={6}
                         xs={6}
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Inviter des amis
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre de party illimités
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre d'invités illimités
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </div>
-                  <div>
-                    <Grid
-                      container
-                      spacing={0}
-                      alignItems="center"
-                      justify="center"
-                    >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
-                      <Grid
-                        item
-                        xl={6}
-                        lg={6}
-                        md={6}
-                        sm={6}
-                        xs={6}
-                        style={{ alignSelf: "center" }}
-                      >
-                        <Typography variant="body2" align="left">
-                          Nombre de sons illimités
+                          Nombre illimités de playlist
                         </Typography>
                       </Grid>
                     </Grid>

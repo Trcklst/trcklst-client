@@ -11,20 +11,19 @@ import {
 import { LOGIN } from "../../helpers/route-constant";
 import { Link } from "react-router-dom";
 
-import playing from "../../images/playing.png";
-import unknown from "../../images/unknown.png";
-import teamwork from "../../images/teamwork.png";
+import playing from "../../images/landing/maincontent/profitez.png";
+import unknown from "../../images/landing/maincontent/recherchez.png";
+import teamwork from "../../images/landing/maincontent/invitez.png";
+import aze1 from "../../images/landing/maincontent/creez.png";
+import aze2 from "../../images/landing/maincontent/votez.png";
+import aze3 from "../../images/landing/maincontent/ajoutez.png";
 
-import aze1 from "../../images/undraw_personalization_triu.png";
-import aze2 from "../../images/undraw_social_interaction_cy9i.png";
-import aze3 from "../../images/undraw_social_dashboard_k3pt.png";
+import spotify from "../../images/landing/platformes/spotify.png";
+import deezer from "../../images/landing/platformes/deezer.png";
+import youtube from "../../images/landing/platformes/youtube.png";
 
-import spotify from "../../images/spotifyColor.png";
-import deezer from "../../images/deezerColor.png";
-import youtube from "../../images/youtubeColor.png";
-
-import ticks from "../../images/ticks.png";
-import logo from "../../images/logo_white2.png";
+import ticks from "../../images/landing/ticksPricing.png";
+import logo from "../../images/logo/logo_white2.png";
 
 export const Homepage = () => {
   const classes = useStyles();

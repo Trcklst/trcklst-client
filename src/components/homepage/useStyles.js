@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import landingWallpaper from "../../images/home.jpg";
+import landingWallpaper from "../../images/landing/home.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   // general

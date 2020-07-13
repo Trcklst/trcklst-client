@@ -13,7 +13,6 @@ export const PARTYNEW = "/party/new";
 export const PARTYJOIN = "/party/join";
 export const MYSUBSRIPTIONS = "/mysubscriptions";
 export const NEWSUBSCRIPTION = "/new-subscription";
-export const SUBSRIPTIONS = "/admin/subscriptions";
 export const MYPARTIES = "/parties";
 export const PARTYSHOW = "/party/:slug";
 export const PARTYEDIT = "/party/:slug/edit";

@@ -70,7 +70,7 @@ export const Navbar = () => {
             <>
               <Box py={2}>
                 <Link to={LOGIN} className={classes.link}>
-                  Connexion
+                  Se connecter
                 </Link>
               </Box>
               <Box px={2}>

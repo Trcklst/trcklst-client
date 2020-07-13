@@ -2,6 +2,9 @@ import React, { useEffect, useState, createRef } from "react";
 import { Container, makeStyles } from "@material-ui/core";
 import jwt_decode from "jwt-decode";
 import { ToastContainer, toast } from "react-toastify";
+import fetchIntercept from "fetch-intercept";
+import * as Cookies from "js-cookie";
+import { useHistory } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.min.css";
 
 import { RoutesNotConnected } from "./routes/routes-notconnected";
@@ -9,6 +12,7 @@ import { RoutesConnected } from "./routes/routes-connected";
 import { Navbar } from "./components/navbar/Navbar";
 import { getSessionCookie, SessionContext } from "./context/session";
 import { ability, defineRulesFor } from "./helpers/ability";
+import { LOGIN } from "./helpers/route-constant";
 import "./App.css";
 
 export const useStyles = makeStyles({
@@ -43,7 +47,41 @@ const App = () => {
     socket,
     setSocket,
   };
+  const { push } = useHistory();
   const wrapper = createRef();
+
+  fetchIntercept.register({
+    request: (url, config) => {
+      if (!url.includes("oauth")) {
+        config.headers = {
+          "Content-Type": "application/json",
+          Authorization: getSessionCookie().token,
+        };
+      }
+      return [url, config];
+    },
+    requestError: (error) => {
+      return Promise.reject(error);
+    },
+    response: async (response) => {
+      if (response.status === 400 && session.auth) {
+        const cloneResponse = await response.clone();
+        const data = await cloneResponse.json();
+        if (
+          data.message === "No Token has been sent" ||
+          data.message === "Invalid credentials given"
+        ) {
+          Cookies.remove("session");
+          setSession({ ...session, auth: false, token: "" });
+          push(LOGIN);
+        }
+      }
+      return response;
+    },
+    responseError: (error) => {
+      return Promise.reject(error);
+    },
+  });
 
   useEffect(() => {
     if (getSessionCookie().token) {

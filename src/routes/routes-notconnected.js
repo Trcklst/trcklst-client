@@ -8,7 +8,14 @@ import { ForgotPassword } from "../components/forgotpassword/ForgotPassword";
 import { NewPassword } from "../components/forgotpassword/NewPassword";
 
 import { NotFound } from "../components/NotFound";
-import { NOTFOUND, HOME, LOGIN, REGISTER, FORGOTPASSWORD, NEWPASSWORD } from "../helpers/route-constant";
+import {
+  NOTFOUND,
+  HOME,
+  LOGIN,
+  REGISTER,
+  FORGOTPASSWORD,
+  NEWPASSWORD,
+} from "../helpers/route-constant";
 
 export const RoutesNotConnected = () => {
   return (

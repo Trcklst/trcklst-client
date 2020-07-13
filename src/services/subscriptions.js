@@ -1,5 +1,8 @@
 import { requests } from "./requests";
 
 export const Subscriptions = {
-  mine: (owner) => requests.get(`/subscriptions?owner=${owner}`),
+  mine: () => requests.get(`/api/subscription/billing/`),
+
+  new: (creditCard, subscriptionType) =>
+    requests.post("/api/subscription/", { creditCard, subscriptionType }),
 };

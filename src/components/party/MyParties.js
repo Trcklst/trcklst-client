@@ -178,10 +178,11 @@ export const MyParties = () => {
                     >
                       <VisibilityIcon className={classes.playIconCard} />
                     </IconButton>
-                    <IconButton aria-label="delete">
-                      <DeleteIcon
-                        onClick={() => handleClickDelete(value._id)}
-                      />
+                    <IconButton
+                      aria-label="delete"
+                      onClick={() => handleClickDelete(value._id)}
+                    >
+                      <DeleteIcon />
                     </IconButton>
                     <Modal
                       title={"Supprimer une party"}

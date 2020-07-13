@@ -8,10 +8,12 @@ import { newsubscriptionSchema } from "./newsubscriptionSchema";
 import { Subscriptions } from "../../services/subscriptions";
 import { MYSUBSRIPTIONS } from "../../helpers/route-constant";
 import { success } from "../common/Toast";
+import { useIsMountedRef } from "../../helpers/utility";
 
 export const NewSubscription = () => {
   const classes = useStyles();
   const { push } = useHistory();
+  const isMountedRef = useIsMountedRef();
 
   const handleSubmit = async (
     { cardNumber, month, year, cryptogramme, typeAbonnement },
@@ -40,7 +42,7 @@ export const NewSubscription = () => {
         unauthorized: "Les informations renseignées sont invalides.",
       });
     } finally {
-      setSubmitting(false);
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

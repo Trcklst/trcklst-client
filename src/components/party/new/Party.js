@@ -8,12 +8,14 @@ import { partySchema } from "./partySchema";
 import { Party } from "../../../services/party";
 import { MYPARTIES } from "../../../helpers/route-constant";
 import { success, fail } from "../../common/Toast";
+import { useIsMountedRef } from "../../../helpers/utility";
 
 export const PartyNew = () => {
   const classes = useStyles();
   const { push } = useHistory();
+  const isMountedRef = useIsMountedRef();
 
-  const handleSubmit = async ({ name }) => {
+  const handleSubmit = async ({ name }, { setSubmitting }) => {
     try {
       const data = await Party.new(name);
       const jsonData = await data.json();
@@ -25,6 +27,8 @@ export const PartyNew = () => {
       return push(MYPARTIES);
     } catch (err) {
       fail(err.message);
+    } finally {
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

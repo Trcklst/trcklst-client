@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
 
   // main content section
   stepsBox: {
-    height: "500px",
+    height: "450px",
     backgroundColor: "white",
     margin: "20px",
     boxShadow: "0 20px 30px 0 rgba(36,50,66,.14)",

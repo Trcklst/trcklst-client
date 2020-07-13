@@ -16,7 +16,7 @@ import {
   LibraryMusic as LibraryMusicIcon,
   Directions as DirectionsIcon,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import * as Cookies from "js-cookie";
 import { useHistory } from "react-router-dom";
 
@@ -39,6 +39,7 @@ import { Links } from "../common/Links";
 import { SideListProfile } from "./SideListProfile";
 import { SessionContext } from "../../context/session";
 import { Can } from "../../helpers/Can";
+import { Party } from "../../services/party";
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -68,14 +69,23 @@ const useStyles = makeStyles((theme) => ({
 export const SideList = () => {
   const classes = useStyles();
   const { user } = useContext(SessionContext);
+  const location = useLocation();
   const { setSession, setUser } = useContext(SessionContext);
   const { push } = useHistory();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const path = location.pathname.split("/");
+    if (path.length === 3) {
+      if (path[1] === "party") {
+        if (path[2] !== "new" && path[2] !== "join") {
+          const endpoint = path.pop();
+          await Party.leave(endpoint);
+        }
+      }
+    }
     Cookies.remove("session");
     setSession({ auth: false, token: "" });
     setUser({});
-
     return push(LOGIN);
   };
 

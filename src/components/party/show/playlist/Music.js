@@ -47,7 +47,7 @@ export const Music = ({ id, icon, title, votesCount, idParty }) => {
               handleClick();
             }}
           >
-            <FavoriteIcon style={{ color: "rgb(15, 11, 255)" }} />
+            <FavoriteIcon style={{ color: "#3f51b5" }} />
           </IconButton>
         </Badge>
       </Grid>

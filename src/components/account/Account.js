@@ -12,19 +12,14 @@ import { Divider, Grid, makeStyles, Tabs, Tab } from "@material-ui/core";
 import { Formik } from "formik";
 
 import { AccountProfile } from "./AccountProfile";
-import { UpdateGeneral } from "./updateGeneral";
-import {
-  UpdateIdentifier,
-  initalValues as identifierValues,
-} from "./updateIdentifier";
 import {
   UpdateSecurity,
   initalValues as securityValues,
 } from "./updateSecurity";
-import { generalSchema } from "./schemas/generalSchema";
-import { identifierSchema } from "./schemas/identifierSchema";
 import { securitySchema } from "./schemas/securitySchema";
 import { SessionContext } from "../../context/session";
+import { success } from "../common/Toast";
+import { Me } from "../../services/me";
 
 const useStyles = makeStyles({
   subtitle: {
@@ -58,29 +53,24 @@ export const Account = () => {
   const { user } = useContext(SessionContext);
   let { url } = useRouteMatch();
   const location = useLocation();
-  const tabValues = { account: 0, general: 0, identifier: 1, security: 2 };
+  const tabValues = { account: 0, general: 0, security: 1 };
   const endpoint = location.pathname.split("/").pop();
   const [value, setValue] = useState(tabValues[endpoint]);
 
-  const handleSubmitGeneral = async (
-    { newFirstname, newLastname },
-    { setSubmitting, setErrors, setFieldError, resetForm, setStatus }
-  ) => {
-    console.log(newFirstname, newLastname);
-  };
-
-  const handleSubmitIdentifier = async (
-    { newEmail, password },
-    { setSubmitting, setErrors, setFieldError, resetForm, setStatus }
-  ) => {
-    console.log(newEmail, password);
-  };
-
   const handleSubmitSecurity = async (
     { oldPassword, newPassword },
-    { setSubmitting, setErrors, setFieldError, resetForm, setStatus }
+    { setSubmitting, resetForm, setErrors }
   ) => {
-    console.log(oldPassword, newPassword);
+    const data = await Me.resetPassword(newPassword, oldPassword);
+    const jsonData = await data.json();
+
+    if (data.status === 200) {
+      success(`Votre mot de passe a été mis à jour`);
+      setSubmitting(false);
+      resetForm();
+    }
+
+    setErrors({ oldPassword: jsonData.message });
   };
 
   const handleChange = (event, newValue) => {
@@ -91,8 +81,8 @@ export const Account = () => {
     <section style={{ padding: 20 }}>
       <Router>
         <>
-          <h2 className={classes.subtitle}>Gestion du compte</h2>
-          <h1 className={classes.title}>Modifier les informations du compte</h1>
+          <h2 className={classes.subtitle}>Compte</h2>
+          <h1 className={classes.title}>Gestion du compte</h1>
         </>
         <Tabs
           value={value}
@@ -102,11 +92,6 @@ export const Account = () => {
           className={classes.tabs}
         >
           <Tab label="Général" component={Link} to={`${url}/general`} />
-          <Tab
-            label="Identification"
-            component={Link}
-            to={`${url}/identifier`}
-          />
           <Tab label="Sécurité" component={Link} to={`${url}/security`} />
         </Tabs>
         <Divider className={classes.divider} />
@@ -114,37 +99,10 @@ export const Account = () => {
           <Redirect exact from={url} to={`${url}/general`} />
           <Route path={`${url}/general`}>
             <Grid container spacing={3}>
-              <Grid item xs={12} md={6} lg={4}>
+              <Grid item xs={12}>
                 <AccountProfile user={user} />
               </Grid>
-              <Grid item xs={12} md={6} lg={8}>
-                <Formik
-                  initialErrors={{}}
-                  initialValues={{
-                    newFirstname: "",
-                    newLastname: "",
-                  }}
-                  component={UpdateGeneral}
-                  validationSchema={generalSchema}
-                  onSubmit={handleSubmitGeneral}
-                  initialStatus={initialStatus}
-                  validateOnBlur
-                  validateOnChange
-                ></Formik>
-              </Grid>
             </Grid>
-          </Route>
-          <Route path={`${url}/identifier`}>
-            <Formik
-              initialErrors={identifierValues}
-              initialValues={identifierValues}
-              component={UpdateIdentifier}
-              validationSchema={identifierSchema}
-              onSubmit={handleSubmitIdentifier}
-              initialStatus={initialStatus}
-              validateOnBlur
-              validateOnChange
-            ></Formik>
           </Route>
           <Route path={`${url}/security`}>
             <Formik

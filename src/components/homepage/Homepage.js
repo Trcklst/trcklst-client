@@ -8,7 +8,7 @@ import {
   Container,
   Chip,
 } from "@material-ui/core";
-import { LOGIN } from "../../helpers/route-constant";
+import { LOGIN, POLICY } from "../../helpers/route-constant";
 import { Link } from "react-router-dom";
 
 import playing from "../../images/landing/maincontent/profitez.png";
@@ -548,6 +548,11 @@ export const Homepage = () => {
               align="center"
             >
               © Tous droits réservés - Trcklst | 2020
+            </Typography>
+            <Typography variant="body2">
+              <Link to={POLICY} className={classes.link}>
+                Blabla
+              </Link>
             </Typography>
           </Container>
         </Box>

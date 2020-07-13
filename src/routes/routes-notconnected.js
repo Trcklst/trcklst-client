@@ -6,6 +6,7 @@ import { Login } from "../components/login/Login";
 import { Register } from "../components/register/Register";
 import { ForgotPassword } from "../components/forgotpassword/ForgotPassword";
 import { NewPassword } from "../components/forgotpassword/NewPassword";
+import { Policy } from "../components/homepage/Policy";
 
 import { NotFound } from "../components/NotFound";
 import {
@@ -15,6 +16,7 @@ import {
   REGISTER,
   FORGOTPASSWORD,
   NEWPASSWORD,
+  POLICY,
 } from "../helpers/route-constant";
 
 export const RoutesNotConnected = () => {
@@ -25,6 +27,7 @@ export const RoutesNotConnected = () => {
       <Route exact path={REGISTER} component={Register}></Route>
       <Route exact path={FORGOTPASSWORD} component={ForgotPassword}></Route>
       <Route exact path={NEWPASSWORD} component={NewPassword}></Route>
+      <Route exact path={POLICY} component={Policy} />
       <Route exact path={NOTFOUND} component={NotFound} />
       <Redirect to={NOTFOUND} />
     </Switch>

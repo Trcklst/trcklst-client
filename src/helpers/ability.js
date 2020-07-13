@@ -17,7 +17,6 @@ export const defineRulesFor = (user) => {
       can("view", "DashboardAdmin", { userId: user.id });
       can("view", "Users", { userId: user.id });
       can("view", "AccountAdmin", { userId: user.id });
-      can("view", "Subscriptions", { userId: user.id });
       break;
     case "ROLE_USER":
       can("view", "DashboardUser", { userId: user.id });

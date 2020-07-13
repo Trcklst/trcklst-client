@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { MTable } from "../common/MTable";
 import { Users } from "../../services/users";
-import { USERS } from "../../helpers/route-constant";
+import { Modal } from "../common/Modal";
+import { fail, success } from "../common/Toast";
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
-    maxWidth: 1220,
-    margin: "0 auto",
+    padding: 20,
   },
   title: {
     color: "#263238",
@@ -33,14 +32,11 @@ const useStyles = makeStyles({
 export const UsersIndex = () => {
   const classes = useStyles();
   const [data, setData] = useState([]);
-  const { push } = useHistory();
+  const [open, setOpen] = useState(false);
+  const [userId, setUserId] = useState("");
 
   const optionTable = {
-    columns: [
-      { title: "Email", field: "email" },
-      { title: "Nom", field: "lastname" },
-      { title: "Prénom", field: "firstname" },
-    ],
+    columns: [{ title: "Email", field: "email" }],
     options: {
       sorting: false,
       pageSizeOptions: [10, 15, 20],
@@ -50,13 +46,24 @@ export const UsersIndex = () => {
     },
   };
 
-  const remove = async (rowData) => {
-    const data = await Users.remove(rowData.id);
-    const jsonData = await data.json();
+  const handleClickDelete = (rowData) => {
+    setOpen(true);
+    setUserId(rowData.id);
+  };
 
-    if (data.status !== 200) console.log("error", jsonData);
-    console.log("L'utilisteur a été supprimé.");
-    push(USERS);
+  const deleteUser = async () => {
+    const dataRemove = await Users.remove(userId);
+
+    if (dataRemove.status !== 200) fail("L'utilisateur n'a pas été supprimé");
+
+    success("L'utilisteur a été supprimé.");
+
+    const tempData = [];
+    data.map((value) => {
+      return value.id === userId ? "" : tempData.push(value);
+    });
+
+    setData(tempData);
   };
 
   useEffect(() => {
@@ -64,7 +71,7 @@ export const UsersIndex = () => {
       const data = await Users.list();
       const jsonData = await data.json();
 
-      setData(jsonData);
+      setData(jsonData.users);
     };
     fetchData();
   }, []);
@@ -82,12 +89,21 @@ export const UsersIndex = () => {
           totalCount={data.length}
           actions={[
             {
-              icon: "delete",
+              icon: () => <DeleteIcon />,
               tooltip: "Supprimer l'utilisateur",
-              onClick: (event, rowData) => remove(rowData),
+              onClick: (event, rowData) => handleClickDelete(rowData),
             },
           ]}
         ></MTable>
+        <Modal
+          title={"Supprimer un utilisateur"}
+          content={"Êtes-vous sûr de vouloir supprimer cet utilisateur ?"}
+          leftLink={"Annuler"}
+          rightLink={"Supprimer"}
+          setOpen={setOpen}
+          open={open}
+          validate={deleteUser}
+        />
       </div>
     </div>
   );

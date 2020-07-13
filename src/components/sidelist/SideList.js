@@ -28,7 +28,6 @@ import {
   ACCOUNTADMIN,
   ACCOUNTUSER,
   PARTYNEW,
-  SUBSRIPTIONS,
   MYSUBSRIPTIONS,
   MYPARTIES,
   PARTYJOIN,
@@ -100,7 +99,7 @@ export const SideList = () => {
       <List className={classes.list}>
         <Links route={HOME} text="Accueil" Icon={HomeIcon}></Links>
         <Links
-          route={user.role === "ADMIN" ? DASHBOARDADMIN : DASHBOARDUSER}
+          route={user.role === "ROLE_ADMIN" ? DASHBOARDADMIN : DASHBOARDUSER}
           text="Dashboard"
           Icon={AppsIcon}
         ></Links>
@@ -140,15 +139,6 @@ export const SideList = () => {
             ></Links>
           )}
         </Can>
-        <Can I="view" a="Subscriptions">
-          {() => (
-            <Links
-              route={SUBSRIPTIONS}
-              text="Abonnements"
-              Icon={SubscriptionsIcon}
-            ></Links>
-          )}
-        </Can>
         <Can I="view" a="MySubscriptions">
           {() => (
             <Links
@@ -160,7 +150,7 @@ export const SideList = () => {
         </Can>
       </List>
       <Link
-        to={user.role === "ADMIN" ? ACCOUNTADMIN : ACCOUNTUSER}
+        to={user.role === "ROLE_ADMIN" ? ACCOUNTADMIN : ACCOUNTUSER}
         className={classes.linkAccount}
       >
         <SideListProfile user={user} />

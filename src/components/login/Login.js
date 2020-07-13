@@ -37,7 +37,10 @@ export const Login = () => {
       const currentAuth = jwt_decode(jsonData.access_token);
 
       ability.update(
-        defineRulesFor({ ...currentAuth, role: currentAuth.authorities[0] })
+        defineRulesFor({
+          ...currentAuth,
+          role: currentAuth.authorities[0],
+        })
       );
 
       return currentAuth.authorities[0] === "ROLE_USER"

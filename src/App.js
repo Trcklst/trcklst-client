@@ -100,8 +100,8 @@ const App = () => {
   }, []);
 
   return (
-    <SessionContext.Provider value={contextValue} ref={wrapper}>
-      <div className={classes.root}>
+    <SessionContext.Provider value={contextValue}>
+      <div className={classes.root} ref={wrapper}>
         <Navbar />
         {session.auth ? (
           <Container maxWidth={false} className={classes.container}>

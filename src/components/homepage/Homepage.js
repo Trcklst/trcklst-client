@@ -34,7 +34,7 @@ export const Homepage = () => {
         <main>
           <Container maxWidth="lg">
             <Box paddingY={24} paddingX={3} className={classes.whiteText}>
-              <Grid item xs={10} sm={12} md={12} lg={2} xl={3}>
+              <Grid item xs={6} sm={4} md={3} lg={3} xl={3}>
                 <Box py={3}>
                   <img src={logo} alt="logo" width="100%" />
                 </Box>
@@ -83,7 +83,7 @@ export const Homepage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -112,7 +112,7 @@ export const Homepage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -142,7 +142,7 @@ export const Homepage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -168,12 +168,12 @@ export const Homepage = () => {
                   </Box>
                 </Grid>
               </Grid>
-              <Grid container spacing={2} alignItems="center" justify="center">
+              <Grid container spacing={0} alignItems="center" justify="center">
                 <Grid
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -202,7 +202,7 @@ export const Homepage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -231,7 +231,7 @@ export const Homepage = () => {
                   item
                   xs={12}
                   sm={6}
-                  md={3}
+                  md={4}
                   lg={3}
                   xl={3}
                   className={classes.stepsBox}
@@ -320,7 +320,7 @@ export const Homepage = () => {
                 xl={3}
                 lg={3}
                 md={3}
-                sm={3}
+                sm={4}
                 xs={12}
                 className={[classes.pricingBox, classes.whiteBg]}
               >
@@ -336,9 +336,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                      <img src={ticks} alt="ticksLogo" />
-                    </Grid>
+                    <Box mr={2}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo" />
+                      </Grid>
+                    </Box>
                     <Grid
                       item
                       xl={8}
@@ -361,9 +363,11 @@ export const Homepage = () => {
                     alignItems="center"
                     justify="center"
                   >
-                    <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                      <img src={ticks} alt="ticksLogo"></img>
-                    </Grid>
+                    <Box mr={2}>
+                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                        <img src={ticks} alt="ticksLogo"></img>
+                      </Grid>
+                    </Box>
                     <Grid
                       item
                       xl={8}
@@ -385,7 +389,7 @@ export const Homepage = () => {
                 xl={3}
                 lg={3}
                 md={3}
-                sm={3}
+                sm={4}
                 xs={12}
                 className={[
                   classes.pricingBox,
@@ -406,9 +410,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo" />
-                      </Grid>
+                      <Box mr={2}>
+                        <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                          <img src={ticks} alt="ticksLogo" />
+                        </Grid>
+                      </Box>
                       <Grid
                         item
                         xl={8}
@@ -431,9 +437,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
+                      <Box mr={2}>
+                        <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                          <img src={ticks} alt="ticksLogo"></img>
+                        </Grid>
+                      </Box>
                       <Grid
                         item
                         xl={8}
@@ -456,7 +464,7 @@ export const Homepage = () => {
                 xl={3}
                 lg={3}
                 md={3}
-                sm={3}
+                sm={4}
                 xs={12}
                 className={[
                   classes.pricingBox,
@@ -477,9 +485,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo" />
-                      </Grid>
+                      <Box mr={2}>
+                        <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                          <img src={ticks} alt="ticksLogo" />
+                        </Grid>
+                      </Box>
                       <Grid
                         item
                         xl={8}
@@ -502,9 +512,11 @@ export const Homepage = () => {
                       alignItems="center"
                       justify="center"
                     >
-                      <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
-                        <img src={ticks} alt="ticksLogo"></img>
-                      </Grid>
+                      <Box mr={2}>
+                        <Grid item xl={1} lg={1} md={1} sm={1} xs={3}>
+                          <img src={ticks} alt="ticksLogo"></img>
+                        </Grid>
+                      </Box>
                       <Grid
                         item
                         xl={8}

@@ -11,11 +11,13 @@ import { Auth } from "../../services/auth";
 import { SessionContext, setSessionCookie } from "../../context/session";
 import { DASHBOARDADMIN, DASHBOARDUSER } from "../../helpers/route-constant";
 import { ability, defineRulesFor } from "../../helpers/ability";
+import { useIsMountedRef } from "../../helpers/utility";
 
 export const Login = () => {
   const classes = useStyles();
   const { push } = useHistory();
   const { session, setSession } = useContext(SessionContext);
+  const isMountedRef = useIsMountedRef();
 
   const handleSubmit = async (
     { email, password },
@@ -35,7 +37,6 @@ export const Login = () => {
       });
 
       const currentAuth = jwt_decode(jsonData.access_token);
-
       ability.update(
         defineRulesFor({
           ...currentAuth,
@@ -49,7 +50,7 @@ export const Login = () => {
     } catch (err) {
       setErrors({ unauthorized: "L'email ou le mot de passe est invalide." });
     } finally {
-      setSubmitting(false);
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

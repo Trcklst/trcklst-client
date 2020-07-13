@@ -8,12 +8,17 @@ import { registerSchema } from "./registerSchema";
 import { Auth } from "../../services/auth";
 import { LOGIN } from "../../helpers/route-constant";
 import { useStyles } from "./useStyles";
+import { useIsMountedRef } from "../../helpers/utility";
 
 export const Register = () => {
   const classes = useStyles();
   const { push } = useHistory();
+  const isMountedRef = useIsMountedRef();
 
-  const handleSubmit = async ({ email, password }, { setErrors }) => {
+  const handleSubmit = async (
+    { email, password },
+    { setErrors, setSubmitting }
+  ) => {
     try {
       const data = await Auth.register(email, password);
       const jsonData = await data.json();
@@ -23,6 +28,8 @@ export const Register = () => {
       return push(LOGIN);
     } catch (error) {
       setErrors({ error: error.message });
+    } finally {
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

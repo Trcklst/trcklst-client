@@ -6,7 +6,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useStyles } from "./useStyles";
 import { initialValues, TrackForm } from "./TrackForm";
 import { trackSchema } from "./trackSchema";
-import { isEmpty } from "../../../../helpers/utility";
+import { isEmpty, useIsMountedRef } from "../../../../helpers/utility";
 import { Track } from "../../../../services/track";
 import { CardMusic } from "./card-music/";
 import { warning, fail } from "../../../common/Toast";
@@ -14,8 +14,9 @@ import { warning, fail } from "../../../common/Toast";
 export const TrackNew = ({ idParty, setView }) => {
   const classes = useStyles();
   const [data, setData] = useState({});
+  const isMountedRef = useIsMountedRef();
 
-  const handleSubmit = async ({ title }) => {
+  const handleSubmit = async ({ title }, { setSubmitting }) => {
     try {
       const data = await Track.search(title);
       const jsonData = await data.json();
@@ -27,6 +28,8 @@ export const TrackNew = ({ idParty, setView }) => {
       setData(jsonData.items);
     } catch (err) {
       fail(err.message);
+    } finally {
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

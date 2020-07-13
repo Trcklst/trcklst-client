@@ -39,7 +39,7 @@ export const RoutesConnected = () => {
   const { setUser, setSocket } = useContext(SessionContext);
 
   useEffect(() => {
-    const getOwnUser = async () => {
+    const getOwnUser = () => {
       const currentAuth = jwt_decode(getSessionCookie().token);
       setUser({
         ...currentAuth,

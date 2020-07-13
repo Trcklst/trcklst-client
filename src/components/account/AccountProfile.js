@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Typography,
-  Button,
-  makeStyles,
-} from "@material-ui/core";
+import { Card, CardContent, Typography, makeStyles } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,10 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   email: {
     color: "#546e7a",
-    fontSize: 14,
+    fontSize: 20,
     fontWeight: 400,
     lineHeight: "21px",
     letterSpacing: -0.05,
+    padding: 15,
   },
   cardActions: {
     width: "85%",
@@ -49,6 +42,22 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 265,
+  },
+  role: {
+    color: "#546e7a",
+    fontSize: 20,
+    fontWeight: 400,
+    lineHeight: "21px",
+    letterSpacing: -0.05,
+    padding: 15,
+  },
+  subscription: {
+    color: "#546e7a",
+    fontSize: 20,
+    fontWeight: 400,
+    lineHeight: "21px",
+    letterSpacing: -0.05,
+    padding: 15,
   },
 }));
 
@@ -67,19 +76,21 @@ export const AccountProfile = ({ user }) => {
   ) : (
     <Card className={classes.root}>
       <CardContent className={classes.details}>
-        <Avatar alt="Profile" src="/" className={classes.avatar}>
-          N
-        </Avatar>
-        <Typography variant="h5" className={classes.identifier}>
-          N
-        </Typography>
         <Typography variant="h6" className={classes.email}>
-          {user.email}
+          E-mail : {user.email}
+        </Typography>
+        <Typography variant="h6" className={classes.role}>
+          Role : {user.role === "ROLE_USER" ? "Utilisateur" : "Administrateur"}
+        </Typography>
+        <Typography variant="h6" className={classes.subscription}>
+          Abonnement :{" "}
+          {user.subscription !== null
+            ? user.subscription === "PRO"
+              ? "PRO"
+              : "PREMIUM"
+            : "Pas d'abonnement"}
         </Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-        <Button variant="text">Supprimer la photo</Button>
-      </CardActions>
     </Card>
   );
 };

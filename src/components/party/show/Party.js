@@ -112,6 +112,9 @@ export const PartyShow = () => {
               setStep("Pause");
             }, 2000);
             break;
+          case "unvote":
+            setTracks(param.party.tracks);
+            break;
           case "vote":
             setTracks(param.party.tracks);
             break;

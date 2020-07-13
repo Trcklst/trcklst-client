@@ -137,6 +137,8 @@ export const Playlist = ({
                 icon={value.imageUrl}
                 title={value.name}
                 votesCount={value.votesCount}
+                votes={value.votes}
+                user={user}
                 idParty={endpoint}
               />
             );

@@ -76,7 +76,11 @@ export const PlayerIndex = ({
               </div>
             </div>
           ) : (
-            <img src={currentTrack.imageUrl} alt="imgUrl" />
+            <img
+              className={classes.imgUrl}
+              src={currentTrack.imageUrl}
+              alt="imgUrl"
+            />
           )}
           <div className={classes.playerInfoName}>
             <p>{currentTrack.name}</p>

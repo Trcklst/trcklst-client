@@ -1,5 +1,4 @@
-import React from "react";
-import { useStyles } from "./useStyles";
+import React, { useContext } from "react";
 import {
   Button,
   Grid,
@@ -8,25 +7,26 @@ import {
   Container,
   Chip,
 } from "@material-ui/core";
-import { LOGIN } from "../../helpers/route-constant";
 import { Link } from "react-router-dom";
 
+import { useStyles } from "./useStyles";
+import { LOGIN } from "../../helpers/route-constant";
+import { SessionContext } from "../../context/session";
 import playing from "../../images/landing/maincontent/profitez.png";
 import unknown from "../../images/landing/maincontent/recherchez.png";
 import teamwork from "../../images/landing/maincontent/invitez.png";
 import aze1 from "../../images/landing/maincontent/creez.png";
 import aze2 from "../../images/landing/maincontent/votez.png";
 import aze3 from "../../images/landing/maincontent/ajoutez.png";
-
 import spotify from "../../images/landing/platformes/spotify.png";
 import deezer from "../../images/landing/platformes/deezer.png";
 import youtube from "../../images/landing/platformes/youtube.png";
-
 import ticks from "../../images/landing/ticksPricing.png";
 import logo from "../../images/logo/logo_white2.png";
 
 export const Homepage = () => {
   const classes = useStyles();
+  const { session } = useContext(SessionContext);
 
   return (
     <>
@@ -43,20 +43,22 @@ export const Homepage = () => {
               <Typography variant="h6">
                 Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
-              <Box paddingY={5}>
-                <Link to={LOGIN} className={classes.link}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.customButton}
-                  >
-                    Rejoignez notre platforme{"  "}
-                    <span role="img" aria-label="music">
-                      🎵
-                    </span>
-                  </Button>
-                </Link>
-              </Box>
+              {session && !session.auth && (
+                <Box paddingY={5}>
+                  <Link to={LOGIN} className={classes.link}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.customButton}
+                    >
+                      Rejoignez notre platforme{"  "}
+                      <span role="img" aria-label="music">
+                        🎵
+                      </span>
+                    </Button>
+                  </Link>
+                </Box>
+              )}
             </Box>
           </Container>
         </main>

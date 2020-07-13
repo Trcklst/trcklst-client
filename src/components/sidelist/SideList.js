@@ -11,7 +11,6 @@ import {
   PeopleAlt as PeopleAltIcon,
   Home as HomeIcon,
   Album as AlbumIcon,
-  Payment as PaymentIcon,
   Subscriptions as SubscriptionsIcon,
   LibraryMusic as LibraryMusicIcon,
   Directions as DirectionsIcon,
@@ -31,7 +30,6 @@ import {
   PARTYNEW,
   SUBSRIPTIONS,
   MYSUBSRIPTIONS,
-  MYINVOICES,
   MYPARTIES,
   PARTYJOIN,
 } from "../../helpers/route-constant";
@@ -157,15 +155,6 @@ export const SideList = () => {
               route={MYSUBSRIPTIONS}
               text="Mes abonnements"
               Icon={SubscriptionsIcon}
-            ></Links>
-          )}
-        </Can>
-        <Can I="view" a="MyInvoices">
-          {() => (
-            <Links
-              route={MYINVOICES}
-              text="Mes factures"
-              Icon={PaymentIcon}
             ></Links>
           )}
         </Can>

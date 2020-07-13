@@ -13,7 +13,6 @@ import { PartyNew } from "../components/party/new/Party";
 import { Subscriptions } from "../components/subscriptions/admin/";
 import { MySubscriptions } from "../components/subscriptions/user/";
 import { NewSubscription } from "../components/newsubscription/NewSubscription";
-import { MyInvoices } from "../components/invoices/";
 import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
 import { PartyJoin } from "../components/party/join/Party";
@@ -30,7 +29,6 @@ import {
   MYSUBSRIPTIONS,
   NEWSUBSCRIPTION,
   SUBSRIPTIONS,
-  MYINVOICES,
   MYPARTIES,
   PARTYSHOW,
   PARTYJOIN,
@@ -146,15 +144,6 @@ export const RoutesConnected = () => {
         component={(props) => (
           <Can I="view" a="MySubscriptions">
             {() => <MySubscriptions {...props} />}
-          </Can>
-        )}
-      />
-      <Route
-        exact
-        path={MYINVOICES}
-        component={(props) => (
-          <Can I="view" a="MyInvoices">
-            {() => <MyInvoices {...props} />}
           </Can>
         )}
       />

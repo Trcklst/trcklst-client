@@ -87,14 +87,15 @@ export const useStyles = makeStyles((theme) => ({
   },
   playerNoOwn: {
     backgroundColor: "#313131",
-    margin: -20,
-    width: "calc(100% + 40px)",
     color: "#FFF",
     cursor: "not-allowed",
   },
   playerInfo: {
     display: "flex",
     padding: 5,
+    [theme.breakpoints.down("xs")]: {
+      justifyContent: "center",
+    },
   },
   playerInfoName: {
     display: "flex",
@@ -114,7 +115,8 @@ export const useStyles = makeStyles((theme) => ({
   playerAction: {
     display: "flex",
     alignItems: "center",
-    padding: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   payerActionDiv: {
     width: "100%",
@@ -179,6 +181,14 @@ export const useStyles = makeStyles((theme) => ({
     "& > img": {
       height: "100%",
       width: "100%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
+  },
+  imgUrl: {
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
     },
   },
   videoIconBlock: {

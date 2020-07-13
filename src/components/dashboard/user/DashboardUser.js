@@ -5,6 +5,7 @@ import { CreateParty } from "./CreateParty";
 import { JoinParty } from "./JoinParty";
 import { ViewProfile } from "./ViewProfile";
 import { CardMySubscriptions } from "./CardMySubscriptions";
+import { CardMyParties } from "./CardMyParties";
 
 const useStyles = makeStyles({
   root: {
@@ -33,6 +34,9 @@ export const DashboardUser = () => {
         </Grid>
       </Grid>
       <Grid container spacing={3} className={classes.cards}>
+        <Grid item xs={12} md={4}>
+          <CardMyParties />
+        </Grid>
         <Grid item xs={12} md={4}>
           <CardMySubscriptions />
         </Grid>

@@ -396,7 +396,7 @@ export const Homepage = () => {
                 className={`${classes.pricingBox} ${classes.purpleBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
-                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="body2">Premium</Typography>
                   <Typography variant="h2">3,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
@@ -467,7 +467,7 @@ export const Homepage = () => {
                 className={`${classes.pricingBox} ${classes.blackBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
-                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="body2">Professionnel</Typography>
                   <Typography variant="h2">9,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
@@ -494,7 +494,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Création de party avec une illimité de personnes
+                          Création de party sans limite de personnes
                         </Typography>
                       </Grid>
                     </Grid>

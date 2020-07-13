@@ -2,15 +2,18 @@ import * as Yup from "yup";
 
 export const newsubscriptionSchema = Yup.object().shape({
   cardNumber: Yup.string()
-    .length(16)
-    .required(),
+    .length(16, "Le numéro de carte bancaire est invalide.")
+    .required("Le numéro de carte bancaire est requis."),
   cryptogramme: Yup.string()
-    .length(3)
-    .required(),
+    .length(3, "Le cryptogramme est invalide.")
+    .required("Le cryptogramme est requis."),
   month: Yup.string()
-    .max(
-      12,
-      "L'identifiant de la party ne doit pas contenir plus de 150 caractères."
-    )
-    .required("L'identifiant de la party est obligatoire."),
+    .length(2, "Le mois d'expiration est invalide.")
+    .required("Le mois d'expiration est requis."),
+  year: Yup.string()
+    .length(4, "L'année d'expiration est invalide.")
+    .required("L'année d'expiration est requise."),
+  typeAbonnement: Yup.string()
+    .ensure()
+    .required("Le type d'abonnement est requis."),
 });

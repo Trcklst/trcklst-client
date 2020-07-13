@@ -41,6 +41,31 @@ export const useStyles = makeStyles((theme) => ({
     color: "red",
     fontSize: 13,
     display: "block",
-    textAlign: "right",
+    paddingTop: 25,
+    paddingBottom: 25,
+  },
+  limit: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  limitUser: {
+    display: "flex",
+    alignItems: "center",
+    "& > svg": {
+      color: "#06b306",
+    },
+  },
+  limitParty: {
+    display: "flex",
+    alignItems: "center",
+    "& > svg": {
+      color: "#06b306",
+    },
+  },
+  price: {
+    color: "#b12704",
+    fontSize: 17,
+    lineHeight: "1.24",
+    fontWeight: "700",
   },
 }));

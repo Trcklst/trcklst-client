@@ -114,8 +114,6 @@ export const PartyShow = () => {
           } else {
             throw dataJoin;
           }
-        } else {
-          throw new Error("no-connected");
         }
       } catch (err) {
         fail(err.message);

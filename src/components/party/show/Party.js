@@ -9,7 +9,7 @@ import { Track } from "../../../services/track";
 import { SessionContext } from "../../../context/session";
 import { fail, warning } from "../../common/Toast";
 import { isEmpty } from "../../../helpers/utility";
-import { PARTYJOIN } from "../../../helpers/route-constant";
+import { PARTYJOIN, PARTYUNAUTHORIZED } from "../../../helpers/route-constant";
 
 export const PartyShow = () => {
   const location = useLocation();
@@ -82,10 +82,10 @@ export const PartyShow = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await Party.leave(endpoint);
         const dataJoin = await Party.join(endpoint);
+        const jsonDataJoin = await dataJoin.json();
 
-        if (dataJoin.status !== 200) throw dataJoin;
+        if (dataJoin.status !== 200) throw jsonDataJoin;
 
         const data = await Party.show(endpoint);
         const jsonData = await data.json();
@@ -108,8 +108,22 @@ export const PartyShow = () => {
           }
         }
       } catch (err) {
-        fail(err.message);
-        push(PARTYJOIN);
+        if (err.message === "Vous êtes déjà présent dans la fête") {
+          push({
+            pathname: PARTYUNAUTHORIZED,
+            state: { idParty: endpoint },
+          });
+        } else if (
+          err.message ===
+            "Le compte du créateur de la playlist est limité à 10 participants" ||
+          err.message ===
+            "Le compte du créateur de la playlist est limité à 25 participants"
+        ) {
+          fail(err.message);
+          push(PARTYJOIN);
+        } else {
+          fail(err.message);
+        }
       }
     };
     fetchData();

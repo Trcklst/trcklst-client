@@ -17,3 +17,4 @@ export const MYPARTIES = "/parties";
 export const PARTYSHOW = "/party/:slug";
 export const PARTYEDIT = "/party/:slug/edit";
 export const POLICY = "/policy";
+export const PARTYUNAUTHORIZED = "/party/reconnection";

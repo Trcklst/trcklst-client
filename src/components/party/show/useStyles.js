@@ -142,7 +142,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   listMusic: {
     height: 300,
-    overflow: "overlay",
+    overflow: "auto",
     [theme.breakpoints.down("xs")]: {
       height: 215,
     },

@@ -36,28 +36,48 @@ export const PartyShow = () => {
       if (tracks.length === 0) {
         fail("Ajoutez un son avant de jouer la playlist");
       } else {
-        const data = await Track.next(endpoint);
-        const jsonData = await data.json();
+        try {
+          const data = await Track.next(endpoint);
+          const jsonData = await data.json();
 
-        if (data.status !== 200) throw jsonData;
+          if (data.status !== 200) throw jsonData;
+        } catch (err) {
+          console.log(err);
+        }
       }
     } else {
       if (action === "Play") {
-        await Track.play(endpoint);
+        try {
+          const data = await Track.play(endpoint);
+
+          if (data.status !== 204) throw data;
+        } catch (err) {
+          console.log(err);
+        }
       } else {
-        await Track.pause(endpoint);
+        try {
+          const data = await Track.pause(endpoint);
+
+          if (data.status !== 204) throw data;
+        } catch (err) {
+          console.log(err);
+        }
       }
     }
   };
 
   const handleClickNextTrack = async () => {
-    const data = await Track.next(endpoint);
-    const jsonData = await data.json();
+    try {
+      const data = await Track.next(endpoint);
+      const jsonData = await data.json();
 
-    if (data.status !== 200) throw jsonData;
+      if (data.status !== 200) throw jsonData;
 
-    setCurrentTrack(jsonData.currentTrack);
-    setTracks(jsonData.tracks);
+      setCurrentTrack(jsonData.currentTrack);
+      setTracks(jsonData.tracks);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   window.onbeforeunload = async (e) => {

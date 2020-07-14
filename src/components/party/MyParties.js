@@ -116,18 +116,22 @@ export const MyParties = () => {
   };
 
   const deleteParty = async () => {
-    const dataDelete = await Party.delete(party);
+    try {
+      const dataDelete = await Party.delete(party);
 
-    if (dataDelete.status !== 204) fail("Error");
+      if (dataDelete.status !== 204) throw dataDelete;
 
-    let tempTab = [];
-    data.map((value) => {
-      return value._id !== party ? tempTab.push(value) : "";
-    });
+      let tempTab = [];
+      data.map((value) => {
+        return value._id !== party ? tempTab.push(value) : "";
+      });
 
-    setData(tempTab);
+      setData(tempTab);
 
-    success("La party a été supprimée");
+      success("La party a été supprimée");
+    } catch (err) {
+      fail("Error");
+    }
   };
 
   useEffect(() => {

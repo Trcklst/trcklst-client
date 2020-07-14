@@ -86,6 +86,7 @@ export const PartyShow = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(socket);
       try {
         const dataJoin = await Party.join(endpoint);
 

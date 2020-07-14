@@ -5,10 +5,11 @@ export const newsubscriptionSchema = Yup.object().shape({
     .length(16, "Le numéro de carte bancaire est invalide.")
     .required("Le numéro de carte bancaire est requis."),
   cryptogramme: Yup.string()
-    .length(3, "Le cryptogramme est invalide.")
+    .min(3, "Le cryptogramme est invalide.")
+    .max(4, "Le cryptogramme est invalide.")
     .required("Le cryptogramme est requis."),
   month: Yup.string()
-    .length(2, "Le mois d'expiration est invalide.")
+    .min(2, "Le mois d'expiration est invalide.")
     .required("Le mois d'expiration est requis."),
   year: Yup.string()
     .length(4, "L'année d'expiration est invalide.")

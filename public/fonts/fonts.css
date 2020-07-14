@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "PublicSans";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./psb_regular.ttf");
+}
+
+@font-face {
+  font-family: "PublicSansBold";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./psb_bold.ttf");
+}
+
+@font-face {
+  font-family: "PublicSansItalic";
+  font-weight: normal;
+  font-style: normal;
+  src: url("./psb_italic.ttf");
+}

@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "email": "admin@admin.fr",
+      "password": "$2a$10$.2shc446TF5UU2yemBsv7ORF.hMgqp4krCyQrtTsro1vPZoa4Aw/2",
+      "lastname": "admin",
+      "firstname": "admin",
+      "id": 1
+    },
+    {
+      "email": "user@user.fr",
+      "password": "$2a$10$8VNhbeCc0HmVK7cCwtElqeNts0pldo5BAbANfGXhzIf9m1rqp22Wu",
+      "lastname": "user",
+      "firstname": "user",
+      "id": 2
+    },
+    {
+      "email": "buchaillat.r@gmail.com",
+      "password": "$2a$10$nFx8Z/jFYPz2EtlKyvanfe3DMCV5HSKsrYjlGkSSJlDkokJA95S3O",
+      "lastname": "buchaillat",
+      "firstname": "remi",
+      "id": 3
+    },
+    {
+      "email": "yabbal@gmail.com",
+      "password": "$2a$10$hlT9MxY1eIiPlExLyp03sO8Ex4oCRXGA8FWvWrjuWuICFO/DnoMLK",
+      "lastname": "abbal",
+      "firstname": "youness",
+      "id": 4
+    }
+  ],
+  "party": [
+    {
+      "name": "Soirée DUT",
+      "owner": 2,
+      "id": 1
+    },
+    {
+      "name": "Party de Rémi",
+      "owner": 3,
+      "id": 2
+    },
+    {
+      "name": "Party de Rémi 2",
+      "owner": 3,
+      "id": 3
+    },
+    {
+      "name": "Party de User",
+      "owner": 2,
+      "id": 4
+    },
+    {
+      "name": "Test",
+      "owner": 2,
+      "id": 5
+    },
+    {
+      "name": "Ma nouvelle party",
+      "owner": 2,
+      "id": 6
+    }
+  ],
+  "relations": [
+    {
+      "idParty": 2,
+      "idUser": 2,
+      "id": 1,
+      "name": "Party de Rémi"
+    }
+  ],
+  "subscriptions": [
+    {
+      "type": "ezr",
+      "date": "aez",
+      "owner": 2,
+      "id": 1
+    },
+    {
+      "type": "ezr",
+      "date": "aez",
+      "owner": 2,
+      "id": 2
+    }
+  ]
+}

@@ -92,7 +92,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={aze1} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Créez
                     </Typography>
                     <Box paddingX={2}>
@@ -121,7 +121,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={teamwork} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Invitez
                     </Typography>
                     <Box paddingX={2}>
@@ -151,7 +151,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={unknown} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Recherchez
                     </Typography>
                     <Box paddingX={2}>
@@ -182,7 +182,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={aze3} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Ajoutez
                     </Typography>
                     <Box paddingX={2}>
@@ -211,7 +211,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={aze2} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Votez
                     </Typography>
                     <Box paddingX={2}>
@@ -240,7 +240,7 @@ export const Homepage = () => {
                     <Box paddingY={3} height="200px">
                       <img src={playing} alt="boxPicture" width="100%" />
                     </Box>
-                    <Typography variant="h6" className={[classes.boldText]}>
+                    <Typography variant="h6" className={classes.boldText}>
                       Profitez
                     </Typography>
                     <Box paddingX={2}>
@@ -309,7 +309,7 @@ export const Homepage = () => {
               </Typography>
               <Typography
                 variant="h3"
-                className={[classes.purpleText, classes.boldText]}
+                className={`${classes.purpleText} ${classes.boldText}`}
               >
                 Deux types d'abonnements pour vous satisfaire.
               </Typography>
@@ -322,7 +322,7 @@ export const Homepage = () => {
                 md={3}
                 sm={4}
                 xs={12}
-                className={[classes.pricingBox, classes.whiteBg]}
+                className={`${classes.pricingBox} ${classes.whiteBg}`}
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Classique</Typography>
@@ -391,11 +391,7 @@ export const Homepage = () => {
                 md={3}
                 sm={4}
                 xs={12}
-                className={[
-                  classes.pricingBox,
-                  classes.purpleBg,
-                  classes.whiteText,
-                ]}
+                className={`${classes.pricingBox} ${classes.purpleBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Preminum</Typography>
@@ -466,11 +462,7 @@ export const Homepage = () => {
                 md={3}
                 sm={4}
                 xs={12}
-                className={[
-                  classes.pricingBox,
-                  classes.blackBg,
-                  classes.whiteText,
-                ]}
+                className={`${classes.pricingBox} ${classes.blackBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
                   <Typography variant="body2">Preminum</Typography>
@@ -539,7 +531,7 @@ export const Homepage = () => {
         </Box>
       </section>
       <section id="footer" className={classes.blackBg}>
-        <Box paddingY={8}>
+        <Box paddingY={6}>
           <Container>
             <Typography
               variant="body2"
@@ -549,9 +541,9 @@ export const Homepage = () => {
             >
               © Tous droits réservés - Trcklst | 2020
             </Typography>
-            <Typography variant="body2">
-              <Link to={POLICY} className={classes.link}>
-                Blabla
+            <Typography variant="body2" align="center">
+              <Link to={POLICY} className={classes.whiteText}>
+                Mentions légales
               </Link>
             </Typography>
           </Container>

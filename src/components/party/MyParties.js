@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
   CardMedia,
+  Grid,
 } from "@material-ui/core";
 import {
   Visibility as VisibilityIcon,
@@ -29,8 +30,21 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 10,
   },
   mainTitle: {
-    fontSize: 25,
+    color: "#263238",
+    fontSize: 24,
+    fontWeight: 500,
+    lineHeight: "28px",
+    letterSpacing: "-0.06px",
+    marginTop: 0,
+  },
+  mainSubtitle: {
+    color: "#546e7a",
+    fontSize: 11,
+    fontWeight: 500,
+    lineHeight: "13px",
+    letterSpacing: "0.33px",
     textTransform: "uppercase",
+    marginTop: 0,
   },
   main: {
     marginTop: 10,
@@ -154,66 +168,73 @@ export const MyParties = () => {
   return (
     <section className={classes.root}>
       <div className={classes.mainBlock}>
-        <p className={classes.mainTitle}>Mes party créée</p>
-        {data.length > 0 ? (
-          data.map((value, index) => {
-            return (
-              <Card className={classes.rootCard} key={index}>
-                <div className={classes.detailsCard}>
-                  <CardContent className={classes.contentCard}>
-                    <Typography component="h5" variant="h5">
-                      {value.name}
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                      Créé le{" "}
-                      {moment(value.createdAt).format("DD/MM/YYYY HH:mm")}
-                    </Typography>
-                  </CardContent>
-                  <div className={classes.controlsCard}>
-                    <IconButton
-                      aria-label="edit"
-                      onClick={() => handleClickEdit(value)}
-                    >
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton
-                      aria-label="see"
-                      onClick={() => push(`/party/${value._id}`)}
-                    >
-                      <VisibilityIcon className={classes.playIconCard} />
-                    </IconButton>
-                    <IconButton
-                      aria-label="delete"
-                      onClick={() => handleClickDelete(value._id)}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                    <Modal
-                      title={"Supprimer une party"}
-                      content={
-                        "Êtes-vous sûr de vouloir supprimer votre party ?"
-                      }
-                      leftLink={"Annuler"}
-                      rightLink={"Supprimer"}
-                      setOpen={setOpen}
-                      open={open}
-                      validate={deleteParty}
+        <div>
+          <h2 className={classes.mainSubtitle}>Party</h2>
+          <h1 className={classes.mainTitle}>Mes party créées</h1>
+        </div>
+        <Grid container spacing={3}>
+          {data.length > 0 ? (
+            data.map((value, index) => {
+              return (
+                <Grid item xs={12} sm={6} key={index}>
+                  <Card className={classes.rootCard}>
+                    <div className={classes.detailsCard}>
+                      <CardContent className={classes.contentCard}>
+                        <Typography component="h5" variant="h5">
+                          {value.name}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary">
+                          Créé le{" "}
+                          {moment(value.createdAt).format("DD/MM/YYYY HH:mm")}
+                        </Typography>
+                      </CardContent>
+                      <div className={classes.controlsCard}>
+                        <IconButton
+                          aria-label="edit"
+                          onClick={() => handleClickEdit(value)}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          aria-label="see"
+                          onClick={() => push(`/party/${value._id}`)}
+                        >
+                          <VisibilityIcon className={classes.playIconCard} />
+                        </IconButton>
+                        <IconButton
+                          aria-label="delete"
+                          onClick={() => handleClickDelete(value._id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton>
+                        <Modal
+                          title={"Supprimer une party"}
+                          content={
+                            "Êtes-vous sûr de vouloir supprimer votre party ?"
+                          }
+                          leftLink={"Annuler"}
+                          rightLink={"Supprimer"}
+                          setOpen={setOpen}
+                          open={open}
+                          validate={deleteParty}
+                        />
+                      </div>
+                    </div>
+                    <CardMedia
+                      className={classes.coverCard}
+                      image="https://img2.goodfon.com/wallpaper/nbig/8/91/party-smoke-electronica.jpg"
+                      title="Wallpaper party"
                     />
-                  </div>
-                </div>
-                <CardMedia
-                  className={classes.coverCard}
-                  image="https://img2.goodfon.com/wallpaper/nbig/8/91/party-smoke-electronica.jpg"
-                  title="Wallpaper party"
-                />
-              </Card>
-            );
-          })
-        ) : (
-          <p className={classes.noData}>
-            Vous n'êtes propriétaire d'aucune party pour le moment ...
-          </p>
-        )}
+                  </Card>
+                </Grid>
+              );
+            })
+          ) : (
+            <p className={classes.noData}>
+              Vous n'êtes propriétaire d'aucune party pour le moment ...
+            </p>
+          )}
+        </Grid>
       </div>
     </section>
   );

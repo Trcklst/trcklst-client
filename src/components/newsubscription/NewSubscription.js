@@ -33,7 +33,7 @@ export const NewSubscription = () => {
       if (data.status !== 200) throw jsonData;
 
       success(
-        "Votre paiement a bien été effectué. Votre abonnement a été mis en place"
+        "Votre paiement a bien été effectué. Votre abonnement sera bientôt mis en place"
       );
 
       return push(MYSUBSRIPTIONS);

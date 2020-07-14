@@ -69,7 +69,7 @@ const App = () => {
         const data = await cloneResponse.json();
         if (
           data.message === "No Token has been sent" ||
-          data.message === "Invalid credentials given"
+          data.message === "Invalid Token"
         ) {
           Cookies.remove("session");
           setSession({ ...session, auth: false, token: "" });

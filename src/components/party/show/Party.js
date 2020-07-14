@@ -25,6 +25,7 @@ export const PartyShow = () => {
   const [name, setName] = useState("");
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState({});
+  const [isJoin, setIsJoin] = useState(false);
 
   const handleClickAddTrack = () => {
     setView("add-track");
@@ -66,26 +67,31 @@ export const PartyShow = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await Party.join(endpoint);
+        const dataJoin = await Party.join(endpoint);
 
-        const data = await Party.show(endpoint);
-        const jsonData = await data.json();
+        if (dataJoin.status === 200) {
+          setIsJoin(true);
+          const data = await Party.show(endpoint);
+          const jsonData = await data.json();
 
-        if (data.status !== 200) throw jsonData;
+          if (data.status !== 200) throw jsonData;
 
-        setId(jsonData._id);
-        setOwner(jsonData.owner);
-        setCreatedAt(jsonData.createdAt);
-        setMembers(jsonData.members);
-        setName(jsonData.name);
-        setTracks(jsonData.tracks);
-        if (jsonData.currentTrack !== undefined) {
-          setCurrentTrack(jsonData.currentTrack);
-          if (jsonData.currentTrack.status === 1) {
-            setTimeout(() => {
-              setStep("Pause");
-            }, 2000);
+          setId(jsonData._id);
+          setOwner(jsonData.owner);
+          setCreatedAt(jsonData.createdAt);
+          setMembers(jsonData.members);
+          setName(jsonData.name);
+          setTracks(jsonData.tracks);
+          if (jsonData.currentTrack !== undefined) {
+            setCurrentTrack(jsonData.currentTrack);
+            if (jsonData.currentTrack.status === 1) {
+              setTimeout(() => {
+                setStep("Pause");
+              }, 2000);
+            }
           }
+        } else {
+          throw dataJoin;
         }
       } catch (err) {
         fail(err.message);
@@ -101,35 +107,27 @@ export const PartyShow = () => {
   useEffect(() => {
     if (!isEmpty(socket)) {
       socket.on("party-updated", (param) => {
-        console.log("écoute de socket", param);
         switch (param.action) {
           case "add-track":
-            console.log("add-track");
             setTracks(param.party.tracks);
             break;
           case "next-track":
-            console.log("next-track");
             setCurrentTrack(param.party.currentTrack);
             setTracks(param.party.tracks);
             setTimeout(() => {
-              console.log("play");
               setStep("Pause");
             }, 2000);
             break;
           case "unvote":
-            console.log("unvote");
             setTracks(param.party.tracks);
             break;
           case "vote":
-            console.log("vote");
             setTracks(param.party.tracks);
             break;
           case "play":
-            console.log("play");
             setStep("Pause");
             break;
           case "pause":
-            console.log("pause");
             setStep("Play");
             break;
           case "edit":
@@ -158,7 +156,7 @@ export const PartyShow = () => {
     }
   }, [socket, push]);
 
-  return (
+  return isJoin ? (
     <>
       {view === "playlist" ? (
         <Playlist
@@ -188,5 +186,7 @@ export const PartyShow = () => {
         />
       )}
     </>
+  ) : (
+    ""
   );
 };

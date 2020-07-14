@@ -99,9 +99,9 @@ export const Homepage = () => {
                     </Typography>
                     <Box paddingX={2}>
                       <Typography variant="body2" align="justify">
-                        ...un salon. Vous aurez la possibilité de créer autant
-                        de salons que vous le souhaitez afin de gérer la musique
-                        de votre{" "}
+                        ...un salon. Vous avez la possibilité de créer autant de
+                        salons que vous le souhaitez afin de gérer la musique de
+                        votre{" "}
                         <span role="img" aria-label="music">
                           🎉
                         </span>{" "}
@@ -132,10 +132,10 @@ export const Homepage = () => {
                         <span role="img" aria-label="music">
                           👨‍🎤
                         </span>{" "}
-                        afin qu'ils puissent rejoindre votre salon. Envoyez leur
-                        le lien d'invitation, et bénéficiez des fonctionnalités
-                        que propose Trcklst afin de mettre autant de musiques
-                        que vous le souhaitez.
+                        dans le but rejoindre votre salon. Envoyez leur le lien
+                        d'invitation, et bénéficiez des fonctionnalités que
+                        propose Trcklst afin de mettre autant de musiques que
+                        vous le souhaitez.
                       </Typography>
                     </Box>
                   </Box>

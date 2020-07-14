@@ -7,17 +7,15 @@ import {
   Container,
   Chip,
 } from "@material-ui/core";
+import { LOGIN, POLICY } from "../../helpers/route-constant";
 import { Link } from "react-router-dom";
 
-import { useStyles } from "./useStyles";
-import { LOGIN } from "../../helpers/route-constant";
-import { SessionContext } from "../../context/session";
-import playing from "../../images/landing/maincontent/profitez.png";
-import unknown from "../../images/landing/maincontent/recherchez.png";
-import teamwork from "../../images/landing/maincontent/invitez.png";
-import aze1 from "../../images/landing/maincontent/creez.png";
-import aze2 from "../../images/landing/maincontent/votez.png";
-import aze3 from "../../images/landing/maincontent/ajoutez.png";
+import profitez from "../../images/landing/maincontent/profitez.png";
+import recherchez from "../../images/landing/maincontent/recherchez.png";
+import invitez from "../../images/landing/maincontent/invitez.png";
+import creez from "../../images/landing/maincontent/creez.png";
+import votez from "../../images/landing/maincontent/votez.png";
+import ajoutez from "../../images/landing/maincontent/ajoutez.png";
 import spotify from "../../images/landing/platformes/spotify.png";
 import deezer from "../../images/landing/platformes/deezer.png";
 import youtube from "../../images/landing/platformes/youtube.png";
@@ -92,7 +90,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={aze1} alt="boxPicture" width="100%" />
+                      <img src={creez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Créez
@@ -121,7 +119,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={teamwork} alt="boxPicture" width="100%" />
+                      <img src={invitez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Invitez
@@ -151,7 +149,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={unknown} alt="boxPicture" width="100%" />
+                      <img src={recherchez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Recherchez
@@ -182,7 +180,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={aze3} alt="boxPicture" width="100%" />
+                      <img src={ajoutez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Ajoutez
@@ -211,7 +209,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={aze2} alt="boxPicture" width="100%" />
+                      <img src={votez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Votez
@@ -240,7 +238,7 @@ export const Homepage = () => {
                 >
                   <Box padding={2}>
                     <Box paddingY={3} height="200px">
-                      <img src={playing} alt="boxPicture" width="100%" />
+                      <img src={profitez} alt="boxPicture" width="100%" />
                     </Box>
                     <Typography variant="h6" className={classes.boldText}>
                       Profitez
@@ -533,7 +531,7 @@ export const Homepage = () => {
         </Box>
       </section>
       <section id="footer" className={classes.blackBg}>
-        <Box paddingY={8}>
+        <Box paddingY={6}>
           <Container>
             <Typography
               variant="body2"
@@ -542,6 +540,11 @@ export const Homepage = () => {
               align="center"
             >
               © Tous droits réservés - Trcklst | 2020
+            </Typography>
+            <Typography variant="body2" align="center">
+              <Link to={POLICY} className={classes.whiteText}>
+                Mentions légales
+              </Link>
             </Typography>
           </Container>
         </Box>

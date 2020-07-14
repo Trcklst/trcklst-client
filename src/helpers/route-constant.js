@@ -16,3 +16,4 @@ export const NEWSUBSCRIPTION = "/new-subscription";
 export const MYPARTIES = "/parties";
 export const PARTYSHOW = "/party/:slug";
 export const PARTYEDIT = "/party/:slug/edit";
+export const POLICY = "/policy";

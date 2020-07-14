@@ -16,6 +16,7 @@ import { MyParties } from "../components/party/MyParties";
 import { PartyShow } from "../components/party/show/Party";
 import { PartyJoin } from "../components/party/join/Party";
 import { PartyEdit } from "../components/party/edit/Party";
+import { Policy } from "../components/homepage/Policy";
 import {
   NOTFOUND,
   HOME,
@@ -31,6 +32,7 @@ import {
   PARTYSHOW,
   PARTYJOIN,
   PARTYEDIT,
+  POLICY,
 } from "../helpers/route-constant";
 import { getSessionCookie, SessionContext } from "../context/session";
 import { Can } from "../helpers/Can";
@@ -163,6 +165,7 @@ export const RoutesConnected = () => {
           </Can>
         )}
       />
+      <Route exact path={POLICY} component={Policy} />
       <Route exact path={NOTFOUND} component={NotFound} />
       <Redirect to={NOTFOUND} />
     </Switch>

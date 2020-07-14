@@ -1,13 +1,24 @@
 import React from "react";
-import { Card, CardContent, Typography, makeStyles } from "@material-ui/core";
+import {
+  Card,
+  CardContent,
+  Typography,
+  makeStyles,
+  Grid,
+  CardHeader,
+} from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
+
+import email from "../../images/account/e-mail.svg";
+import subscription from "../../images/account/subscription.svg";
+import right from "../../images/account/right.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     padding: 10,
+    flexGrow: 1,
   },
   details: {
     display: "flex",
@@ -59,6 +70,25 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: -0.05,
     padding: 15,
   },
+  title: {
+    color: "#546e7a",
+    fontSize: 20,
+    fontWeight: 500,
+    lineHeight: "13px",
+    letterSpacing: 0.33,
+    textTransform: "uppercase",
+    marginBottom: 35,
+  },
+  image: {
+    maxWidth: 200,
+    width: "100%",
+    marginBottom: 15,
+    height: "100%",
+    minHeight: 180,
+  },
+  head: {
+    display: "flex",
+  },
 }));
 
 export const AccountProfile = ({ user }) => {
@@ -74,23 +104,48 @@ export const AccountProfile = ({ user }) => {
   return isEmpty(user) ? (
     <Skeleton variant="rect" className={classes.media} />
   ) : (
-    <Card className={classes.root}>
-      <CardContent className={classes.details}>
-        <Typography variant="h6" className={classes.email}>
-          E-mail : {user.email}
-        </Typography>
-        <Typography variant="h6" className={classes.role}>
-          Role : {user.role === "ROLE_USER" ? "Utilisateur" : "Administrateur"}
-        </Typography>
-        <Typography variant="h6" className={classes.subscription}>
-          Abonnement :{" "}
-          {user.subscription !== null
-            ? user.subscription === "PRO"
-              ? "PRO"
-              : "PREMIUM"
-            : "Pas d'abonnement"}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Grid container spacing={3}>
+      <Grid item xs={12} md={4} className={classes.head}>
+        <Card className={classes.root}>
+          <CardHeader title="E-mail" />
+          <CardContent className={classes.details}>
+            <img className={classes.image} src={email} alt="e-mail" />
+            <Typography variant="h6" className={classes.email}>
+              {user.email}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} md={4} className={classes.head}>
+        <Card className={classes.root}>
+          <CardHeader title="Rôle" />
+          <CardContent className={classes.details}>
+            <img className={classes.image} src={right} alt="right" />
+            <Typography variant="h6" className={classes.role}>
+              {user.role === "ROLE_USER" ? "Utilisateur" : "Administrateur"}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12} md={4} className={classes.head}>
+        <Card className={classes.root}>
+          <CardHeader title="Abonnement" />
+          <CardContent className={classes.details}>
+            <img
+              className={classes.image}
+              src={subscription}
+              alt="subscription"
+            />
+            <Typography variant="h6" className={classes.subscription}>
+              {user.subscription !== null
+                ? user.subscription === "PRO"
+                  ? "PRO"
+                  : "PREMIUM"
+                : "Pas d'abonnement"}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    </Grid>
   );
 };

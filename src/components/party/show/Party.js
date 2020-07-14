@@ -25,7 +25,6 @@ export const PartyShow = () => {
   const [name, setName] = useState("");
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState({});
-  const [isJoin, setIsJoin] = useState(false);
 
   const handleClickAddTrack = () => {
     setView("add-track");
@@ -80,38 +79,32 @@ export const PartyShow = () => {
     }
   };
 
-  window.onbeforeunload = async (e) => {
-    await Party.leave(endpoint);
-  };
-
   useEffect(() => {
     const fetchData = async () => {
-      console.log(socket);
       try {
+        await Party.leave(endpoint);
         const dataJoin = await Party.join(endpoint);
 
-        if (dataJoin.status === 200) {
-          setIsJoin(true);
-          const data = await Party.show(endpoint);
-          const jsonData = await data.json();
+        if (dataJoin.status !== 200) throw dataJoin;
 
-          if (data.status !== 200) throw jsonData;
+        const data = await Party.show(endpoint);
+        const jsonData = await data.json();
 
-          setId(jsonData._id);
-          setOwner(jsonData.owner);
-          setCreatedAt(jsonData.createdAt);
-          setMembers(jsonData.members);
-          setName(jsonData.name);
-          setTracks(jsonData.tracks);
-          if (jsonData.currentTrack !== undefined) {
-            setCurrentTrack(jsonData.currentTrack);
-            if (jsonData.currentTrack.status === 1) {
-              setTimeout(() => {
-                setStep("Pause");
-              }, 2000);
-            }
-          } else {
-            throw dataJoin;
+        if (data.status !== 200) throw jsonData;
+
+        setId(jsonData._id);
+        setOwner(jsonData.owner);
+        setCreatedAt(jsonData.createdAt);
+        setMembers(jsonData.members);
+        setName(jsonData.name);
+        setTracks(jsonData.tracks);
+
+        if (jsonData.currentTrack !== undefined) {
+          setCurrentTrack(jsonData.currentTrack);
+          if (jsonData.currentTrack.status === 1) {
+            setTimeout(() => {
+              setStep("Pause");
+            }, 2000);
           }
         }
       } catch (err) {
@@ -177,7 +170,7 @@ export const PartyShow = () => {
     }
   }, [socket, push]);
 
-  return isJoin ? (
+  return (
     <>
       {view === "playlist" ? (
         <Playlist
@@ -207,7 +200,5 @@ export const PartyShow = () => {
         />
       )}
     </>
-  ) : (
-    ""
   );
 };

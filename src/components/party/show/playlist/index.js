@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import copy from 'copy-to-clipboard';
 import {
   SupervisorAccount as SupervisorAccountIcon,
   CloudUpload as CloudUploadIcon,
@@ -41,7 +42,7 @@ export const Playlist = ({
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
-    navigator.clipboard.writeText(id);
+    copy(id);
     success("Code de partage copié !");
   };
 

@@ -12,6 +12,8 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     maxWidth: 1220,
     marginTop: -64,
+    paddingTop: 200,
+    paddingBottom: 200,
   },
   title: {
     color: "#263238",

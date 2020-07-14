@@ -17,6 +17,7 @@ export const useStyles = makeStyles((theme) => ({
   backgroundPlaylist: {
     border: "1px solid #000",
     width: 245,
+    height: 245,
     [theme.breakpoints.down("xs")]: {
       display: "none",
     },

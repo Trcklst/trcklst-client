@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   title: {
-    padding: "20px",
+    padding: 15,
   },
   link: {
     color: "inherit",
@@ -97,37 +97,25 @@ export const SideList = () => {
       </div>
       <Divider />
       <List className={classes.list}>
-        <Links route={HOME} text="Accueil" Icon={HomeIcon}></Links>
+        <Links route={HOME} text="Accueil" Icon={HomeIcon} />
         <Links
           route={user.role === "ROLE_ADMIN" ? DASHBOARDADMIN : DASHBOARDUSER}
           text="Dashboard"
           Icon={AppsIcon}
-        ></Links>
+        />
         <Can I="view" a="Users">
           {() => (
-            <Links
-              route={USERS}
-              text="Utilisateurs"
-              Icon={PeopleAltIcon}
-            ></Links>
+            <Links route={USERS} text="Utilisateurs" Icon={PeopleAltIcon} />
           )}
         </Can>
         <Can I="add" a="Party">
           {() => (
-            <Links
-              route={PARTYNEW}
-              text="Créer une party"
-              Icon={AlbumIcon}
-            ></Links>
+            <Links route={PARTYNEW} text="Créer une party" Icon={AlbumIcon} />
           )}
         </Can>
         <Can I="view" a="MyParties">
           {() => (
-            <Links
-              route={MYPARTIES}
-              text="Mes party"
-              Icon={LibraryMusicIcon}
-            ></Links>
+            <Links route={MYPARTIES} text="Mes party" Icon={LibraryMusicIcon} />
           )}
         </Can>
         <Can I="join" a="Party">
@@ -136,7 +124,7 @@ export const SideList = () => {
               route={PARTYJOIN}
               text="Rejoindre une party"
               Icon={DirectionsIcon}
-            ></Links>
+            />
           )}
         </Can>
         <Can I="view" a="MySubscriptions">
@@ -145,7 +133,7 @@ export const SideList = () => {
               route={MYSUBSRIPTIONS}
               text="Mes abonnements"
               Icon={SubscriptionsIcon}
-            ></Links>
+            />
           )}
         </Can>
       </List>

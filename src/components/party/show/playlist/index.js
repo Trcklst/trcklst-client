@@ -62,7 +62,7 @@ export const Playlist = ({
           <h3 className={classes.title}>{name}</h3>
           <p className={classes.createdBy}>
             Créée par <span className={classes.author}>{owner.email}</span> - le{" "}
-            {moment(createdAt).format("DD/MM/YYYY hh:mm")}
+            {moment(createdAt).format("DD/MM/YYYY HH:mm")}
           </p>
           {!isEmpty(owner) && user.id === owner.id && (
             <>
@@ -94,7 +94,7 @@ export const Playlist = ({
           <SupervisorAccountIcon />
           <p>{`${members.length} personne${
             members.length > 1 ? "s" : ""
-          } participe${members.length > 1 ? "s" : ""}`}</p>
+          } participe${members.length > 1 ? "nt" : ""}`}</p>
         </div>
         <Dialog
           onClose={handleClose}

@@ -44,7 +44,6 @@ export const NewSubscriptionForm = ({
           onChange={handleChange}
           onBlur={handleBlur}
           error={touched.typeAbonnement && errors.typeAbonnement !== undefined}
-          helperText={touched.typeAbonnement && errors.typeAbonnement}
         >
           <MenuItem value="PREMIUM">Offre PREMIUM</MenuItem>
           <MenuItem value="PRO">Offre PRO</MenuItem>

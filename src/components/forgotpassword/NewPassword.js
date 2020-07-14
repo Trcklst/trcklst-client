@@ -9,12 +9,14 @@ import { ResetPassword } from "../../services/reset-password";
 import { useHistory } from "react-router-dom";
 import { LOGIN } from "../../helpers/route-constant";
 import { success, fail } from "../common/Toast";
+import { useIsMountedRef } from "../../helpers/utility";
 
 export const NewPassword = () => {
   const classes = useStyles();
   const { push } = useHistory();
+  const isMountedRef = useIsMountedRef();
 
-  const handleSubmit = async ({ token, password }, { setErrors }) => {
+  const handleSubmit = async ({ token, password }, { setSubmitting }) => {
     try {
       const data = await ResetPassword.reset(token, password);
       const jsonData = await data.json();
@@ -26,6 +28,8 @@ export const NewPassword = () => {
       return push(LOGIN);
     } catch (err) {
       fail(err.message);
+    } finally {
+      if (isMountedRef.current) setSubmitting(false);
     }
   };
 

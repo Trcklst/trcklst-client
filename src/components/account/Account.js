@@ -20,6 +20,7 @@ import { securitySchema } from "./schemas/securitySchema";
 import { SessionContext } from "../../context/session";
 import { success } from "../common/Toast";
 import { Me } from "../../services/me";
+import { useIsMountedRef } from "../../helpers/utility";
 
 const useStyles = makeStyles({
   subtitle: {
@@ -56,21 +57,27 @@ export const Account = () => {
   const tabValues = { account: 0, general: 0, security: 1 };
   const endpoint = location.pathname.split("/").pop();
   const [value, setValue] = useState(tabValues[endpoint]);
+  const isMountedRef = useIsMountedRef();
 
   const handleSubmitSecurity = async (
     { oldPassword, newPassword },
     { setSubmitting, resetForm, setErrors }
   ) => {
-    const data = await Me.resetPassword(newPassword, oldPassword);
-    const jsonData = await data.json();
+    try {
+      const data = await Me.resetPassword(newPassword, oldPassword);
+      const jsonData = await data.json();
 
-    if (data.status === 200) {
+      if (data.status !== 200) throw jsonData;
+
       success(`Votre mot de passe a été mis à jour`);
-      setSubmitting(false);
-      resetForm();
+    } catch (err) {
+      setErrors({ oldPassword: err.message });
+    } finally {
+      if (isMountedRef.current) {
+        setSubmitting(false);
+        resetForm();
+      }
     }
-
-    setErrors({ oldPassword: jsonData.message });
   };
 
   const handleChange = (event, newValue) => {

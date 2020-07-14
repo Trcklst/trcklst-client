@@ -1,5 +1,4 @@
-import React from "react";
-import { useStyles } from "./useStyles";
+import React, { useContext } from "react";
 import {
   Button,
   Grid,
@@ -20,12 +19,12 @@ import ajoutez from "../../images/landing/maincontent/ajoutez.png";
 import spotify from "../../images/landing/platformes/spotify.png";
 import deezer from "../../images/landing/platformes/deezer.png";
 import youtube from "../../images/landing/platformes/youtube.png";
-
 import ticks from "../../images/landing/ticksPricing.png";
 import logo from "../../images/logo/logo_white2.png";
 
 export const Homepage = () => {
   const classes = useStyles();
+  const { session } = useContext(SessionContext);
 
   return (
     <>
@@ -42,20 +41,22 @@ export const Homepage = () => {
               <Typography variant="h6">
                 Soyez sans limites. Trcklst, maintenant disponible.
               </Typography>
-              <Box paddingY={5}>
-                <Link to={LOGIN} className={classes.link}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.customButton}
-                  >
-                    Rejoignez notre platforme{"  "}
-                    <span role="img" aria-label="music">
-                      🎵
-                    </span>
-                  </Button>
-                </Link>
-              </Box>
+              {session && !session.auth && (
+                <Box paddingY={5}>
+                  <Link to={LOGIN} className={classes.link}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.customButton}
+                    >
+                      Rejoignez notre platforme{"  "}
+                      <span role="img" aria-label="music">
+                        🎵
+                      </span>
+                    </Button>
+                  </Link>
+                </Box>
+              )}
             </Box>
           </Container>
         </main>
@@ -393,7 +394,7 @@ export const Homepage = () => {
                 className={`${classes.pricingBox} ${classes.purpleBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
-                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="body2">Premium</Typography>
                   <Typography variant="h2">3,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
@@ -464,7 +465,7 @@ export const Homepage = () => {
                 className={`${classes.pricingBox} ${classes.blackBg} ${classes.whiteText}`}
               >
                 <Box paddingY={3}>
-                  <Typography variant="body2">Preminum</Typography>
+                  <Typography variant="body2">Professionnel</Typography>
                   <Typography variant="h2">9,99€</Typography>
                   <Typography variant="body2">par mois</Typography>
                 </Box>
@@ -491,7 +492,7 @@ export const Homepage = () => {
                         style={{ alignSelf: "center" }}
                       >
                         <Typography variant="body2" align="left">
-                          Création de party avec une illimité de personnes
+                          Création de party sans limite de personnes
                         </Typography>
                       </Grid>
                     </Grid>

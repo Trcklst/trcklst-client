@@ -16,6 +16,7 @@ import { SessionContext } from "../../context/session";
 import { LOGIN, REGISTER, HOME } from "../../helpers/route-constant";
 
 export const Navbar = () => {
+  const classes = useStyles();
   const [drawer, setDrawer] = useState({ open: false });
   const { user } = useContext(SessionContext);
 
@@ -29,59 +30,53 @@ export const Navbar = () => {
     setDrawer({ ...drawer, open });
   };
 
-  const classes = useStyles();
-
   return (
-    <>
-      <AppBar position="static" className={classes.appbar}>
-        <Toolbar>
-          {Object.keys(user).length !== 0 ? (
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-              onClick={toggleDrawer(true)}
+    <AppBar position="static" className={classes.appbar}>
+      <Toolbar>
+        {Object.keys(user).length !== 0 ? (
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          ""
+        )}
+        <Typography variant="h6" className={classes.title}>
+          <Link to={HOME} className={classes.link}>
+            Trcklst
+          </Link>
+        </Typography>
+        {Object.keys(user).length !== 0 ? (
+          <Drawer open={drawer.open} onClose={toggleDrawer(false)}>
+            <div
+              role="presentation"
+              onClick={toggleDrawer(false)}
+              onKeyDown={toggleDrawer(false)}
+              className={classes.drawer}
             >
-              <MenuIcon />
-            </IconButton>
-          ) : (
-            ""
-          )}
-          <Typography variant="h6" className={classes.title}>
-            <Link to={HOME} className={classes.link}>
-              Trcklst
-            </Link>
-          </Typography>
-          {Object.keys(user).length !== 0 ? (
-            <>
-              <Drawer open={drawer.open} onClose={toggleDrawer(false)}>
-                <div
-                  role="presentation"
-                  onClick={toggleDrawer(false)}
-                  onKeyDown={toggleDrawer(false)}
-                  className={classes.drawer}
-                >
-                  <SideList />
-                </div>
-              </Drawer>
-            </>
-          ) : (
-            <>
-              <Box py={2}>
-                <Link to={LOGIN} className={classes.link}>
-                  Se connecter
-                </Link>
-              </Box>
-              <Box px={2}>
-                <Link to={REGISTER} className={classes.link}>
-                  S'inscrire
-                </Link>
-              </Box>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-    </>
+              <SideList />
+            </div>
+          </Drawer>
+        ) : (
+          <>
+            <Box py={2}>
+              <Link to={LOGIN} className={classes.link}>
+                Se connecter
+              </Link>
+            </Box>
+            <Box px={2}>
+              <Link to={REGISTER} className={classes.link}>
+                S'inscrire
+              </Link>
+            </Box>
+          </>
+        )}
+      </Toolbar>
+    </AppBar>
   );
 };

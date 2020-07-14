@@ -86,30 +86,29 @@ export const PartyShow = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log(socket);
       try {
-        if (socket.connected) {
-          const dataJoin = await Party.join(endpoint);
+        const dataJoin = await Party.join(endpoint);
 
-          if (dataJoin.status === 200) {
-            setIsJoin(true);
-            const data = await Party.show(endpoint);
-            const jsonData = await data.json();
+        if (dataJoin.status === 200) {
+          setIsJoin(true);
+          const data = await Party.show(endpoint);
+          const jsonData = await data.json();
 
-            if (data.status !== 200) throw jsonData;
+          if (data.status !== 200) throw jsonData;
 
-            setId(jsonData._id);
-            setOwner(jsonData.owner);
-            setCreatedAt(jsonData.createdAt);
-            setMembers(jsonData.members);
-            setName(jsonData.name);
-            setTracks(jsonData.tracks);
-            if (jsonData.currentTrack !== undefined) {
-              setCurrentTrack(jsonData.currentTrack);
-              if (jsonData.currentTrack.status === 1) {
-                setTimeout(() => {
-                  setStep("Pause");
-                }, 2000);
-              }
+          setId(jsonData._id);
+          setOwner(jsonData.owner);
+          setCreatedAt(jsonData.createdAt);
+          setMembers(jsonData.members);
+          setName(jsonData.name);
+          setTracks(jsonData.tracks);
+          if (jsonData.currentTrack !== undefined) {
+            setCurrentTrack(jsonData.currentTrack);
+            if (jsonData.currentTrack.status === 1) {
+              setTimeout(() => {
+                setStep("Pause");
+              }, 2000);
             }
           } else {
             throw dataJoin;

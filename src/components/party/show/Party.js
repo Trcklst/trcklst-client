@@ -81,38 +81,41 @@ export const PartyShow = () => {
   };
 
   window.onbeforeunload = async (e) => {
-    alert("Quitter");
     await Party.leave(endpoint);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const dataJoin = await Party.join(endpoint);
+        if (socket.connected) {
+          const dataJoin = await Party.join(endpoint);
 
-        if (dataJoin.status === 200) {
-          setIsJoin(true);
-          const data = await Party.show(endpoint);
-          const jsonData = await data.json();
+          if (dataJoin.status === 200) {
+            setIsJoin(true);
+            const data = await Party.show(endpoint);
+            const jsonData = await data.json();
 
-          if (data.status !== 200) throw jsonData;
+            if (data.status !== 200) throw jsonData;
 
-          setId(jsonData._id);
-          setOwner(jsonData.owner);
-          setCreatedAt(jsonData.createdAt);
-          setMembers(jsonData.members);
-          setName(jsonData.name);
-          setTracks(jsonData.tracks);
-          if (jsonData.currentTrack !== undefined) {
-            setCurrentTrack(jsonData.currentTrack);
-            if (jsonData.currentTrack.status === 1) {
-              setTimeout(() => {
-                setStep("Pause");
-              }, 2000);
+            setId(jsonData._id);
+            setOwner(jsonData.owner);
+            setCreatedAt(jsonData.createdAt);
+            setMembers(jsonData.members);
+            setName(jsonData.name);
+            setTracks(jsonData.tracks);
+            if (jsonData.currentTrack !== undefined) {
+              setCurrentTrack(jsonData.currentTrack);
+              if (jsonData.currentTrack.status === 1) {
+                setTimeout(() => {
+                  setStep("Pause");
+                }, 2000);
+              }
             }
+          } else {
+            throw dataJoin;
           }
         } else {
-          throw dataJoin;
+          throw new Error("no-connected");
         }
       } catch (err) {
         fail(err.message);
@@ -123,7 +126,7 @@ export const PartyShow = () => {
     return async () => {
       await Party.leave(endpoint);
     };
-  }, [endpoint, push]);
+  }, [endpoint, push, socket]);
 
   useEffect(() => {
     if (!isEmpty(socket)) {

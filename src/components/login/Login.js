@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Typography, Grid, Container } from "@material-ui/core";
+import { Grid, Container, Box } from "@material-ui/core";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
@@ -12,6 +12,7 @@ import { SessionContext, setSessionCookie } from "../../context/session";
 import { DASHBOARDADMIN, DASHBOARDUSER } from "../../helpers/route-constant";
 import { ability, defineRulesFor } from "../../helpers/ability";
 import { useIsMountedRef } from "../../helpers/utility";
+import logo from "../../images/logo/logo_purple2.png";
 
 export const Login = () => {
   const classes = useStyles();
@@ -55,27 +56,44 @@ export const Login = () => {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <div className={classes.paper}>
-        <Container maxWidth="xs">
-          <Typography
-            component="h1"
-            variant="h5"
-            className={classes.typography}
-          >
-            <span className={classes.slash}>/</span>Se connecter
-          </Typography>
-          <Formik
-            initialErrors={initialValues}
-            initialValues={initialValues}
-            component={LoginForm}
-            validationSchema={loginSchema}
-            onSubmit={handleSubmit}
-            validateOnBlur
-            validateOnChange
-          ></Formik>
+    <>
+      <section
+        id="login"
+        className={`${classes.purpleText} ${classes.whiteBg} ${classes.hHeight}`}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={0} alignItems="center" justify="center">
+            <Grid item xl={2} lg={2} md={2} sm={3} xs={5}>
+              <Box m={2}>
+                <img src={logo} alt="logo" width="100%" />
+              </Box>
+            </Grid>
+          </Grid>
+          <Grid container spacing={0} alignItems="center" justify="center">
+            <Grid
+              item
+              xl={4}
+              lg={4}
+              md={5}
+              sm={10}
+              xs={10}
+              className={classes.loginForm}
+            >
+              <Box padding={3}>
+                <Formik
+                  initialErrors={initialValues}
+                  initialValues={initialValues}
+                  component={LoginForm}
+                  validationSchema={loginSchema}
+                  onSubmit={handleSubmit}
+                  validateOnBlur
+                  validateOnChange
+                />
+              </Box>
+            </Grid>
+          </Grid>
         </Container>
-      </div>
-    </Grid>
+      </section>
+    </>
   );
 };

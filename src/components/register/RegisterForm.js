@@ -1,7 +1,15 @@
 import React from "react";
-import { Button, TextField, Grid } from "@material-ui/core";
+import {
+  Button,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Link,
+} from "@material-ui/core";
 
 import { useStyles } from "./useStyles";
+import { LOGIN } from "../../helpers/route-constant";
 
 export const initialValues = {
   email: "",
@@ -22,49 +30,60 @@ export const RegisterForm = ({
   const classes = useStyles();
 
   return (
-    <form onSubmit={handleSubmit} className={classes.form}>
-      <Grid container spacing={2} className={classes.container}>
+    <form onSubmit={handleSubmit}>
+      <Grid container>
+        <Box mx="auto">
+          <Typography variant="h6" className={classes.boldText}>
+            Inscrivez-vous!
+          </Typography>
+        </Box>
         <Grid item xs={12}>
           <TextField
             className={classes.field}
             type="text"
+            margin="normal"
+            fullWidth
+            required
             variant="outlined"
-            size="small"
             id="email"
             name="email"
-            label="Email *"
+            label="Email"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
             error={touched.email && errors.email !== undefined}
             helperText={touched.email && errors.email}
-          ></TextField>
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
             className={classes.field}
             type="password"
+            fullWidth
+            required
+            margin="normal"
             variant="outlined"
-            size="small"
             id="password"
             name="password"
-            label="Mot de passe *"
+            label="Mot de passe"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
             error={touched.password && errors.password !== undefined}
             helperText={touched.password && errors.password}
-          ></TextField>
+          />
         </Grid>
         <Grid item xs={12}>
           <TextField
             className={classes.field}
             type="password"
+            fullWidth
+            margin="normal"
             variant="outlined"
-            size="small"
+            required
             id="confirmPassword"
             name="confirmPassword"
-            label="Confirmation du mot de passe *"
+            label="Confirmation du mot de passe"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.confirmPassword}
@@ -72,19 +91,42 @@ export const RegisterForm = ({
               touched.confirmPassword && errors.confirmPassword !== undefined
             }
             helperText={touched.confirmPassword && errors.confirmPassword}
-          ></TextField>
+          />
         </Grid>
       </Grid>
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        disabled={isSubmitting || !isValid}
-        className={classes.submit}
-      >
-        S'inscrire
-      </Button>
+      <Box p={2}>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          disabled={isSubmitting || !isValid}
+          className={classes.submit}
+        >
+          S'inscrire
+        </Button>
+      </Box>
+      <Grid container className={classes.greyText}>
+        <Grid item>
+          <Typography variant="body2" align="justify">
+            Le mot de passe doit comporter au moins{" "}
+            <strong>8 caractères </strong> et contenir au moins une lettre
+            majuscule, une lettre minuscule et un chiffre .
+          </Typography>
+          <Typography variant="body2" align="justify">
+            En cliquant sur "S'inscrire", vous acceptez nos conditions
+            d'utilisation, notre politique de confidentialité et de recevoir des
+            communications commerciales de Trcklst.
+          </Typography>
+          <br />
+          <Typography variant="body2">
+            Vous avez déjà un compte ?{" "}
+            <Link to={LOGIN} className={classes.link}>
+              Connectez-vous
+            </Link>
+          </Typography>
+        </Grid>
+      </Grid>
     </form>
   );
 };

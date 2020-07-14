@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
-import { Grid, Typography, Container } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
+import { Grid, Container, Box } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 import { initialValues, RegisterForm } from "./RegisterForm";
 import { registerSchema } from "./registerSchema";
@@ -9,6 +9,7 @@ import { Auth } from "../../services/auth";
 import { LOGIN } from "../../helpers/route-constant";
 import { useStyles } from "./useStyles";
 import { useIsMountedRef } from "../../helpers/utility";
+import logo from "../../images/logo/logo_purple2.png";
 
 export const Register = () => {
   const classes = useStyles();
@@ -34,55 +35,42 @@ export const Register = () => {
   };
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <div className={classes.paper}>
-        <Container maxWidth="xs">
-          <Typography
-            className={classes.typography}
-            component="h1"
-            variant="h5"
+    <section
+      id="register"
+      className={`${classes.purpleText} ${classes.whiteBg} ${classes.hHeight}`}
+    >
+      <Container maxWidth="lg">
+        <Grid container spacing={0} alignItems="center" justify="center">
+          <Grid item xl={2} lg={2} md={2} sm={3} xs={5}>
+            <Box m={2}>
+              <img src={logo} alt="logo" width="100%" />
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container spacing={0} alignItems="center" justify="center">
+          <Grid
+            item
+            xl={4}
+            lg={4}
+            md={5}
+            sm={10}
+            xs={10}
+            className={classes.registerForm}
           >
-            <span className={classes.slash}>/</span>S'inscrire
-          </Typography>
-          <Formik
-            initialErrors={initialValues}
-            initialValues={initialValues}
-            component={RegisterForm}
-            validationSchema={registerSchema}
-            onSubmit={handleSubmit}
-            validateOnBlur
-            validateOnChange
-          ></Formik>
-          <Typography
-            className={classes.policy}
-            color="textSecondary"
-            variant="subtitle2"
-          >
-            Le mot de passe doit comporter au moins 8 caractères et contenir au
-            moins une lettre majuscule, une lettre minuscule et un chiffre.
-          </Typography>
-          <Typography
-            className={classes.policy}
-            color="textSecondary"
-            variant="subtitle2"
-          >
-            En cliquant sur "S'inscrire", vous acceptez nos conditions
-            d'utilisation, notre politique de confidentialité et de recevoir des
-            communications commerciales de Trcklst.
-          </Typography>
-          <Typography
-            className={classes.policy}
-            color="textSecondary"
-            variant="body2"
-          >
-            Vous avez déjà un compte ?
-            <Link to={LOGIN} className={classes.link}>
-              {" "}
-              Connectez-vous
-            </Link>
-          </Typography>
-        </Container>
-      </div>
-    </Grid>
+            <Box padding={3}>
+              <Formik
+                initialErrors={initialValues}
+                initialValues={initialValues}
+                component={RegisterForm}
+                validationSchema={registerSchema}
+                onSubmit={handleSubmit}
+                validateOnBlur
+                validateOnChange
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </section>
   );
 };

@@ -33,7 +33,7 @@ export const Homepage = () => {
       <section id="header" className={classes.heroImage}>
         <main>
           <Container maxWidth="lg">
-            <Box paddingY={24} paddingX={3} className={classes.whiteText}>
+            <Box paddingY={15} paddingX={3} className={classes.whiteText}>
               <Grid item xs={6} sm={4} md={3} lg={3} xl={3}>
                 <Box py={3}>
                   <img src={logo} alt="logo" width="100%" />

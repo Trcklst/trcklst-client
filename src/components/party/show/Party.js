@@ -81,6 +81,7 @@ export const PartyShow = () => {
   };
 
   window.onbeforeunload = async (e) => {
+    alert("Quitter");
     await Party.leave(endpoint);
   };
 

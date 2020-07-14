@@ -9,6 +9,8 @@ import {
 } from "@material-ui/core";
 import { LOGIN, POLICY } from "../../helpers/route-constant";
 import { Link } from "react-router-dom";
+import { useStyles } from "./useStyles";
+import { SessionContext } from "../../context/session";
 
 import profitez from "../../images/landing/maincontent/profitez.png";
 import recherchez from "../../images/landing/maincontent/recherchez.png";

@@ -101,27 +101,35 @@ export const PartyShow = () => {
   useEffect(() => {
     if (!isEmpty(socket)) {
       socket.on("party-updated", (param) => {
+        console.log("écoute de socket", param);
         switch (param.action) {
           case "add-track":
+            console.log("add-track");
             setTracks(param.party.tracks);
             break;
           case "next-track":
+            console.log("next-track");
             setCurrentTrack(param.party.currentTrack);
             setTracks(param.party.tracks);
             setTimeout(() => {
+              console.log("play");
               setStep("Pause");
             }, 2000);
             break;
           case "unvote":
+            console.log("unvote");
             setTracks(param.party.tracks);
             break;
           case "vote":
+            console.log("vote");
             setTracks(param.party.tracks);
             break;
           case "play":
+            console.log("play");
             setStep("Pause");
             break;
           case "pause":
+            console.log("pause");
             setStep("Play");
             break;
           case "edit":

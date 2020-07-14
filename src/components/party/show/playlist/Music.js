@@ -6,6 +6,7 @@ import {
 } from "@material-ui/icons";
 
 import { Track } from "../../../../services/track";
+import { fail } from "../../../common/Toast";
 
 const useStyles = makeStyles({
   container: {
@@ -33,17 +34,25 @@ export const Music = ({
   const classes = useStyles();
 
   const handleClickLike = async () => {
-    const data = await Track.vote(idParty, id);
-    const jsonData = await data.json();
+    try {
+      const data = await Track.vote(idParty, id);
+      const jsonData = await data.json();
 
-    if (data.status !== 200) throw jsonData;
+      if (data.status !== 200) throw jsonData;
+    } catch (err) {
+      fail(err.message);
+    }
   };
 
   const handleClickUnLike = async () => {
-    const data = await Track.unvote(idParty, id);
-    const jsonData = await data.json();
+    try {
+      const data = await Track.unvote(idParty, id);
+      const jsonData = await data.json();
 
-    if (data.status !== 200) throw jsonData;
+      if (data.status !== 200) throw jsonData;
+    } catch (err) {
+      fail(err.message);
+    }
   };
 
   return (

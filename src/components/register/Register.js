@@ -27,7 +27,7 @@ export const Register = () => {
 
       return push(LOGIN);
     } catch (error) {
-      setErrors({ error: error.message });
+      setErrors({ email: error.message });
     } finally {
       if (isMountedRef.current) setSubmitting(false);
     }

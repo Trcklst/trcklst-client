@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import copy from 'copy-to-clipboard';
+import copy from "copy-to-clipboard";
 import {
   SupervisorAccount as SupervisorAccountIcon,
   CloudUpload as CloudUploadIcon,
@@ -106,8 +106,8 @@ export const Playlist = ({
             Liste des membres de la party
           </DialogTitle>
           <List>
-            {members.map((value) => (
-              <ListItem key={value}>
+            {members.map((value, index) => (
+              <ListItem key={index}>
                 <ListItemAvatar>
                   <Avatar className={classes.avatar}>
                     <PersonIcon />

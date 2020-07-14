@@ -75,13 +75,12 @@ export const NewSubscriptionForm = ({
         variant="outlined"
         margin="normal"
         required
-        type="number"
         rowsMax="12"
         label="Mois d'expiration"
         id="month"
         name="month"
         value={values.month}
-        inputProps={{ min: "1", max: "12" }}
+        inputProps={{ maxLength: 2 }}
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -97,7 +96,10 @@ export const NewSubscriptionForm = ({
         name="year"
         label="Année d'expiration"
         value={values.year}
-        inputProps={{ min: "2020", max: "2030" }}
+        inputProps={{
+          min: new Date().getFullYear(),
+          max: new Date().getFullYear() + 4,
+        }}
         fullWidth
         onChange={handleChange}
         onBlur={handleBlur}
@@ -113,7 +115,7 @@ export const NewSubscriptionForm = ({
         name="cryptogramme"
         value={values.cryptogramme}
         inputProps={{
-          maxLength: 3,
+          maxLength: 4,
         }}
         fullWidth
         onChange={handleChange}

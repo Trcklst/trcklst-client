@@ -64,12 +64,12 @@ export const Navbar = () => {
           </Drawer>
         ) : (
           <>
-            <Box py={2}>
+            <Box paddingY={1} paddingX={2}>
               <Link to={LOGIN} className={classes.link}>
                 Se connecter
               </Link>
             </Box>
-            <Box px={2}>
+            <Box paddingY={1} paddingX={2} className={classes.signInButton}>
               <Link to={REGISTER} className={classes.link}>
                 S'inscrire
               </Link>

@@ -134,8 +134,8 @@ export const Homepage = () => {
                         </span>{" "}
                         dans le but rejoindre votre salon. Envoyez leur le lien
                         d'invitation, et bénéficiez des fonctionnalités que
-                        propose Trcklst afin de mettre autant de musiques que
-                        vous le souhaitez.
+                        propose Trcklst pour mettre autant de musiques que vous
+                        le souhaitez.
                       </Typography>
                     </Box>
                   </Box>
@@ -163,7 +163,7 @@ export const Homepage = () => {
                           🎵
                         </span>{" "}
                         sur la plateforme musicale de votre choix. Liez votre
-                        compte Trcklst ainsi que votre platforme de streaming
+                        compte à Trcklst ainsi que votre platforme de streaming
                         musicale préférée.
                       </Typography>
                     </Box>
@@ -189,13 +189,13 @@ export const Homepage = () => {
                     </Typography>
                     <Box paddingX={2}>
                       <Typography variant="body2" align="justify">
-                        ...à votre salon des musiques. Notre système de{" "}
+                        ...des musiques à votre salon. Notre système de{" "}
                         <span role="img" aria-label="music">
                           🔍
                         </span>{" "}
-                        permettant de rechercher à travers des millons de
-                        musiques fera votre bonheur. Ajoutez les à votre
-                        playlist en illimité grâce à Trcklst.
+                        permet de rechercher à travers des millons de musiques
+                        fera ainsi votre bonheur. Ajoutez les à votre playlist
+                        en illimité grâce à Trcklst.
                       </Typography>
                     </Box>
                   </Box>

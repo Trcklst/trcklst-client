@@ -33,7 +33,7 @@ export const Homepage = () => {
       <section id="header" className={classes.heroImage}>
         <main>
           <Container maxWidth="lg">
-            <Box paddingY={24} paddingX={3} className={classes.whiteText}>
+            <Box paddingY={15} paddingX={3} className={classes.whiteText}>
               <Grid item xs={6} sm={4} md={3} lg={3} xl={3}>
                 <Box py={3}>
                   <img src={logo} alt="logo" width="100%" />
@@ -134,8 +134,8 @@ export const Homepage = () => {
                         </span>{" "}
                         dans le but rejoindre votre salon. Envoyez leur le lien
                         d'invitation, et bénéficiez des fonctionnalités que
-                        propose Trcklst afin de mettre autant de musiques que
-                        vous le souhaitez.
+                        propose Trcklst pour mettre autant de musiques que vous
+                        le souhaitez.
                       </Typography>
                     </Box>
                   </Box>
@@ -163,7 +163,7 @@ export const Homepage = () => {
                           🎵
                         </span>{" "}
                         sur la plateforme musicale de votre choix. Liez votre
-                        compte Trcklst ainsi que votre platforme de streaming
+                        compte à Trcklst ainsi que votre platforme de streaming
                         musicale préférée.
                       </Typography>
                     </Box>
@@ -193,9 +193,9 @@ export const Homepage = () => {
                         <span role="img" aria-label="music">
                           🔍
                         </span>{" "}
-                        permettant de rechercher à travers des millons de
-                        musiques fera votre bonheur. Ajoutez les à votre
-                        playlist en illimité grâce à Trcklst.
+                        permet de rechercher à travers des millons de musiques
+                        fera ainsi votre bonheur. Ajoutez les à votre playlist
+                        en illimité grâce à Trcklst.
                       </Typography>
                     </Box>
                   </Box>

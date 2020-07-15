@@ -21,4 +21,11 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
   },
+  signInButton: {
+    backgroundColor: "#1f1959",
+    borderRadius: "40px",
+    "&:hover": {
+      boxShadow: "0 0 50px #5e4eff",
+    },
+  },
 }));
